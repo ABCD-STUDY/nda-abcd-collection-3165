@@ -12,7 +12,7 @@
 
 The release notes are a collection of versioned PDF files describing the various aspects of the data.
 
-1. [**Release Notes**]()
+1. [**Release Notes**](https://collection3165.readthedocs.io/en/latest/release_notes/)
 
     This document.
 
@@ -20,14 +20,14 @@ The release notes are a collection of versioned PDF files describing the various
 
     A reference for the curated BIDS anatomical, functional, and field map input data.  This reference describes how the data were selected and prepared for processing.
 
-1. [**Pipeline**]()
+1. [**Pipeline**](https://collection3165.readthedocs.io/en/latest/pipeline/)
 
     A description of the ABCD-BIDS MRI processing pipeline used on the input data to create the derivative data.
 
-1. [**Derivatives**]()
+1. [**Derivatives**](https://collection3165.readthedocs.io/en/latest/derivatives/)
 
     A reference for the anatomical, functional, and executive summary derivative data.
 
-1. [**Recommendations**]()
+1. [**Recommendations**](https://collection3165.readthedocs.io/en/latest/recommendations/)
 
     Recommended software, methods, and procedures for analyzing the data.

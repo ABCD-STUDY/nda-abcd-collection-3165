@@ -20,7 +20,7 @@ After downloading the BIDS input or derivative data from the NDA Collection 3165
 
 ## 3. MATLAB Motion Mask Files
 
-In order to make an accurate correlation matrix, use the MATLAB motion mask file described in release document 4, Derivatives, under the **Motion MAT File** heading.
+In order to make an accurate correlation matrix, use the MATLAB motion mask file described in release document 4, [Derivatives](https://collection3165.readthedocs.io/en/latest/derivatives/), under the **Motion MAT File** heading.
 
 ## 4. Interacting with CIFTI Data Types
 
@@ -57,7 +57,7 @@ We have built tools to utilize this data using our recommended methods.  Read on
 
 ### ABCD-BIDS Pipeline: [https://github.com/ABCD-STUDY/abcd-hcp-pipeline](https://github.com/ABCD-STUDY/abcd-hcp-pipeline)
 
-See these release notes' document 3: **Pipeline**.
+See these release notes' document 3: [**Pipeline**](https://collection3165.readthedocs.io/en/latest/pipeline/).
 
 ### Custom Clean: [https://github.com/DCAN-Labs/CustomClean](https://github.com/DCAN-Labs/CustomClean)
 
@@ -73,7 +73,7 @@ Much like custom clean, you define a JSON file which says how to map a file from
 
 ## 6. BIDS Folder Layout
 
-Your final BIDS folder structure will look like this tree if you download everything.  Full descriptions of these BIDS input and BIDS derivative data are located in these release notes' documents 2 and 4, **Inputs** and **Derivatives** respectively.
+Your final BIDS folder structure will look like this tree if you download everything.  Full descriptions of these BIDS input and BIDS derivative data are located in these release notes' documents 2 and 4, [**Inputs**](https://collection3165.readthedocs.io/en/latest/inputs/) and [**Derivatives**](https://collection3165.readthedocs.io/en/latest/derivatives/) respectively.
 
 ```
 .

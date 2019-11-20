@@ -43,7 +43,7 @@ The brain gets segmented into predefined structures, the white and pial cortical
 
 ### Stage 3: PostFreeSurfer
 
-The primary function of the PostFreeSurfer stage is generating CIFTI surface files and applying surface registration to the Conte-69 surface template.  In addition to this, atlas registration is performed.  By using the refined native space brain mask generated in FreeSurfer the pipeline is able to produce a more robust registration.  Furthermore we found that ANTs' diffeomorphic symmetric image normalization method for registration outperforms FSL's FNIRT-based registration.  Outputs from the GE and Philips scanners benefit from this modification as their input anatomical image contrast was less clear than the normalized from-the-scanner Siemens images (discussed in these release notes' document 2: Inputs).
+The primary function of the PostFreeSurfer stage is generating CIFTI surface files and applying surface registration to the Conte-69 surface template.  In addition to this, atlas registration is performed.  By using the refined native space brain mask generated in FreeSurfer the pipeline is able to produce a more robust registration.  Furthermore we found that ANTs' diffeomorphic symmetric image normalization method for registration outperforms FSL's FNIRT-based registration.  Outputs from the GE and Philips scanners benefit from this modification as their input anatomical image contrast was less clear than the normalized from-the-scanner Siemens images (discussed in these release notes' document 2: [Inputs](https://collection3165.readthedocs.io/en/latest/inputs/)).
 
 ### Stage 4: FMRIVolume
 
