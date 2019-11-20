@@ -1,5 +1,6 @@
 site_name: Collection 3165 Release Notes
-theme: material
+theme:
+  name: material
 plugins:
   - search
 docs_dir: docs
