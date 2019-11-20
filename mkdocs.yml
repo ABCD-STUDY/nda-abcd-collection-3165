@@ -4,8 +4,8 @@ plugins:
   - search
 docs_dir: docs
 pages:
-  - 1. Release Notes: index.md
-  - 2. Inputs: 2_inputs.md
-  - 3. Pipeline: 3_pipeline.md
-  - 4. Derivatives: 4_derivatives.md
-  - 5. Recommendations: 5_recommendations.md
+  - 1. Release Notes: release_notes.md
+  - 2. Inputs: inputs.md
+  - 3. Pipeline: pipeline.md
+  - 4. Derivatives: derivatives.md
+  - 5. Recommendations: recommendations.md
