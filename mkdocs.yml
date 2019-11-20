@@ -1,0 +1,11 @@
+site_name: Collection 3165 Release Notes
+theme: material
+plugins:
+  - search
+docs_dir: docs
+pages:
+  - 1. Release Notes: index.md
+  - 2. Inputs: 2_inputs.md
+  - 3. Pipeline: 3_pipeline.md
+  - 4. Derivatives: 4_derivatives.md
+  - 5. Recommendations: 5_recommendations.md
