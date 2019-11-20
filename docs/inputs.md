@@ -10,19 +10,6 @@
 
 ---
 
-## Table of Contents
-
-1. About this Document
-1. Input Data Subsets Breakdown
-1. DAIC QC Selection Process
-1. DICOM to BIDS Conversion
-1. MRI Acquisition Parameters
-1. Scanner Differences
-1. Field Map Selection Process
-1. BIDS Field Map "IntendedFor" Metadata
-1. BIDS Modality-Agnostic Files
-1. BIDS Validator Compliance
-
 ## 1. About this Document
 
 The data collection contains anatomical (T1w and T2w) and functional MRI images processed through [a modified version](https://github.com/DCAN-Labs/DCAN-HCP) of the [minimal preprocessing pipeline for the Human Connectome Project (HCP)](https://doi.org/10.1016/j.neuroimage.2013.04.127).  This document describes the BIDS input data and the steps involved in setting it up for processing through the ABCD-BIDS pipeline.

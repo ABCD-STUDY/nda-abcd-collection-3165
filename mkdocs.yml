@@ -4,6 +4,7 @@ plugins:
   - search
 docs_dir: docs
 pages:
+  - Table of Contents: index.md
   - 1. Release Notes: release_notes.md
   - 2. Inputs: inputs.md
   - 3. Pipeline: pipeline.md

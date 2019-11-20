@@ -10,20 +10,6 @@
 
 ---
 
-## Table of Contents
-
-1. About this Document
-1. Derivative Data Subsets Breakdown
-1. Anatomical
-1. Functional
-1. Executive Summary
-1. Derivative Filenames
-1. Motion MAT File
-1. Caveats
-    1. `qc_outcome` Field
-    1. Executive Summary not-yet-available for Anatomical-only Subjects
-    1. Executive Summary labeled as fMRI `scan_type` in records
-
 ## 1. About this Document
 
 This document reports and describes the derivative files containing processed data that are in this NDA collection.  All BIDS derivative record data types within this document are written in `monospace` font.  They are prefaced by their short names.

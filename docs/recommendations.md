@@ -10,21 +10,6 @@
 
 ---
 
-## Table of Contents
-
-1. About this Document
-1. Downloading and Unpacking Data
-1. MATLAB Motion Mask Files
-1. Interacting with CIFTI Data Types
-    1. Dense and Parcellated Time Series
-    1. Correlation Matrices
-    1. Connectome Workbench
-1. DCAN Labs Software
-    1. ABCD-BIDS Pipeline
-    1. Custom Clean
-    1. File Mapper
-1. BIDS Folder Layout
-
 ## 1. About this Document
 
 This document highlights common recommendations for usage of the collection 3165 data.

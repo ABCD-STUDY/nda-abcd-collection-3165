@@ -10,21 +10,6 @@
 
 ---
 
-## Table of Contents
-
-1. About this Document
-1. Pipeline Overview
-1. Pipeline Stages
-    1. Stage 1: PreFreeSurfer
-    1. Stage 2: FreeSurfer
-    1. Stage 3: PostFreeSurfer
-    1. Stage 4: FMRIVolume
-    1. Stage 5: FMRISurface
-    1. Stage 6: DCANBOLDProcessing
-    1. Stage 7: ExecutiveSummary
-    1. Stage 8: CustomClean
-    1. Stage 9: FileMapper
-
 ## 1. About this Document
 
 This document lightly describes the ABCD-BIDS pipeline used to process the BIDS input data and output the BIDS derivative data.
