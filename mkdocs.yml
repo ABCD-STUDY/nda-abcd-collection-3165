@@ -1,6 +1,5 @@
-site_name: Collection 3165 Release Notes
-theme:
-  name: material
+site_name: Collection 3165 - DCAN Labs ABCD-BIDS
+theme: material
 plugins:
   - search
 docs_dir: docs

@@ -1,12 +1,10 @@
-# Collection 3165: DCAN Labs ABCD-BIDS
+# Recommendations
 
 [**Developmental Cognition and Neuroimaging (DCAN) Labs**](http://www.ohsu.edu/dcan)
 
 [**Adolescent Brain Cognitive Development (ABCD) Study**](https://abcdstudy.org/)
 
 [**Brain Imaging Data Structure (BIDS)**](https://bids.neuroimaging.io/)
-
-# Recommendations
 
 **Version 1.0.0, 11/22/2019**
 
