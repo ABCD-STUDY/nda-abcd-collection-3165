@@ -16,7 +16,7 @@ These documents are generated from [GitHub](https://github.com/DCAN-Labs/nda-col
 
 1. [**Release Notes**](https://collection3165.readthedocs.io/en/latest/release_notes/)
 
-    This document.
+    A document describing the overarching goals and summary of collection 3165.
 
 1. [**Inputs**](https://collection3165.readthedocs.io/en/latest/inputs/)
 
