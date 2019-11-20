@@ -12,7 +12,7 @@
 
 ---
 
-The release notes are a collection of versioned PDF files describing the various aspects of the data.
+These documents are generated from [GitHub](https://github.com/DCAN-Labs/nda-collection-3165) as a live readthedocs.org website describing various aspects of [the NDA data in collection 3165](https://nda.nih.gov/edit_collection.html?id=3165).
 
 1. [**Release Notes**](https://collection3165.readthedocs.io/en/latest/release_notes/)
 
