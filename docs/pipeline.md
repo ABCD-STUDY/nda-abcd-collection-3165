@@ -10,6 +10,8 @@
 
 **Version 1.0.0, 11/22/2019**
 
+Last updated 11/24/2019 by Eric Earl
+
 ---
 
 ## 1. About this Document
@@ -59,7 +61,7 @@ The purpose of the FMRISurface stage is primarily to take a volume time series a
 
 ### Stage 6: DCANBOLDProcessing
 
-[DCAN BOLD Processing](https://github.com/DCAN-Labs/dcan_bold_processing) is a signal processing software developed primarily by Dr. Oscar Miranda-Dominguez in the DCAN Labs at OHSU with the primary function of nuisance regression from the dense time series and providing motion censoring information in accordance with [Power, et al. 2014](https://www.ncbi.nlm.nih.gov/pubmed/23994314).  The motion numbers produced in the FMRIVolume stage are also filtered to remove artifactual motion caused by respiration.  For more information on the respiration filtering see [Correction of respiratory artifacts in MRI head motion estimates. Fair, et al. 2018](https://www.biorxiv.org/content/10.1101/337360v1.article-info).
+[DCAN BOLD Processing](https://github.com/DCAN-Labs/dcan_bold_processing) is a signal processing software developed primarily by Dr. Oscar Miranda-Dominguez in the DCAN Labs with the primary function of nuisance regression from the dense time series and providing motion censoring information in accordance with [Power, et al. 2014](https://www.ncbi.nlm.nih.gov/pubmed/23994314).  The motion numbers produced in the FMRIVolume stage are also filtered to remove artifactual motion caused by respiration.  For more information on the respiration filtering see [Correction of respiratory artifacts in MRI head motion estimates. Fair, et al. 2018](https://www.biorxiv.org/content/10.1101/337360v1.article-info).
 
 ### Stage 7: ExecutiveSummary
 

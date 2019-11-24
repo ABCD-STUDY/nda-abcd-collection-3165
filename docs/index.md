@@ -10,9 +10,11 @@
 
 **Version 1.0.0, 11/22/2019**
 
+Last updated 11/24/2019 by Eric Earl
+
 ---
 
-These documents are generated from [GitHub](https://github.com/DCAN-Labs/nda-collection-3165) as a live readthedocs.org website describing various aspects of [the NDA data in collection 3165](https://nda.nih.gov/edit_collection.html?id=3165).
+These documents are generated from [GitHub](https://github.com/DCAN-Labs/nda-abcd-collection-3165) as a live readthedocs.org website describing various aspects of [the NDA data in collection 3165](https://nda.nih.gov/edit_collection.html?id=3165).
 
 1. [**Release Notes**](https://collection3165.readthedocs.io/en/latest/release_notes/)
 
