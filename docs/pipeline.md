@@ -8,10 +8,6 @@
 
 [**Brain Imaging Data Structure (BIDS)**](https://bids.neuroimaging.io/)
 
-**Version 1.0.0, 11/22/2019**
-
-Last updated 11/24/2019 by Eric Earl
-
 ---
 
 ## 1. About this Document
