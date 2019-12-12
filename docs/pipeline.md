@@ -1,13 +1,5 @@
 # Pipeline
 
-[**NIMH Data Archive (NDA) Collection 3165 - DCAN Labs ABCD-BIDS**](https://nda.nih.gov/edit_collection.html?id=3165)
-
-[**Developmental Cognition and Neuroimaging (DCAN) Labs**](http://www.ohsu.edu/dcan)
-
-[**Adolescent Brain Cognitive Development (ABCD) Study**](https://abcdstudy.org/)
-
-[**Brain Imaging Data Structure (BIDS)**](https://bids.neuroimaging.io/)
-
 Note: Clicking any link within the readthedocs site will not open a new web browser tab.  If you want to keep your docs open, either middle-click or right-click and choose open in new tab for the links you would like to follow.
 
 ---
@@ -27,7 +19,7 @@ Each stage of the larger pipeline has a distinct beginning and ending which is w
 For full details read the following references:
 
 1. [The minimal preprocessing pipelines for the Human Connectome Project. Glasser, et al. NeuroImage. 2013.](https://doi.org/10.1016/j.neuroimage.2013.04.127)
-1. [Correction of respiratory artifacts in MRI head motion estimates. Fair, et al. bioRxiv. 2018.](https://www.biorxiv.org/content/10.1101/337360v1.article-info)
+1. [Correction of respiratory artifacts in MRI head motion estimates. Fair, et al. NeuroImage. 2019.](https://doi.org/10.1016/j.neuroimage.2019.116400)
 
 ## 3. Pipeline Stages
 
@@ -59,7 +51,7 @@ The purpose of the FMRISurface stage is primarily to take a volume time series a
 
 ### Stage 6: DCANBOLDProcessing
 
-[DCAN BOLD Processing](https://github.com/DCAN-Labs/dcan_bold_processing) is a signal processing software developed primarily by Dr. Oscar Miranda-Dominguez in the DCAN Labs with the primary function of nuisance regression from the dense time series and providing motion censoring information in accordance with [Power, et al. 2014](https://www.ncbi.nlm.nih.gov/pubmed/23994314).  The motion numbers produced in the FMRIVolume stage are also filtered to remove artifactual motion caused by respiration.  For more information on the respiration filtering see [Correction of respiratory artifacts in MRI head motion estimates. Fair, et al. 2018](https://www.biorxiv.org/content/10.1101/337360v1.article-info).
+[DCAN BOLD Processing](https://github.com/DCAN-Labs/dcan_bold_processing) is a signal processing software developed primarily by Dr. Oscar Miranda-Dominguez in the DCAN Labs with the primary function of nuisance regression from the dense time series and providing motion censoring information in accordance with [Power, et al. 2014](https://www.ncbi.nlm.nih.gov/pubmed/23994314).  The motion numbers produced in the FMRIVolume stage are also filtered to remove artifactual motion caused by respiration.  For more information on the respiration filtering see [Correction of respiratory artifacts in MRI head motion estimates. Fair, et al. NeuroImage. 2019.](https://doi.org/10.1016/j.neuroimage.2019.116400).
 
 ### Stage 7: ExecutiveSummary
 
