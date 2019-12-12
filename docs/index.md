@@ -8,6 +8,8 @@
 
 [**Brain Imaging Data Structure (BIDS)**](https://bids.neuroimaging.io/)
 
+Note: Clicking any link within the readthedocs site will not open a new web browser tab.  If you want to keep your docs open, either middle-click or right-click and choose open in new tab for the links you would like to follow.
+
 ---
 
 These documents are generated from [GitHub](https://github.com/DCAN-Labs/nda-abcd-collection-3165) as a live readthedocs.org website describing various aspects of [the NDA data in collection 3165](https://nda.nih.gov/edit_collection.html?id=3165).

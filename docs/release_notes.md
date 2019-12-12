@@ -8,6 +8,8 @@
 
 [**Brain Imaging Data Structure (BIDS)**](https://bids.neuroimaging.io/)
 
+Note: Clicking any link within the readthedocs site will not open a new web browser tab.  If you want to keep your docs open, either middle-click or right-click and choose open in new tab for the links you would like to follow.
+
 ---
 
 ## 1. Collection
@@ -33,3 +35,5 @@ The following updates to this collection are already planned.
 
 1. Diffusion Weighted Imaging BIDS input data
 1. Task-based fMRI (MID, n-back, and SST) contrast files
+
+**NOTE (12/12/2019): We are actively downloading the entirety of this dataset's derivative files and checking them against our originally uploaded data for being binary identical files.  We have found some discrepancies, but anecdotally in the handful of cases we have investigated the differences have been visually inspected as small when they are present.  Please anticipate our next rolling release to be soon after the first rolling release and to include many more subjects making the total exceed 10,000 MRI sessions.**

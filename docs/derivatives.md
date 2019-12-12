@@ -8,6 +8,8 @@
 
 [**Brain Imaging Data Structure (BIDS)**](https://bids.neuroimaging.io/)
 
+Note: Clicking any link within the readthedocs site will not open a new web browser tab.  If you want to keep your docs open, either middle-click or right-click and choose open in new tab for the links you would like to follow.
+
 ---
 
 ## 1. About this Document
