@@ -22,7 +22,8 @@ This document collects the entirety of other document's link into one.  Remember
 
 - [NDA Collection 3165 documentation repository](https://github.com/DCAN-Labs/nda-abcd-collection-3165)
 - [NIMH Data Archive (NDA) Collection 3165 - DCAN Labs ABCD-BIDS](https://nda.nih.gov/edit_collection.html?id=3165)
-- [NIMH Data Archive (NDA) share of ABCD fast-track data](https://nda.nih.gov/edit_collection.html?id=2573)
+- [ABCD Fast Track Data explanation on the NDA](https://nda.nih.gov/abcd/query/abcd-fast-track-data.html) 
+- [NIMH Data Archive (NDA) collection 2573 - ABCD Fast Track Data](https://nda.nih.gov/edit_collection.html?id=2573)
 - [Developmental Cognition and Neuroimaging (DCAN) Labs](http://www.ohsu.edu/dcan)
 - [Adolescent Brain Cognitive Development (ABCD) Study](https://abcdstudy.org/)
 - [ABCD Study Protocol_Imaging_Sequences.pdf](https://abcdstudy.org/images/Protocol_Imaging_Sequences.pdf)
@@ -37,6 +38,7 @@ This document collects the entirety of other document's link into one.  Remember
 
 ## 4. Software
 
+- [DCAN Labs nda-abcd-s3-downloader GitHub repository for downloading BIDS inputs and derivatives from collection 3165 directly](https://github.com/DCAN-Labs/nda-abcd-s3-downloader)
 - [ABCD repository for downloading and setting up the BIDS dataset (ABCD-STUDY/abcd-dicom2bids)](https://github.com/ABCD-STUDY/abcd-dicom2bids)
 - [Christophe Bedetti's Dcm2Bids GitHub repository](https://github.com/cbedetti/Dcm2Bids)
 - [The Chris Rorden's Lab dcm2niix](https://github.com/rordenlab/dcm2niix)

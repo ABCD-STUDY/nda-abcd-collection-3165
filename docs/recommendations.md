@@ -10,7 +10,10 @@ This document highlights common recommendations for usage of the collection 3165
 
 ## 2. Downloading and Unpacking Data
 
-After downloading the BIDS input or derivative data from the NDA Collection 3165, unpack it all into the same folder for a valid BIDS folder structure.  All nested subfolders as-uploaded altogether generate a valid BIDS folder structure.
+There are two ways to download ABCD Study data and get BIDS inputs or derivatives:
+
+1. (*PREFERRED*) Downloading from NDA Collection 3165 will provide you an "associated files" spreadsheet with AWS S3 links and other key information.  DCAN Labs has designed [a GitHub repository for selectively downloading only parts of the BIDS input and derivative data, the "nda-abcd-s3-downloader"](https://github.com/DCAN-Labs/nda-abcd-s3-downloader).
+1. [ABCD Fast Track Data on the NDA](https://nda.nih.gov/abcd/query/abcd-fast-track-data.html) can alternatively be downloaded and unpacked into BIDS with the [ABCD-STUDY abcd-dicom2bids GitHub repository](https://github.com/ABCD-STUDY/abcd-dicom2bids).
 
 ## 3. MATLAB Motion Mask Files
 
