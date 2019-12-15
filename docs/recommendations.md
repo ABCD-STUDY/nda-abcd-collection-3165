@@ -96,7 +96,6 @@ Your final BIDS folder structure will look like this tree if you download everyt
 │                   ├── sub-NDARINV########_ses-####_task-(MID|nback|rest|SST)_bold_desc-filtered_timeseries.dtseries.nii
 │                   ├── sub-NDARINV########_ses-####_task-(MID|nback|rest|SST)_bold_atlas-##FreeSurferSubcortical_desc-filtered_timeseries.ptseries.nii
 │                   ├── sub-NDARINV########_ses-####_task-(MID|nback|rest|SST)_desc-filtered_motion_mask.mat
-│                   ├── sub-NDARINV########_ses-####_task-(MID|nback|SST)_desc-smooth(2|5)_contrasts.dscalar.nii
 │                   ├── sub-NDARINV########_ses-####_task-(MID|nback|rest|SST)_run-#_bold_timeseries.dtseries.nii
 │                   ├── sub-NDARINV########_ses-####_task-(MID|nback|rest|SST)_run-#_desc-filtered_motion.tsv
 │                   └── sub-NDARINV########_ses-####_task-(MID|nback|rest|SST)_run-#_motion.tsv
