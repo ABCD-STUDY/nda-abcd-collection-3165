@@ -28,4 +28,4 @@ The following updates to this collection are already planned.
 1. Diffusion Weighted Imaging BIDS input data
 1. Task-based fMRI (MID, n-back, and SST) contrast files
 
-**NOTE (12/12/2019): We are actively downloading the entirety of this dataset's derivative files and checking them against our originally uploaded data for being binary identical files.  We have found some discrepancies, but anecdotally in the handful of cases we have investigated the differences have been visually inspected as small when they are present.  Please anticipate our next rolling release to be soon after the first rolling release and to include many more subjects making the total exceed 10,000 MRI sessions.**
+**NOTE (12/20/2019): We downloaded from NDA and checked every derivative file against our originally uploaded data for being binary identical files.  We found some discrepancies which we excluded for the first rolling release, bringing our subject count of derivative files down a little.  Please anticipate our next rolling release to be soon after the first rolling release and to include enough subjects to make the total exceed 10,000 MRI sessions of derivative data.**
