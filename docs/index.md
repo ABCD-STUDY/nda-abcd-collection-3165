@@ -1,6 +1,13 @@
-# Table of Contents
+# Important Updates
 
-Note: Clicking any link within the readthedocs site will not open a new web browser tab.  If you want to keep your docs open, either middle-click or right-click and choose open in new tab for the links you would like to follow.
+## Release 1.0.0
+
+- 2/17/2020: The NDA confirmed for us last week that the re-uploaded data is all released.  This brings our data counts to **10,038 MRI sessions worth of NDA imagingcollection01 data** and **9,647 MRI sessions worth of NDA fmriresults01 data**.
+- 12/20/2019: We downloaded from NDA and checked every derivative file against our originally uploaded data for being binary identical files.  We found some discrepancies which we excluded for the first rolling release, bringing our subject count of derivative files down a little.  Please anticipate our next rolling release to be soon after the first rolling release and to include enough subjects to make the total exceed 10,000 MRI sessions of derivative data.
+
+## Table of Contents
+
+Clicking any link within the readthedocs site will not open a new web browser tab.  If you want to keep your docs open, either middle-click or right-click and choose open in new tab for the links you would like to follow.
 
 ---
 
