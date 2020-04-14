@@ -2,8 +2,8 @@
 
 ## Release 1.0.0
 
-- 2/17/2020: The NDA confirmed for us last week that the re-uploaded data is all released.  This brings our data counts to **10,038 MRI sessions worth of NDA imagingcollection01 data** and **9,647 MRI sessions worth of NDA fmriresults01 data**.
-- 12/20/2019: We downloaded from NDA and checked every derivative file against our originally uploaded data for being binary identical files.  We found some discrepancies which we excluded for the first rolling release, bringing our subject count of derivative files down a little.  Please anticipate our next rolling release to be soon after the first rolling release and to include enough subjects to make the total exceed 10,000 MRI sessions of derivative data.
+- 4/14/2020: We have uploaded raw fMRI task event files to the NDA for sessions among the 9,647 with task-based fMRI data.  We are working with the NDA to get that data released publicly prior to 5/15/2020.
+- 2/17/2020: The NDA confirmed for us last week that the uploaded data is all released.  This brings our subject counts to **10,038 MRI sessions worth of NDA imagingcollection01 data** and **9,647 MRI sessions worth of NDA fmriresults01 data**.
 
 ## Table of Contents
 
@@ -11,7 +11,7 @@ Clicking any link within the readthedocs site will not open a new web browser ta
 
 ---
 
-These documents are generated from [GitHub](https://github.com/DCAN-Labs/nda-abcd-collection-3165) as a live readthedocs.org website describing various aspects of [the NDA data in collection 3165](https://nda.nih.gov/edit_collection.html?id=3165).
+These documents are generated from [GitHub](https://github.com/ABCD-STUDY/nda-abcd-collection-3165) as a live readthedocs.org website describing various aspects of [the NDA data in collection 3165](https://nda.nih.gov/edit_collection.html?id=3165).
 
 1. [**Release Notes**](https://collection3165.readthedocs.io/en/stable/release_notes/)
 

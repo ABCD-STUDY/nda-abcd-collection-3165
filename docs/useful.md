@@ -8,7 +8,7 @@ Note: Clicking any link within the readthedocs site will not open a new web brow
 
 This document collects the entirety of other document's link into one.  Remember, use the firt link below to report documentation issues or request more data of this collection.
 
-- [Direct link to this repository's GitHub issues for requests and feedback](https://github.com/DCAN-Labs/nda-abcd-collection-3165/issues)
+- [Direct link to this repository's GitHub issues for requests and feedback](https://github.com/ABCD-STUDY/nda-abcd-collection-3165/issues)
 
 ## 2. References
 
@@ -20,7 +20,7 @@ This document collects the entirety of other document's link into one.  Remember
 
 ## 3. Websites & Documentation
 
-- [NDA Collection 3165 documentation repository](https://github.com/DCAN-Labs/nda-abcd-collection-3165)
+- [NDA Collection 3165 documentation repository](https://github.com/ABCD-STUDY/nda-abcd-collection-3165)
 - [NIMH Data Archive (NDA) Collection 3165 - DCAN Labs ABCD-BIDS](https://nda.nih.gov/edit_collection.html?id=3165)
 - [ABCD Fast Track Data explanation on the NDA](https://nda.nih.gov/abcd/query/abcd-fast-track-data.html) 
 - [NIMH Data Archive (NDA) collection 2573 - ABCD Fast Track Data](https://nda.nih.gov/edit_collection.html?id=2573)
@@ -38,7 +38,7 @@ This document collects the entirety of other document's link into one.  Remember
 
 ## 4. Software
 
-- [DCAN Labs nda-abcd-s3-downloader GitHub repository for downloading BIDS inputs and derivatives from collection 3165 directly](https://github.com/DCAN-Labs/nda-abcd-s3-downloader)
+- [DCAN Labs nda-abcd-s3-downloader GitHub repository for downloading BIDS inputs and derivatives from collection 3165 directly](https://github.com/ABCD-STUDY/nda-abcd-s3-downloader)
 - [ABCD repository for downloading and setting up the BIDS dataset (ABCD-STUDY/abcd-dicom2bids)](https://github.com/ABCD-STUDY/abcd-dicom2bids)
 - [Christophe Bedetti's Dcm2Bids GitHub repository](https://github.com/cbedetti/Dcm2Bids)
 - [The Chris Rorden's Lab dcm2niix](https://github.com/rordenlab/dcm2niix)

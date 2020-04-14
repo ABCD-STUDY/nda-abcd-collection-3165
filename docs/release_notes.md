@@ -18,10 +18,10 @@ The input DICOM data to this [BIDS version 1.2.0](https://www.nature.com/article
 
 A guiding principle for this collection is to release essential data for analysis.  This collection will be updated with waves of data preparation and processing.  As waves complete preparation or processing they will be uploaded and version-stamped with updated and versioned release notes.
 
-User feedback will guide our course for future releases.  Provide feedback on what you would like to see included in future releases using [GitHub issues for this repository](https://github.com/DCAN-Labs/nda-abcd-collection-3165/issues):
+User feedback will guide our course for future releases.  Provide feedback on what you would like to see included in future releases using [GitHub issues for this repository](https://github.com/ABCD-STUDY/nda-abcd-collection-3165/issues):
 
-- [NDA Collection 3165 documentation repository](https://github.com/DCAN-Labs/nda-abcd-collection-3165)
-- [Direct link to repository's GitHub issues for requests and feedback](https://github.com/DCAN-Labs/nda-abcd-collection-3165/issues)
+- [NDA Collection 3165 documentation repository](https://github.com/ABCD-STUDY/nda-abcd-collection-3165)
+- [Direct link to repository's GitHub issues for requests and feedback](https://github.com/ABCD-STUDY/nda-abcd-collection-3165/issues)
 
 The following updates to this collection are already planned.
 
