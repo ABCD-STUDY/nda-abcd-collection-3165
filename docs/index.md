@@ -2,7 +2,8 @@
 
 ## Release 1.0.0
 
-- 4/14/2020: We have uploaded raw fMRI task event files to the NDA for sessions among the 9,647 with task-based fMRI data.  We are working with the NDA to get that data released publicly prior to 5/15/2020.
+- 4/20/2020: We have uploaded diffusion weighted imaging (DWI) input data including DWI field maps for 5,635 subject's baseline MRI sessions.  We are working with the NDA to get this data released publicly prior to 5/15/2020.
+- 4/14/2020: We have uploaded raw fMRI task event files to the NDA for sessions among the 9,647 with task-based fMRI data.  We are working with the NDA to get this data released publicly prior to 5/15/2020.
 - 2/17/2020: The NDA confirmed for us last week that the uploaded data is all released.  This brings our subject counts to **10,038 MRI sessions worth of NDA imagingcollection01 data** and **9,647 MRI sessions worth of NDA fmriresults01 data**.
 
 ## Table of Contents

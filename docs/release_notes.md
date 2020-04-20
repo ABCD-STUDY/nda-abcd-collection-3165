@@ -27,3 +27,7 @@ The following updates to this collection are already planned.
 
 1. Diffusion Weighted Imaging BIDS input data
 1. Task-based fMRI (MID, n-back, and SST) contrast files
+1. Functional time series in volume space NIfTI files
+1. High-resolution T1w and T2w corrected head and brain NIfTI files
+1. High-resolution white matter parcellation NIfTI files
+1. FreeSurfer stats folders

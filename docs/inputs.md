@@ -12,20 +12,31 @@ The data collection contains anatomical (T1w and T2w) and functional MRI images 
 
 Sections 3 and onward of this document generally describe what each of the input data subsets are.  This section breaks down the exact contents of each of the input data subsets.  Subject and session identifiers are instead labeled as `#`.  Each input data subset comes with modality-agnostic BIDS-compatible `dataset_description.json`, `README`, and `CHANGES` files.
 
-`inputs.anat.(T1w|T2w)`
+`inputs.anat.(T1w|T2w)`: Anatomical T1-weighted or T2-weighted images and sidecar JSONs (with "normalized reconstruction" for Siemens scans).
 
 - `sub-#/ses-#/anat/sub-#_ses-#(_rec-normalized)(_run-#)_(T1w|T2w).nii.gz`
 - `sub-#/ses-#/anat/sub-#_ses-#(_rec-normalized)(_run-#)_(T1w|T2w).json`
 
-`inputs.fmap.all`
+`inputs.dwi.dwi`: Diffusion-weighted images and sidecar JSONs with diffusion-specific field maps.
+
+- `sub-#/ses-#/dwi/sub-#_ses-#_.nii.gz`
+- `sub-#/ses-#/dwi/sub-#_ses-#_.json`
+- `sub-#/ses-#/fmap/sub-#_ses-#_.nii.gz`
+- `sub-#/ses-#/fmap/sub-#_ses-#_.json`
+
+`inputs.fmap.all`: Spin-echo field map pairs with phase encoding direction A->P (`dir-AP`) or P->A (`dir-PA`).
 
 - `sub-#/ses-#/fmap/sub-#_ses-#_dir-(AP|PA)_run-#_epi.nii.gz`
 - `sub-#/ses-#/fmap/sub-#_ses-#_dir-(AP|PA)_run-#_epi.json`
 
-`inputs.func.task-(MID|nback|SST|rest)`
+`inputs.func.task-(MID|nback|SST|rest)`: Functional images and sidecar JSONs.
 
 - `sub-#/ses-#/func/sub-#_ses-#_task-(MID|nback|SST|rest)_run-#_bold.nii.gz`
 - `sub-#/ses-#/func/sub-#_ses-#_task-(MID|nback|SST|rest)_run-#_bold.json`
+
+`sourcedata.func.task_events`: E-Prime event timings as TXT files per functional task-based run.
+
+- `sourcedata/sub-#/ses-#/func/sub-#_ses-#_task-(MID|nback|SST)_run-(01|02)_bold_EventRelatedInformation.txt`
 
 ## 3. DAIC Quality Control (QC) Selection Process
 
