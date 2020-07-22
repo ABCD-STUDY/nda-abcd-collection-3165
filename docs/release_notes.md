@@ -23,11 +23,12 @@ User feedback will guide our course for future releases.  Provide feedback on wh
 - [NDA Collection 3165 documentation repository](https://github.com/ABCD-STUDY/nda-abcd-collection-3165)
 - [Direct link to repository's GitHub issues for requests and feedback](https://github.com/ABCD-STUDY/nda-abcd-collection-3165/issues)
 
-The following updates to this collection are already planned.
+## 4. Corrections
 
-1. Diffusion Weighted Imaging BIDS input data
-1. Task-based fMRI (MID, n-back, and SST) contrast files
-1. Functional time series in volume space NIfTI files
-1. High-resolution T1w and T2w corrected head and brain NIfTI files
-1. High-resolution white matter parcellation NIfTI files
-1. FreeSurfer stats folders
+This sub-section is for describing errors which have occurred between releases.
+
+### `task-rest_bold.json`
+
+Discovered in the middle of June 2020, the modality-specific BIDS inherited `task-rest_bold.json` file at the top of the directory tree which is nested in almost every `task-rest` associated record in the NDA database has a typo in it.  The `"TaskDescription"` key has a value of `"See http://www.cognitiveatlas.org/task/id/tsk_4a57abb949e1a/"`.  However, this link goes to the stop signal task page on the Cognitive Atlas website.  Instead you should refer to [the Cognitive Atlas website for "rest eyes open"](http://www.cognitiveatlas.org/task/id/trm_4c8a834779883/).  This site describes the task as:
+
+> Subjects rest passively with their eyes open. Often used as a baseline for comparison for other tasks.

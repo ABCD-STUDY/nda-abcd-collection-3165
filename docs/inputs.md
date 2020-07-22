@@ -6,37 +6,39 @@ Note: Clicking any link within the readthedocs site will not open a new web brow
 
 ## 1. About this Document
 
-The data collection contains anatomical (T1w and T2w) and functional MRI images processed through [a modified version](https://github.com/DCAN-Labs/DCAN-HCP) of the [minimal preprocessing pipeline for the Human Connectome Project (HCP)](https://doi.org/10.1016/j.neuroimage.2013.04.127).  This document describes the BIDS input data and the steps involved in setting it up for processing through the ABCD-BIDS pipeline.
+The data collection contains anatomical MRI images (T1w and T2w), functional MRI images processed through [a modified version](https://github.com/DCAN-Labs/DCAN-HCP) of the [minimal preprocessing pipeline for the Human Connectome Project (HCP)](https://doi.org/10.1016/j.neuroimage.2013.04.127), and spin-echo field maps used in preprocessing.  BIDS-formatted diffusion-weighted images and their field maps are included as input data, but have not been minimally preprocessed.  This document describes the BIDS input data and the steps involved in setting it up for processing through the ABCD-BIDS pipeline.
 
 ## 2. Input Data Subsets Breakdown
 
 Sections 3 and onward of this document generally describe what each of the input data subsets are.  This section breaks down the exact contents of each of the input data subsets.  Subject and session identifiers are instead labeled as `#`.  Each input data subset comes with modality-agnostic BIDS-compatible `dataset_description.json`, `README`, and `CHANGES` files.
 
-`inputs.anat.(T1w|T2w)`: Anatomical T1-weighted or T2-weighted images and sidecar JSONs (with "normalized reconstruction" for Siemens scans).
+`sourcedata.func.task_events`
 
-- `sub-#/ses-#/anat/sub-#_ses-#(_rec-normalized)(_run-#)_(T1w|T2w).nii.gz`
+- `sourcedata/sub-#/ses-#/func/sub-#_ses-#_task-(MID|nback|SST)_run-#_bold_EventRelatedInformation.txt`
+
+`inputs.anat.(T1w|T2w)`
+
 - `sub-#/ses-#/anat/sub-#_ses-#(_rec-normalized)(_run-#)_(T1w|T2w).json`
+- `sub-#/ses-#/anat/sub-#_ses-#(_rec-normalized)(_run-#)_(T1w|T2w).nii.gz`
 
-`inputs.dwi.dwi`: Diffusion-weighted images and sidecar JSONs with diffusion-specific field maps.
+`inputs.fmap.all`
 
-- `sub-#/ses-#/dwi/sub-#_ses-#_.nii.gz`
-- `sub-#/ses-#/dwi/sub-#_ses-#_.json`
-- `sub-#/ses-#/fmap/sub-#_ses-#_.nii.gz`
-- `sub-#/ses-#/fmap/sub-#_ses-#_.json`
-
-`inputs.fmap.all`: Spin-echo field map pairs with phase encoding direction A->P (`dir-AP`) or P->A (`dir-PA`).
-
-- `sub-#/ses-#/fmap/sub-#_ses-#_dir-(AP|PA)_run-#_epi.nii.gz`
 - `sub-#/ses-#/fmap/sub-#_ses-#_dir-(AP|PA)_run-#_epi.json`
+- `sub-#/ses-#/fmap/sub-#_ses-#_dir-(AP|PA)_run-#_epi.nii.gz`
+- `sub-#/ses-#/fmap/sub-#_ses-#_acq-dwi_dir-(AP|PA)_epi.json`
+- `sub-#/ses-#/fmap/sub-#_ses-#_acq-dwi_dir-(AP|PA)_epi.nii.gz`
 
-`inputs.func.task-(MID|nback|SST|rest)`: Functional images and sidecar JSONs.
+`inputs.func.task-(MID|nback|SST|rest)`
 
-- `sub-#/ses-#/func/sub-#_ses-#_task-(MID|nback|SST|rest)_run-#_bold.nii.gz`
 - `sub-#/ses-#/func/sub-#_ses-#_task-(MID|nback|SST|rest)_run-#_bold.json`
+- `sub-#/ses-#/func/sub-#_ses-#_task-(MID|nback|SST|rest)_run-#_bold.nii.gz`
 
-`sourcedata.func.task_events`: E-Prime event timings as TXT files per functional task-based run.
+`inputs.dwi.dwi`
 
-- `sourcedata/sub-#/ses-#/func/sub-#_ses-#_task-(MID|nback|SST)_run-(01|02)_bold_EventRelatedInformation.txt`
+- `sub-#/ses-#/dwi/sub-#_ses-#_dwi.bval`
+- `sub-#/ses-#/dwi/sub-#_ses-#_dwi.bvec`
+- `sub-#/ses-#/dwi/sub-#_ses-#_dwi.json`
+- `sub-#/ses-#/dwi/sub-#_ses-#_dwi.nii.gz`
 
 ## 3. DAIC Quality Control (QC) Selection Process
 
@@ -66,10 +68,18 @@ A pair of positive (posterior to anterior) and negative (anterior to posterior) 
 
 The chosen field map pair is used for all anatomical and functional bias field corrections.  This is specified with the `IntendedFor` field in the side car JSONs of the associated field map's BIDS metadata.
 
-## 9. BIDS Modality-Agnostic Files
+## 9. Diffusion-Weighted Imaging (DWI)
+
+BIDS-formatted inputs for DWI have been included although they have not been processed through the minimal preprocessing pipeline.
+
+The bval and bvec files associated with the DWI data for each scanner and software version were provided by the DAIC and can be found in the [nda-abcd-s3-downloader](https://github.com/ABCD-STUDY/nda-abcd-s3-downloader) repository.  This was due to formatting issues and irregularities with these files that were packaged along with the DICOMs.
+
+Field maps for the DWI data are included in each subject's `fmap` directory and can be distinguished from the functional fieldmaps by the `_acq-dwi` tag in their filenames.
+
+## 10. BIDS Modality-Agnostic Files
 
 To maintain a valid BIDS data structure `dataset_description.json`, `README`, and `CHANGES` files are included.  They respectively: minimally describe the dataset, provide a small blurb about the datsaet, and log the changes from version to version.
 
-## 10. BIDS Validator Compliance
+## 11. BIDS Validator Compliance
 
 This dataset was validated using [the official BIDS validator](https://github.com/bids-standard/bids-validator).

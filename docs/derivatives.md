@@ -12,83 +12,166 @@ This document reports and describes the derivative files containing processed da
 
 Sections 3 and onward of this document generally describe what each of the derivative data subsets are.  This section breaks down the exact contents of each of the derivative data subsets.  Subject and session identifiers are instead labeled as `#`.  Each derivative data subset comes with modality-agnostic BIDS-compatible `dataset_description.json`, `README`, and `CHANGES` files and a `derivatives/abcd-hcp-pipeline/` subfolder.  For readability, the `derivatives/abcd-hcp-pipeline/` subfolder has been removed from all below derivative subfolders and filenames.
 
-`derivatives.anat.space-ACPC_dseg`: Discrete segmentation in subject's native space.
+`derivatives.anat.stats`
+
+FreeSurfer stats folder.
+
+- `../freesurfer-5.3.0-HCP/sub-#/ses-#/stats/<VARIOUS>`
+
+    **NOTE:** `<VARIOUS>` here denotes files directly from the FreeSurfer stats folder.
+
+`derivatives.anat.space-ACPC_dseg`
+
+Discrete segmentation in subject's native space in a NIfTI volume.
 
 - `sub-#/ses-#/anat/sub-#_ses-#_space-ACPC_dseg.nii.gz`
 
-`derivatives.anat.space-fsLR32k_curv`: Dense subject cortical curvature CIFTI.
+`derivatives.anat.space-fsLR32k_curv`
+
+Dense subject curvature CIFTI.
 
 - `sub-#/ses-#/anat/sub-#_ses-#_space-fsLR32k_curv.dscalar.nii`
 
-`derivatives.anat.space-fsLR32k_sulc`: Dense subject sulcal depth CIFTI.
+`derivatives.anat.space-fsLR32k_sulc`
+
+Dense subject sulcal depth CIFTI.
 
 - `sub-#/ses-#/anat/sub-#_ses-#_space-fsLR32k_sulc.dscalar.nii`
 
-`derivatives.anat.space-fsLR32k_thickness`: Dense subject cortical thickness CIFTI
+`derivatives.anat.space-fsLR32k_thickness`
+
+Dense subject cortical thickness CIFTI.
 
 - `sub-#/ses-#/anat/sub-#_ses-#_space-fsLR32k_thickness.dscalar.nii`
 
-`derivatives.anat.space-fsLR32k_desc-smoothed_myelinmap`: Smoothed myelin map CIFTI when a T2w image is present in the inputs.
+`derivatives.anat.space-fsLR32k_desc-smoothed_myelinmap`
+
+Smoothed myelin map CIFTI (when a T2w image is present in the inputs).
 
 - `sub-#/ses-#/anat/sub-#_ses-#_space-fsLR32k_desc-smoothed_myelinmap.dscalar.nii`
 
-`derivatives.anat.space-fsLR32k_myelinmap`: Unsmoothed myelin map CIFTI when a T2w image is present in the inputs.
+`derivatives.anat.space-fsLR32k_myelinmap`
+
+Unsmoothed myelin map CIFTI (when a T2w image is present in the inputs).
 
 - `sub-#/ses-#/anat/sub-#_ses-#_space-fsLR32k_myelinmap.dscalar.nii`
 
-`derivatives.anat.space-MNI_mesh-fsLR164k_midthickness`: Left and Right mid-thickness CIFTI in MNI space with 164k mesh.
+`derivatives.anat.space-MNI_mesh-fsLR164k_midthickness`
+
+Left and Right mid-thickness CIFTIs in MNI space with fsLR164k surface mesh.
 
 - `sub-#/ses-#/anat/sub-#_ses-#_hemi-L_space-MNI_mesh-fsLR164k_midthickness.surf.gii`
 - `sub-#/ses-#/anat/sub-#_ses-#_hemi-R_space-MNI_mesh-fsLR164k_midthickness.surf.gii`
 
-`derivatives.anat.space-MNI_mesh-fsLR32k_midthickness`: Left and Right mid-thickness CIFTI in MNI space with 32k mesh.
+`derivatives.anat.space-MNI_mesh-fsLR32k_midthickness`
+
+Left and Right mid-thickness CIFTIs in MNI space with fsLR32k surface mesh.
 
 - `sub-#/ses-#/anat/sub-#_ses-#_hemi-L_space-MNI_mesh-fsLR32k_midthickness.surf.gii`
 - `sub-#/ses-#/anat/sub-#_ses-#_hemi-R_space-MNI_mesh-fsLR32k_midthickness.surf.gii`
 
-`derivatives.anat.space-MNI_mesh-native_midthickness`: Left and Right mid-thickness CIFTI in MNI space with native mesh.
+`derivatives.anat.space-MNI_mesh-native_midthickness`
+
+Left and Right mid-thickness CIFTIs in MNI space with native surface mesh.
 
 - `sub-#/ses-#/anat/sub-#_ses-#_hemi-L_space-MNI_mesh-native_midthickness.surf.gii`
 - `sub-#/ses-#/anat/sub-#_ses-#_hemi-R_space-MNI_mesh-native_midthickness.surf.gii`
 
-`derivatives.anat.space-T1w_mesh-fsLR32k_midthickness`: Left and Right mid-thickness CIFTI in native T1 space with 32k mesh.
+`derivatives.anat.space-T1w_mesh-fsLR32k_midthickness`
+
+Left and Right mid-thickness CIFTIs in native T1 space with fsLR32k surface mesh.
 
 - `sub-#/ses-#/anat/sub-#_ses-#_hemi-L_space-T1w_mesh-fsLR32k_midthickness.surf.gii`
 - `sub-#/ses-#/anat/sub-#_ses-#_hemi-R_space-T1w_mesh-fsLR32k_midthickness.surf.gii`
 
-`derivatives.anat.space-T1w_mesh-native_midthickness`: Left and Right mid-thickness CIFTI in native T1 space with native mesh
+`derivatives.anat.space-T1w_mesh-native_midthickness`
+
+Left and Right mid-thickness CIFTIs in native T1 space with native surface mesh.
 
 - `sub-#/ses-#/anat/sub-#_ses-#_hemi-L_space-T1w_mesh-native_midthickness.surf.gii`
 - `sub-#/ses-#/anat/sub-#_ses-#_hemi-R_space-T1w_mesh-native_midthickness.surf.gii`
 
-`derivatives.executivesummary.all`: DCAN Labs "executive summary" for visual inspection of outputs.
+`derivatives.anat.(T1w|T2w)`
+
+Anatomical imaging masked brain or full head in MNI space in a volume.
+
+- `sub-#/ses-#/anat/sub-#_ses-#_(T1w|T2w)_space-MNI_(brain|head).nii.gz`
+
+`derivatives.anat.wmparc`
+
+White matter parcellation discrete segmentation file in a volume.
+
+- `sub-#/ses-#/anat/sub-#_ses-#_T1w_space-MNI_desc-wmparc_dseg.nii.gz`
+
+`derivatives.executivesummary.all`
+
+DCAN Labs executive summary HTML processing visual inspection summary.
 
 - `sub-#/ses-#/sub-#_ses-#.html`
 - `sub-#/ses-#/img/<VARIOUS>`
 
     **NOTE:** `<VARIOUS>` denotes a variety of `.gif` and `.png` images used in conjunction with the `.html` file which vary in count based on counts of available input images.
 
-`derivatives.func.concat_task-(MID|nback|SST|rest)_bold_atlas-(Gordon2014|HCP2016|Markov2012|Power2011|Yeo2011)FreeSurferSubcortical_desc-filtered_timeseries`: Concatenated functional task parcellated time series from parcellations with FreeSurfer subcorticals and associated motion censoring mask file.  Gordon2014, HCP2016, Markov2012, Power2011, or Yeo2011 correspond to the first author and year of publication containing the given parcellation.
+`derivatives.func.concat_task-(MID|nback|SST|rest)_bold_atlas-(Gordon2014|HCP2016|Markov2012|Power2011|Yeo2011)FreeSurferSubcortical_desc-filtered_timeseries`
+
+A dense label parcellation with FreeSurfer subcorticals with names corresponding to the first author and publication year.
 
 - `(Gordon2014|HCP2016|Markov2012|Power2011|Yeo2011)FreeSurferSubcortical_dparc.dlabel.nii`
+
+A "5 contiguous frames" motion censoring algorithm file of temporal masks by FD threshold (0mm->0.5mm) with or without outlier detection in use.
+
 - `sub-#/ses-#/func/sub-#_ses-#_task-(MID|nback|SST|rest)_desc-filtered_motion_mask.mat`
+
+Concatenated functional task parcellated time series using the parcellations above.
+
 - `sub-#/ses-#/func/sub-#_ses-#_task-(MID|nback|SST|rest)_bold_atlas-(Gordon2014|HCP2016|Markov2012|Power2011|Yeo2011)FreeSurferSubcortical_desc-filtered_timeseries.ptseries.nii`
 
-`derivatives.func.concat_task-(MID|nback|SST|rest)_bold_desc-filtered_timeseries`: Concatenated functional task dense time series post-DCAN BOLD Processing in Atlas space and associated motion censoring mask file.
+`derivatives.func.concat_task-(MID|nback|SST|rest)_bold_desc-filtered_timeseries`
+
+Concatenated functional task dense time series post-DCANBOLDProcessing (regression and filtering) in Atlas space.
 
 - `sub-#/ses-#/func/sub-#_ses-#_task-(MID|nback|SST|rest)_bold_desc-filtered_timeseries.dtseries.nii`
+
+A "5 contiguous frames" motion censoring algorithm file of temporal masks by FD threshold (0mm->0.5mm) with or without outlier detection in use.
+
 - `sub-#/ses-#/func/sub-#_ses-#_task-(MID|nback|SST|rest)_desc-filtered_motion_mask.mat`
 
-`derivatives.func.motion_task-(MID|nback|SST|rest)`: Power, et al, 2014 "5 contiguous frames" algorithm censoring file of temporal masks by FD threshold (0mm->0.5mm) and raw and filtered motion numbers.
+`derivatives.func.motion_task-(MID|nback|SST|rest)`
+
+A "5 contiguous frames" motion censoring algorithm file of temporal masks by FD threshold (0mm->0.5mm) with or without outlier detection in use.
 
 - `sub-#/ses-#/func/sub-#_ses-#_task-(MID|nback|SST|rest)_desc-filtered_motion_mask.mat`
+
+Movement-artifact-unfiltered or Movement-artifact-filtered (`_desc-filtered`) movement numbers without an FD column.
+
 - `sub-#/ses-#/func/sub-#_ses-#_task-(MID|nback|SST|rest)_run-#_motion.tsv`
 - `sub-#/ses-#/func/sub-#_ses-#_task-(MID|nback|SST|rest)_run-#_desc-filtered_motion.tsv`
 
-`derivatives.func.runs_task-(MID|nback|SST|rest)`: Individual functional task run dense time series in Atlas space and associated filtered motion numbers.
+`derivatives.func.updated_motion_task-(MID|nback|SST|rest)`
+
+Movement-artifact-unfiltered or Movement-artifact-filtered (`_desc-filtered`) movement numbers with an FD column included (this one is recommended over the original `derivatives.func.motion_task-(MID|nback|SST|rest)` motion files).
+
+- `sub-#/ses-#/func/sub-#_ses-#_task-(MID|nback|SST|rest)_run-#_desc-includingFD_motion.tsv`
+- `sub-#/ses-#/func/sub-#_ses-#_task-(MID|nback|SST|rest)_run-#_desc-filteredincludingFD_motion.tsv`
+
+`derivatives.func.pconns`
+
+Connectivity matrix and its frame censor with either 5 minutes of data (`_censor-5min`), 10 minutes of data (`_censor-10min`), or all frames (`_censor-belowthresh`) below the FD threshold of 0.2 mm (`_thresh-fd0p2mm`).
+
+- `sub-#/ses-#/func/sub-#_ses-#_task-rest_bold_atlas-Gordon2014FreeSurferSubcortical_desc-filtered_timeseries_thresh-fd0p2mm_censor-(5min|10min|belowthresh)_conndata-network_(censor.txt|connectivity.pconn.nii)`
+
+`derivatives.func.runs_task-(MID|nback|SST|rest)`
+
+Individual minimally-processed functional task run dense time series in Atlas space pre-DCANBOLDProcessing with original filtered motion numbers.
 
 - `sub-#/ses-#/func/sub-#_ses-#_task-(MID|nback|SST|rest)_run-#_bold_timeseries.dtseries.nii`
 - `sub-#/ses-#/func/sub-#_ses-#_task-(MID|nback|SST|rest)_run-#_desc-filtered_motion.tsv`
+
+`derivatives.func.runs_task-(MID|nback|SST|rest)_volume`
+
+Motion-corrected individual functional task run in MNI space in a volume.
+
+- `sub-#/ses-#/func/sub-#_ses-#_task-(MID|nback|SST|rest)_run-#_space-MNI_bold.nii.gz`
 
 ## 3. Anatomical
 
@@ -141,7 +224,7 @@ The DCAN Labs executive summary is software for getting a basic visual quality c
 
 ## 6. Derivative Filenames
 
-BIDS derivative standards are still [BIDS Extension Proposals (BEPs)](https://bids-specification.readthedocs.io/en/stable/06-extensions.html#bids-extension-proposals) at this point, but we tried to conform to the available derivative standards for common derivatives ([BEP003](https://docs.google.com/document/d/1Wwc4A6Mow4ZPPszDIWfCUCRNstn7d_zzaWPcfcHmgI4/view)), the structural preprocessing derivatives ([BEP011](https://docs.google.com/document/d/1YG2g4UkEio4t_STIBOqYOwneLEs1emHIXbGKynx7V0Y/view)), and the functional preprocessing derivatives ([BEP012](https://docs.google.com/document/d/1qBNQimDx6CuvHjbDvuFyBIrf2WRFUOJ-u50canWjjaw/view)).
+Some BIDS derivative standards are still [BIDS Extension Proposals (BEPs)](https://bids-specification.readthedocs.io/en/stable/06-extensions.html#bids-extension-proposals) at the time of this writing, but we tried to conform to the available derivative standards at the time for common derivatives ([BEP003](https://docs.google.com/document/d/1Wwc4A6Mow4ZPPszDIWfCUCRNstn7d_zzaWPcfcHmgI4/view)), the structural preprocessing derivatives ([BEP011](https://docs.google.com/document/d/1YG2g4UkEio4t_STIBOqYOwneLEs1emHIXbGKynx7V0Y/view)), and the functional preprocessing derivatives ([BEP012](https://docs.google.com/document/d/1qBNQimDx6CuvHjbDvuFyBIrf2WRFUOJ-u50canWjjaw/view)).
 
 ## 7. Motion MAT File
 

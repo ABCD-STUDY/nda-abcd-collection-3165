@@ -8,18 +8,44 @@ Note: Clicking any link within the readthedocs site will not open a new web brow
 
 This document highlights common recommendations for usage of the collection 3165 data.
 
-## 2. Downloading and Unpacking Data
+## 2. The BIDS Participants Files and Matched Groups
+
+In a BIDS standard folder layout there should always be a `participants.tsv` (spreasheet) and `participants.json` (data dictionary) file.  This was not available in our first release, but is available now.  The participants files have the following fields inside.
+
+1. `participant_id`: NDA unique pGUID. starting with `sub-`
+1. `session_id`: Participant's session ID (all data within this first release are `ses-baselineYear1Arm1`)
+1. `collection_3165`: Presence or absence of the subject from this NDA collection 3165 uploaded data
+1. `site`: ABCD site location
+1. `scanner_manufacturer`: GE, Philips, or Siemens scanner
+1. `scanner_model`: Scanner model name
+1. `scanner_software`: Scanner software description
+1. `matched_group`: Carefully matched similar groups
+1. `sex`: Sex
+1. `race_ethnicity`: Combined race & ethnicity variable
+1. `age`: Age in months
+1. `handedness`: Handedness
+1. `siblings_twins`: Family member status
+1. `income`: Combined income
+1. `participant_education`: Participant grade in school
+1. `parental_education`: Highest level of parental education
+1. `anesthesia_exposure`: History of participant anesthesia expeosure
+
+They are available for download on [the main NDA Collection 3165 page](https://nda.nih.gov/edit_collection.html?id=3165).
+
+The `matched_group` field is the product of a lot of group matching work to create two large separate groups and one small template group which are comparable across the variables.  Participants were matched across 10 variables: site, age, sex, race_ethnicity, participant_education, parental_education, handedness, income, and anesthesia_exposure.  Family members (e.g. sibling pairs, twins, and triplets) were kept together in the same set and the two larger sets were matched to include equal numbers of single participants and family members.
+
+## 3. Downloading and Unpacking Data
 
 There are two ways to download ABCD Study data and get BIDS inputs or derivatives:
 
 1. (*PREFERRED*) Downloading from NDA Collection 3165 will provide you an "associated files" spreadsheet with AWS S3 links and other key information.  DCAN Labs has designed [a GitHub repository for selectively downloading only parts of the BIDS input and derivative data, the "nda-abcd-s3-downloader"](https://github.com/ABCD-STUDY/nda-abcd-s3-downloader).
 1. [ABCD Fast Track Data on the NDA](https://nda.nih.gov/abcd/query/abcd-fast-track-data.html) can alternatively be downloaded and unpacked into BIDS with the [ABCD-STUDY abcd-dicom2bids GitHub repository](https://github.com/ABCD-STUDY/abcd-dicom2bids).
 
-## 3. MATLAB Motion Mask Files
+## 4. MATLAB Motion Mask Files
 
 In order to make an accurate correlation matrix, use the MATLAB motion mask file described in release document 4, [Derivatives](https://collection3165.readthedocs.io/en/stable/derivatives/), under the **Motion MAT File** heading.
 
-## 4. Interacting with CIFTI Data Types
+## 5. Interacting with CIFTI Data Types
 
 Released data follows the standards defined by the Human Connectome Project, such as reporting different metrics in standard grayordinate space and saving data using CIFTI standard file formats.
 
@@ -48,7 +74,7 @@ Correlation matrices should be generated from either the dense or parcellated ti
 
 For visualization of all of these CIFTI files, use [Connectome Workbench](https://www.humanconnectome.org/software/connectome-workbench).  
 
-## 5. DCAN Labs Software
+## 6. DCAN Labs Software
 
 We have built tools to utilize this data using our recommended methods.  Read on for descriptions of each publicly-hosted open-source software GitHub repository from [DCAN-Labs](https://github.com/DCAN-Labs).  
 
@@ -68,51 +94,10 @@ File mapper is another generalized piece of software which is great for defining
 
 Much like custom clean, you define a JSON file which says how to map a file from some common input to some common output in order to "reshape" your data outputs.
 
-## 6. BIDS Folder Layout
+## 7. BIDS Folder Layout
 
 Your final BIDS folder structure will look like this tree if you download everything.  Full descriptions of these BIDS input and BIDS derivative data are located in these release notes' documents 2 and 4, [**Inputs**](https://collection3165.readthedocs.io/en/stable/inputs/) and [**Derivatives**](https://collection3165.readthedocs.io/en/stable/derivatives/) respectively.
 
-```
-.
-├── dataset_description.json
-├── README
-├── CHANGES
-├── task-(MID|nback|rest|SST)_bold.json
-├── derivatives
-│   └── abcd-hcp-pipeline
-│       ├── ##FreeSurferSubcortical_dparc.dlabel.nii
-│       └── sub-NDARINV########
-│           └── ses-####
-│               ├── img/*
-│               ├── sub-NDARINV########_ses-####.html
-│               ├── anat
-│               │   ├── sub-NDARINV########_ses-####_hemi-(L|R)_space-(MNI|T1w)_mesh-(fsLR32k|fsLR164k|native)_midthickness.surf.gii
-│               │   ├── sub-NDARINV########_ses-####_space-ACPC_dseg.nii.gz
-│               │   ├── sub-NDARINV########_ses-####_space-fsLR32k_curv.dscalar.nii
-│               │   ├── sub-NDARINV########_ses-####_space-fsLR32k(_desc-smoothed)_myelinmap.dscalar.nii
-│               │   ├── sub-NDARINV########_ses-####_space-fsLR32k_sulc.dscalar.nii
-│               │   └── sub-NDARINV########_ses-####_space-fsLR32k_thickness.dscalar.nii
-│               └── func
-│                   ├── sub-NDARINV########_ses-####_task-(MID|nback|rest|SST)_bold_desc-filtered_timeseries.dtseries.nii
-│                   ├── sub-NDARINV########_ses-####_task-(MID|nback|rest|SST)_bold_atlas-##FreeSurferSubcortical_desc-filtered_timeseries.ptseries.nii
-│                   ├── sub-NDARINV########_ses-####_task-(MID|nback|rest|SST)_desc-filtered_motion_mask.mat
-│                   ├── sub-NDARINV########_ses-####_task-(MID|nback|rest|SST)_run-#_bold_timeseries.dtseries.nii
-│                   ├── sub-NDARINV########_ses-####_task-(MID|nback|rest|SST)_run-#_desc-filtered_motion.tsv
-│                   └── sub-NDARINV########_ses-####_task-(MID|nback|rest|SST)_run-#_motion.tsv
-├── sourcedata
-│   └── sub-NDARINV########
-│       └── ses-####
-│           └── func
-│               └── sub-NDARINV########_ses-####_task-(MID|nback|SST)_run-##_bold_EventRelatedInformation.txt
-└── sub-NDARINV########
-    └── ses-####
-        ├── anat
-        │   ├── sub-NDARINV########_ses-####(_rec-normalized)_T#w.json
-        │   └── sub-NDARINV########_ses-####(_rec-normalized)_T#w.nii.gz
-        ├── fmap
-        │   ├── sub-NDARINV########_ses-####_dir-(AP|PA)_run-##_epi.json
-        │   └── sub-NDARINV########_ses-####_dir-(AP|PA)_run-##_epi.nii.gz
-        └── func
-            ├── sub-NDARINV########_ses-####_task-(MID|nback|rest|SST)_run-##_bold.json
-            └── sub-NDARINV########_ses-####_task-(MID|nback|rest|SST)_run-##_bold.nii.gz
-```
+![ABCD-BIDS Layout](img/ABCD-BIDS.png)
+
+A full-resolution version of this picture can be found [here](https://github.com/ABCD-STUDY/nda-abcd-collection-3165/tree/master/docs/img/ABCD-BIDS.png).
