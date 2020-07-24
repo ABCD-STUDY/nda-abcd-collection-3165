@@ -49,9 +49,36 @@ One pair of spin echo EPI scans with opposite phase encoding directions are used
 
 The purpose of the FMRISurface stage is primarily to take a volume time series and map it to the standard CIFTI grayordinates space.  This stage has not been altered from the original pipeline so refer to [Glasser, et al. 2013](https://doi.org/10.1016/j.neuroimage.2013.04.127) for more information.
 
-### Stage 6: DCANBOLDProcessing
+### Stage 6: DCANBOLDProcessing (DBP)
 
 [DCAN BOLD Processing](https://github.com/DCAN-Labs/dcan_bold_processing) is a signal processing software developed primarily by Dr. Oscar Miranda-Dominguez in the DCAN Labs with the primary function of nuisance regression from the dense time series and providing motion censoring information in accordance with [Power, et al. 2014](https://www.ncbi.nlm.nih.gov/pubmed/23994314).  The motion numbers produced in the FMRIVolume stage are also filtered to remove artifactual motion caused by respiration.  For more information on the respiration filtering see [Correction of respiratory artifacts in MRI head motion estimates. Fair, et al. NeuroImage. 2019.](https://doi.org/10.1016/j.neuroimage.2019.116400).
+
+This stage involves four broad steps:
+
+1. Standard pre-processing
+1. Application of a respiratory motion filter
+1. Motion censoring followed by standard re-processing
+1. Construction of parcellated timeseries
+
+#### 1. DBP Standard pre-processing
+
+Standard pre-processing comprises three steps.  First all fMRI data are de-meaned and de-trended with respect to time.  Next a general linear model is used to denoise the processed fMRI data.  Denoising regressors comprise signal and movement variables.  Signal variables comprise mean time series and first derivative for white matter, CSF, and the global signal, which are derived from Individualized segmentations generated during PostFreesurfer.  Movement variables comprise translational (X,Y,Z) and rotational (roll, pitch, and yaw) measures estimated by re-alignment during FMRIVolume and their Volterra expansion.  The inclusion of GSR is critical for most resting-state functional MRI comparisons, as demonstrated empirically by multiple independent labs (Ciric et al., 2017; Power et al., 2017, 2019b; Satterthwaite et al., 2013).  After denoising the fMRI data, the time series are band-pass filtered between 0.008 and 0.09 Hz using a 2nd order Butterworth filter.  Such a band-pass filter is softer than other filters, and avoids potential aliasing of the time series signal.
+
+##### On Global Signal Regression
+
+Global signal regression (GSR) has been consistently shown to reduce the effects of motion on BOLD signals and eliminate known batch effects that directly impact group  comparisons (Ciric et al., 2017; Power et al., 2015, 2019b). Motion censoring (see below) combined with GSR has been shown to be the best existing method for eliminating artifacts produced by motion.
+
+#### DBP 2. Respiratory Motion Filter
+
+In working with ABCD data, we have found that a respiratory artifact is produced within multi-band data (Fair et al., 2020).  While this artifact occurs outside the brain, it can affect estimates of frame alignment, leading to inappropriate motion censoring.  By filtering the frequencies of the respiratory signal from the motion realignment data, our respiratory motion filter produces better estimates of FD.
+
+#### DBP 3. Motion censoring
+
+Our motion censoring procedure is used for performing the standard pre-processing and for the final construction of parcellated timeseries.  For standard pre-processing, data are labeled as "bad" frames if they exceed an FD threshold of 0.3 mm.  Such "bad" frames are removed when demeaning and detrending, and betas for the denoising are calculated using only the "good" frames. For band-pass filtering, interpolation is used initially to replace the "bad" frames and the residuals are extracted from the denoising GLM.  In such a way, standard pre-processing of the timeseries only uses the "good" data but avoids potential aliasing due to missing timepoints.  When extracting time series for data analysis only data above an FD threshold of 0.2 mm are extracted.  After motion censoring, timepoints are further censored using an outlier detection approach.
+
+#### DBP 4. Generation of parcellated timeseries for specific atlases
+
+Using the processed resting-state fMRI data, this stage constructs parcellated time series for pre-defined atlases making it easy to construct correlation matrices or perform time series analysis on putative brain areas defined by independent datasets.  The atlases comprise recent parcellations of brain regions that comprise different networks.  In particular, parcellated timeseries are extracted for Evan Gordon’s 333 ROI atlas template (Gordon et al., 2014), Jonathan Power’s 264 ROI atlas template (Power et al., 2011), Thomas Yeo’s 118 ROI atlas template (Yeo et al., 2011), and the HCP’s 360 ROI atlas template (Glasser et al., 2016).  Since we anticipate newer parcellated atlases as data acquisition, analytic techniques, and knowledge all improve, it is trivial to add new templates for this final stage.
 
 ### Stage 7: ExecutiveSummary
 

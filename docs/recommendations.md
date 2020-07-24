@@ -10,6 +10,10 @@ This document highlights common recommendations for usage of the collection 3165
 
 ## 2. The BIDS Participants Files and Matched Groups
 
+![Matched groups](img/matched_groups.png)
+
+A full-resolution version of this table can be found [here](https://github.com/ABCD-STUDY/nda-abcd-collection-3165/tree/master/docs/img/matched_groups.png).
+
 In a BIDS standard folder layout there should always be a `participants.tsv` (spreasheet) and `participants.json` (data dictionary) file.  This was not available in our first release, but is available now.  The participants files have the following fields inside.
 
 1. `participant_id`: NDA unique pGUID. starting with `sub-`
@@ -32,14 +36,22 @@ In a BIDS standard folder layout there should always be a `participants.tsv` (sp
 
 They are available for download on [the main NDA Collection 3165 page](https://nda.nih.gov/edit_collection.html?id=3165).
 
-The `matched_group` field is the product of a lot of group matching work to create two large separate groups and one small template group which are comparable across the variables.  Participants were matched across 10 variables: site, age, sex, race_ethnicity, participant_education, parental_education, handedness, income, and anesthesia_exposure.  Family members (e.g. sibling pairs, twins, and triplets) were kept together in the same set and the two larger sets were matched to include equal numbers of single participants and family members.
+The `matched_group` field is the product of comparisons across site, age, sex, ethnicity, grade, highest level of parental education, handedness, combined family income, exposure to anesthesia, and family-relatedness which show no significant differences between the ABCD-1 and ABCD-2 groups.  Comparison of the counts and means for each of these factors shows that ABCD-1 and ABCD-2 are negligibly different samples.  Gender shows the largest absolute difference of 2.5 percent.  No other demographic variables differ by more than 1 percent.  See below table:
 
 ## 3. Downloading and Unpacking Data
 
 There are two ways to download ABCD Study data and get BIDS inputs or derivatives:
 
-1. (*PREFERRED*) Downloading from NDA Collection 3165 will provide you an "associated files" spreadsheet with AWS S3 links and other key information.  DCAN Labs has designed [a GitHub repository for selectively downloading only parts of the BIDS input and derivative data, the "nda-abcd-s3-downloader"](https://github.com/ABCD-STUDY/nda-abcd-s3-downloader).
-1. [ABCD Fast Track Data on the NDA](https://nda.nih.gov/abcd/query/abcd-fast-track-data.html) can alternatively be downloaded and unpacked into BIDS with the [ABCD-STUDY abcd-dicom2bids GitHub repository](https://github.com/ABCD-STUDY/abcd-dicom2bids).
+1. (***PREFERRED***) Downloading from NDA Collection 3165 will provide you an "associated files" spreadsheet with AWS S3 links and other key information.  DCAN Labs has designed [a GitHub repository for selectively downloading only parts of the BIDS input and derivative data, the "nda-abcd-s3-downloader"](https://github.com/ABCD-STUDY/nda-abcd-s3-downloader).
+1. [ABCD Fast Track Data on the NDA](https://nda.nih.gov/abcd/query/abcd-fast-track-data.html) can alternatively be downloaded and unpacked into BIDS with the [ABCD-STUDY abcd-dicom2bids GitHub repository](https://github.com/ABCD-STUDY/abcd-dicom2bids).  This is if you need DICOM files specifically.
+
+### [`nda-abcd-s3-downloader`](https://github.com/ABCD-STUDY/nda-abcd-s3-downloader)
+
+This downloader can parallelize downloads and you can specify only your data subsets of interest.
+
+### [`abcd-dicom2bids`](https://github.com/ABCD-STUDY/abcd-dicom2bids)
+
+This tool pulls DICOMs and E-Prime files from the NDA's "fast-track" data.  It also unpacks, converts, and BIDS-standardizes the fast-track data so it becomes BIDS-compliant and matches that which is uploaded to collection 3165.
 
 ## 4. MATLAB Motion Mask Files
 
@@ -98,6 +110,6 @@ Much like custom clean, you define a JSON file which says how to map a file from
 
 Your final BIDS folder structure will look like this tree if you download everything.  Full descriptions of these BIDS input and BIDS derivative data are located in these release notes' documents 2 and 4, [**Inputs**](https://collection3165.readthedocs.io/en/stable/inputs/) and [**Derivatives**](https://collection3165.readthedocs.io/en/stable/derivatives/) respectively.
 
-![ABCD-BIDS Layout](img/ABCD-BIDS.png)
+![ABCD-BIDS Layout](img/ABCD-BIDS_cropped.png)
 
-A full-resolution version of this picture can be found [here](https://github.com/ABCD-STUDY/nda-abcd-collection-3165/tree/master/docs/img/ABCD-BIDS.png).
+A full-resolution version of this picture, complete with descriptions, can be found [here](https://github.com/ABCD-STUDY/nda-abcd-collection-3165/tree/master/docs/img/ABCD-BIDS.png).
