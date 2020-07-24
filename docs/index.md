@@ -2,6 +2,15 @@
 
 ## Release 1.0.0
 
+- 7/24/2020: Today marks another momentous release for the ABCD-BIDS Community Collection 3165 on the NDA.  The NDA has finished their quality assurance checks and the following inputs and derivatives are now available for download using [the nda-abcd-s3-downloader](https://github.com/ABCD-STUDY/nda-abcd-s3-downloader):
+    1. `sourcedata.func.task_events`: Task-based fMRI E-Prime files
+    1. `inputs.dwi.dwi`: DWI BIDS input data
+    1. `derivatives.anat.stats`: FreeSurfer stats files
+    1. `derivatives.anat.(T1w|T2w)`: T1 and T2 volumes
+    1. `derivatives.anat.wmparc`: white-matter volume ROIs
+    1. `derivatives.func.updated_motion_task-(MID|nback|SST|rest)`: Improved motion files (including outlier calculation)
+    1. `derivatives.func.pconns`: Curated parcellated connectivity files
+    1. `derivatives.func.runs_task-(MID|nback|SST|rest)_volume`: Minimally-processed fMRI volumes
 - 4/20/2020: We have uploaded diffusion weighted imaging (DWI) input data including DWI field maps for 5,635 subject's baseline MRI sessions.  We are working with the NDA to get this data released publicly prior to 5/15/2020.
 - 4/14/2020: We have uploaded raw fMRI task event files to the NDA for sessions among the 9,647 with task-based fMRI data.  We are working with the NDA to get this data released publicly prior to 5/15/2020.
 - 2/17/2020: The NDA confirmed for us last week that the uploaded data is all released.  This brings our subject counts to **10,038 MRI sessions worth of NDA imagingcollection01 data** and **9,647 MRI sessions worth of NDA fmriresults01 data**.
