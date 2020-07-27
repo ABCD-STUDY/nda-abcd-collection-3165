@@ -32,11 +32,11 @@ In a BIDS standard folder layout there should always be a `participants.tsv` (sp
 1. `income`: Combined income
 1. `participant_education`: Participant grade in school
 1. `parental_education`: Highest level of parental education
-1. `anesthesia_exposure`: History of participant anesthesia expeosure
+1. `anesthesia_exposure`: History of participant anesthesia exposure
 
 They are available for download on [the main NDA Collection 3165 page](https://nda.nih.gov/edit_collection.html?id=3165).
 
-The `matched_group` field is the product of comparisons across site, age, sex, ethnicity, grade, highest level of parental education, handedness, combined family income, exposure to anesthesia, and family-relatedness which show no significant differences between the ABCD-1 and ABCD-2 groups.  Comparison of the counts and means for each of these factors shows that ABCD-1 and ABCD-2 are negligibly different samples.  Gender shows the largest absolute difference of 2.5 percent.  No other demographic variables differ by more than 1 percent.  See below table:
+The `matched_group` field is the product of comparisons across site, age, sex, ethnicity, grade, highest level of parental education, handedness, combined family income, exposure to anesthesia, and family-relatedness which show no significant differences between the ABCD-1 and ABCD-2 groups.  Comparison of the counts and means for each of these factors shows that ABCD-1 and ABCD-2 are negligibly different samples.  Gender shows the largest absolute difference of 2.5 percent.  No other demographic variables differ by more than 1 percent.  See table above.
 
 ## 3. Downloading and Unpacking Data
 
