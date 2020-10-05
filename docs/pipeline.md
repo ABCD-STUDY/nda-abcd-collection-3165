@@ -60,7 +60,7 @@ This stage involves four broad steps:
 1. Motion censoring followed by standard re-processing
 1. Construction of parcellated timeseries
 
-#### 1. DBP Standard pre-processing
+#### DBP 1. Standard pre-processing
 
 Standard pre-processing comprises three steps.  First all fMRI data are de-meaned and de-trended with respect to time.  Next a general linear model is used to denoise the processed fMRI data.  Denoising regressors comprise signal and movement variables.  Signal variables comprise mean time series and first derivative for white matter, CSF, and the global signal, which are derived from Individualized segmentations generated during PostFreesurfer.  Movement variables comprise translational (X,Y,Z) and rotational (roll, pitch, and yaw) measures estimated by re-alignment during FMRIVolume and their Volterra expansion.  The inclusion of GSR is critical for most resting-state functional MRI comparisons, as demonstrated empirically by multiple independent labs (Ciric et al., 2017; Power et al., 2017, 2019b; Satterthwaite et al., 2013).  After denoising the fMRI data, the time series are band-pass filtered between 0.008 and 0.09 Hz using a 2nd order Butterworth filter.  Such a band-pass filter is softer than other filters, and avoids potential aliasing of the time series signal.
 

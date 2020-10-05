@@ -16,7 +16,7 @@ A full-resolution version of this table can be found [here](https://github.com/A
 
 In a BIDS standard folder layout there should always be a `participants.tsv` (spreasheet) and `participants.json` (data dictionary) file.  This was not available in our first release, but is available now.  The participants files have the following fields inside.
 
-1. `participant_id`: NDA unique pGUID. starting with `sub-`
+1. `participant_id`: NDA unique pGUID, starting with `sub-`
 1. `session_id`: Participant's session ID (all data within this first release are `ses-baselineYear1Arm1`)
 1. `collection_3165`: Presence or absence of the subject from this NDA collection 3165 uploaded data
 1. `site`: ABCD site location
@@ -38,11 +38,23 @@ They are available for download on [the main NDA Collection 3165 page](https://n
 
 The `matched_group` field is the product of comparisons across site, age, sex, ethnicity, grade, highest level of parental education, handedness, combined family income, exposure to anesthesia, and family-relatedness which show no significant differences between the ABCD-1 and ABCD-2 groups.  Comparison of the counts and means for each of these factors shows that ABCD-1 and ABCD-2 are negligibly different samples.  Gender shows the largest absolute difference of 2.5 percent.  No other demographic variables differ by more than 1 percent.  See table above.
 
-## 3. Downloading and Unpacking Data
+## 3. The BIDS Quality Control File
+
+This Quality Control (QC) file contains QC metrics for data from this collection.  Version 1.0.0 contains brain coverage scores for all runs 1 and 2 of the `derivatives.func.runs_task-(MID|nback|rest|SST)_volume` data subsets.  Currently, available fields in the QC file are:
+
+1. `participant_id`: NDA unique pGUID, starting with `sub-`
+1. `session_id`: Participant's session ID, starting with `ses-`
+1. `data_subset`: Collection 3165 data subset
+1. `task`: fMRI task
+1. `run`: Chronlogical run number
+1. `path`: Relative path from the root of the data set
+1. `brain_coverage_score`: Overlap of the functional run time series mean with the atlas mask
+
+## 4. Downloading and Unpacking Data
 
 There are two ways to download ABCD Study data and get BIDS inputs or derivatives:
 
-1. (***PREFERRED***) Downloading from NDA Collection 3165 will provide you an "associated files" spreadsheet with AWS S3 links and other key information.  DCAN Labs has designed [a GitHub repository for selectively downloading only parts of the BIDS input and derivative data, the "nda-abcd-s3-downloader"](https://github.com/ABCD-STUDY/nda-abcd-s3-downloader).
+1. (***PREFERRED***) Downloading from NDA Collection 3165 will provide you an "data structure manifest" spreadsheet with AWS S3 links and other key information.  DCAN Labs has designed [a GitHub repository for selectively downloading only parts of the BIDS input and derivative data, the "nda-abcd-s3-downloader"](https://github.com/ABCD-STUDY/nda-abcd-s3-downloader).
 1. [ABCD Fast Track Data on the NDA](https://nda.nih.gov/abcd/query/abcd-fast-track-data.html) can alternatively be downloaded and unpacked into BIDS with the [ABCD-STUDY abcd-dicom2bids GitHub repository](https://github.com/ABCD-STUDY/abcd-dicom2bids).  This is if you need DICOM files specifically.
 
 ### [`nda-abcd-s3-downloader`](https://github.com/ABCD-STUDY/nda-abcd-s3-downloader)
@@ -53,11 +65,11 @@ This downloader can parallelize downloads and you can specify only your data sub
 
 This tool pulls DICOMs and E-Prime files from the NDA's "fast-track" data.  It also unpacks, converts, and BIDS-standardizes the fast-track data so it becomes BIDS-compliant and matches that which is uploaded to collection 3165.
 
-## 4. MATLAB Motion Mask Files
+## 5. MATLAB Motion Mask Files
 
 In order to make an accurate correlation matrix, use the MATLAB motion mask file described in release document 4, [Derivatives](https://collection3165.readthedocs.io/en/stable/derivatives/), under the **Motion MAT File** heading.
 
-## 5. Interacting with CIFTI Data Types
+## 6. Interacting with CIFTI Data Types
 
 Released data follows the standards defined by the Human Connectome Project, such as reporting different metrics in standard grayordinate space and saving data using CIFTI standard file formats.
 
@@ -86,7 +98,7 @@ Correlation matrices should be generated from either the dense or parcellated ti
 
 For visualization of all of these CIFTI files, use [Connectome Workbench](https://www.humanconnectome.org/software/connectome-workbench).  
 
-## 6. DCAN Labs Software
+## 7. DCAN Labs Software
 
 We have built tools to utilize this data using our recommended methods.  Read on for descriptions of each publicly-hosted open-source software GitHub repository from [DCAN-Labs](https://github.com/DCAN-Labs).  
 
@@ -106,7 +118,7 @@ File mapper is another generalized piece of software which is great for defining
 
 Much like custom clean, you define a JSON file which says how to map a file from some common input to some common output in order to "reshape" your data outputs.
 
-## 7. BIDS Folder Layout
+## 8. BIDS Folder Layout
 
 Your final BIDS folder structure will look like this tree if you download everything.  Full descriptions of these BIDS input and BIDS derivative data are located in these release notes' documents 2 and 4, [**Inputs**](https://collection3165.readthedocs.io/en/stable/inputs/) and [**Derivatives**](https://collection3165.readthedocs.io/en/stable/derivatives/) respectively.
 
