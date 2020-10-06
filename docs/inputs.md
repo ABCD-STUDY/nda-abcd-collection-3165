@@ -12,14 +12,17 @@ The data collection contains anatomical MRI images (T1w and T2w), functional MRI
 
 Sections 3 and onward of this document generally describe what each of the input data subsets are.  This section breaks down the exact contents of each of the input data subsets.  Subject and session identifiers are instead labeled as `#`.  Each input data subset comes with modality-agnostic BIDS-compatible `dataset_description.json`, `README`, and `CHANGES` files.
 
-`sourcedata.func.task_events`
-
-- `sourcedata/sub-#/ses-#/func/sub-#_ses-#_task-(MID|nback|SST)_run-#_bold_EventRelatedInformation.txt`
-
 `inputs.anat.(T1w|T2w)`
 
 - `sub-#/ses-#/anat/sub-#_ses-#(_rec-normalized)(_run-#)_(T1w|T2w).json`
 - `sub-#/ses-#/anat/sub-#_ses-#(_rec-normalized)(_run-#)_(T1w|T2w).nii.gz`
+
+`inputs.dwi.dwi`
+
+- `sub-#/ses-#/dwi/sub-#_ses-#_dwi.bval`
+- `sub-#/ses-#/dwi/sub-#_ses-#_dwi.bvec`
+- `sub-#/ses-#/dwi/sub-#_ses-#_dwi.json`
+- `sub-#/ses-#/dwi/sub-#_ses-#_dwi.nii.gz`
 
 `inputs.fmap.all`
 
@@ -33,12 +36,9 @@ Sections 3 and onward of this document generally describe what each of the input
 - `sub-#/ses-#/func/sub-#_ses-#_task-(MID|nback|SST|rest)_run-#_bold.json`
 - `sub-#/ses-#/func/sub-#_ses-#_task-(MID|nback|SST|rest)_run-#_bold.nii.gz`
 
-`inputs.dwi.dwi`
+`sourcedata.func.task_events`
 
-- `sub-#/ses-#/dwi/sub-#_ses-#_dwi.bval`
-- `sub-#/ses-#/dwi/sub-#_ses-#_dwi.bvec`
-- `sub-#/ses-#/dwi/sub-#_ses-#_dwi.json`
-- `sub-#/ses-#/dwi/sub-#_ses-#_dwi.nii.gz`
+- `sourcedata/sub-#/ses-#/func/sub-#_ses-#_task-(MID|nback|SST)_run-#_bold_EventRelatedInformation.txt`
 
 ## 3. DAIC Quality Control (QC) Selection Process
 

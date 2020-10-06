@@ -1,10 +1,14 @@
 # Releases
 
+## Curator's Latest Update
+
+- 10/6/2020: A small, but important release today.  Brain coverage quality control scores for the `derivatives.func.runs_task-(MID|nback|rest|SST)_volume` data subsets.
+
 ## Release 1.1.1
 
 Released 10/6/2020, this is a small version 1.0.0 release of the `derivatives_qc.(json|tsv)` with BIDS derivatives quality control data including a "brain coverage score" for the `derivatives.func.runs_task-(MID|nback|rest|SST)_volume` data subsets.
 
-**Note**: We unintentionally only uploaded runs 1 and 2 of all available volumes of the `derivatives.func.runs_task-(MID|nback|rest|SST)_volume` data subsets.  This is fine for task-based fMRI runs (of which there are always two), but it is short for many resting state fMRI tasks with 3 or more runs.  We are uploading these data to the NDA and we will post a data set Release 1.1.2 here soon.  We will also update the above `derivatives_qc.(json|tsv)` file as a version 1.0.1 after data are uploaded to include `task-rest` volume runs 3 and up.
+**Note**: We only uploaded runs 1 and 2 of the `derivatives.func.runs_task-(MID|nback|rest|SST)_volume` data subsets in Release 1.1.0.  We are uploading resting state fMRI tasks with 3 or more runs to the NDA now and we will post a data set Release 1.1.2 here soon.  We will also update the above `derivatives_qc.(json|tsv)` file as a version 1.0.1 after data are uploaded to include `task-rest` volume runs 3 and up.
 
 ## Release 1.1.0
 
@@ -24,9 +28,12 @@ Released 7/27/2020, this is the next big release with the addition of:
 
 Released 2/17/2020, this is the initial release of DCAN Labs ABCD-BIDS inputs and derivatives containing **10,038 MRI sessions worth of NDA imagingcollection01 data** and **9,647 MRI sessions worth of NDA fmriresults01 data**.
 
-## Updates from the Curators
+## Coming Soon
 
-- 7/27/2020: Today marks another momentous release for the ABCD-BIDS Community Collection 3165 on the NDA.  The NDA has finished their quality assurance checks and the Release 1.1.0 inputs and derivatives are now available for download using [the nda-abcd-s3-downloader](https://github.com/ABCD-STUDY/nda-abcd-s3-downloader).
+### Release 1.1.2
+
+- `derivatives_qc.(json|tsv)` version 1.0.1, including `task-rest` runs 3 and up
+- `derivatives.func.runs_task-rest_volume` data subset runs 3 and up
 
 ## Documentation Guide
 
