@@ -40,15 +40,19 @@ The `matched_group` field is the product of comparisons across site, age, sex, e
 
 ## 3. The BIDS Quality Control File
 
-This Quality Control (QC) file contains QC metrics for data from this collection.  Version 1.0.0 contains brain coverage scores for all runs 1 and 2 of the `derivatives.func.runs_task-(MID|nback|rest|SST)_volume` data subsets.  Currently, available fields in the QC file are:
+This Quality Control (QC) file contains QC metrics for data from this collection and is available for download on [the main NDA Collection 3165 page](https://nda.nih.gov/edit_collection.html?id=3165).  Version 1.0.0 contains brain coverage scores for all runs 1 and 2 of the `derivatives.func.runs_task-(MID|nback|rest|SST)_volume` data subsets.  Currently, available fields in the QC file are:
 
 1. `participant_id`: NDA unique pGUID, starting with `sub-`
 1. `session_id`: Participant's session ID, starting with `ses-`
 1. `data_subset`: Collection 3165 data subset
-1. `task`: fMRI task
-1. `run`: Chronlogical run number
+1. `task`: fMRI task name, starting with `task-`
+1. `run`: Chronological run number, starting with `run-`
 1. `path`: Relative path from the root of the data set
 1. `brain_coverage_score`: Overlap of the functional run time series mean with the atlas mask
+
+### Brain Coverage Score
+
+The brain coverage score is an estimate of how much overlap exists between the fMRI task volumes and the MNI atlas mask.  It is determined by what percentage of the MNI atlas mask file is covered by each temporal mean of the fMRI time series volume.  This is calculated by first taking the temporal mean of the 4-dimensional fMRI time series.  The meaned 3-dimensional volume is then binarized using `fslmaths` and masked using the `MNI152_T1_2mm_brain_mask.nii.gz`.  The brain coverage score is a percentage.  The score is the number of non-zero voxels left in the binarized volume divided by the number of non-zero voxels in the MNI mask.
 
 ## 4. Downloading and Unpacking Data
 

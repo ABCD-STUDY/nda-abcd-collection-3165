@@ -1,10 +1,10 @@
 # Releases
 
-## Release 1.2.0
+## Release 1.1.1
 
-Released 10/5/2020, this is a small version 1.0.0 release of the `derivatives_qc.(json|tsv)` with BIDS derivatives quality control data including a "brain coverage score" for the `derivatives.func.runs_task-(MID|nback|rest|SST)_volume` data subsets.  Also of importance for this same data subset...
+Released 10/6/2020, this is a small version 1.0.0 release of the `derivatives_qc.(json|tsv)` with BIDS derivatives quality control data including a "brain coverage score" for the `derivatives.func.runs_task-(MID|nback|rest|SST)_volume` data subsets.
 
-**Note**: It was recently discovered we only uploaded runs 1 and 2 of all available volumes of the `derivatives.func.runs_task-(MID|nback|rest|SST)_volume` data subsets.  While this is fine for the task-based fMRI runs (of which there are always two), it is short for many resting state fMRI tasks with 3 or more runs.  We are actively uploading these missing data to the NDA and we will post another update here soon.  We will also update the above `derivatives_qc.(json|tsv)` file with a version 1.0.1 shortly after data are uploaded to include `task-rest` runs 3 and up.
+**Note**: We unintentionally only uploaded runs 1 and 2 of all available volumes of the `derivatives.func.runs_task-(MID|nback|rest|SST)_volume` data subsets.  This is fine for task-based fMRI runs (of which there are always two), but it is short for many resting state fMRI tasks with 3 or more runs.  We are uploading these data to the NDA and we will post a data set Release 1.1.2 here soon.  We will also update the above `derivatives_qc.(json|tsv)` file as a version 1.0.1 after data are uploaded to include `task-rest` volume runs 3 and up.
 
 ## Release 1.1.0
 
