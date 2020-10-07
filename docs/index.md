@@ -1,39 +1,19 @@
-# Releases
+# Collection News
 
 ## Curator's Latest Update
 
-- 10/6/2020: A small, but important release today.  Brain coverage quality control scores for the `derivatives.func.runs_task-(MID|nback|rest|SST)_volume` data subsets.
+- 10/7/2020: An important release today to assist investigators with quality control (QC): Brain coverage quality control scores for the `derivatives.func.runs_task-(MID|nback|rest|SST)_volume` data subsets.  Remember to QC your data from the release with the [ExecutiveSummary visual report files (see Pipeline stage 7)](https://collection3165.readthedocs.io/en/stable/pipeline/#stage-7-executivesummary), available in the `derivatives.executivesummary.all` data subset.
 
-## Release 1.1.1
+## Latest Release: Release 1.1.1
 
-Released 10/6/2020, this is a small version 1.0.0 release of the `derivatives_qc.(json|tsv)` with BIDS derivatives quality control data including a "brain coverage score" for the `derivatives.func.runs_task-(MID|nback|rest|SST)_volume` data subsets.
+Released 10/7/2020, this is a small version 1.0.0 release of the `derivatives_qc.(json|tsv)` with additional BIDS derivatives quality control data including a "brain coverage score" for the `derivatives.func.runs_task-(MID|nback|rest|SST)_volume` data subsets.
 
-**Note**: We only uploaded runs 1 and 2 of the `derivatives.func.runs_task-(MID|nback|rest|SST)_volume` data subsets in Release 1.1.0.  We are uploading resting state fMRI tasks with 3 or more runs to the NDA now and we will post a data set Release 1.1.2 here soon.  We will also update the above `derivatives_qc.(json|tsv)` file as a version 1.0.1 after data are uploaded to include `task-rest` volume runs 3 and up.
+## Coming Soon: Release 1.1.2
 
-## Release 1.1.0
+Additional minimally pre-processed runs for the `task-rest` volumes and their QC scores:
 
-Released 7/27/2020, this is the next big release with the addition of:
-
-1. `participants.(json|tsv)` version 1.0.0: BIDS standard participants files with matched groups
-1. `sourcedata.func.task_events`: Task-based fMRI E-Prime files
-1. `inputs.dwi.dwi`: DWI BIDS input data
-1. `derivatives.anat.stats`: FreeSurfer stats files
-1. `derivatives.anat.(T1w|T2w)`: T1 and T2 volumes
-1. `derivatives.anat.wmparc`: white-matter volume ROIs
-1. `derivatives.func.updated_motion_task-(MID|nback|SST|rest)`: Improved motion files (including outlier calculation)
-1. `derivatives.func.pconns`: Curated parcellated connectivity files
-1. `derivatives.func.runs_task-(MID|nback|SST|rest)_volume`: Minimally-processed fMRI volumes
-
-## Release 1.0.0
-
-Released 2/17/2020, this is the initial release of DCAN Labs ABCD-BIDS inputs and derivatives containing **10,038 MRI sessions worth of NDA imagingcollection01 data** and **9,647 MRI sessions worth of NDA fmriresults01 data**.
-
-## Coming Soon
-
-### Release 1.1.2
-
-- `derivatives_qc.(json|tsv)` version 1.0.1, including `task-rest` runs 3 and up
-- `derivatives.func.runs_task-rest_volume` data subset runs 3 and up
+- `derivatives.func.runs_task-rest_volume` data subset all runs
+- `derivatives_qc.(json|tsv)` version 1.0.1, including all `task-rest` runs
 
 ## Documentation Guide
 
