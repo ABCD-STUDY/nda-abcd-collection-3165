@@ -4,16 +4,16 @@
 
 - 10/7/2020: An important release today to assist investigators with quality control (QC): Brain coverage quality control scores for the `derivatives.func.runs_task-(MID|nback|rest|SST)_volume` data subsets.  Remember to QC your data from the release with the [ExecutiveSummary visual report files (see Pipeline stage 7)](https://collection3165.readthedocs.io/en/stable/pipeline/#stage-7-executivesummary), available in the `derivatives.executivesummary.all` data subset.
 
-## Latest Release: Release 1.1.1
+## Latest Release: Release 1.1.2
 
-Released 10/7/2020, this is a small version 1.0.0 release of the `derivatives_qc.(json|tsv)` with additional BIDS derivatives quality control data including a "brain coverage score" for the `derivatives.func.runs_task-(MID|nback|rest|SST)_volume` data subsets.
-
-## Coming Soon: Release 1.1.2
-
-Additional minimally pre-processed runs for the `task-rest` volumes and their QC scores:
+Released XX/XX/2020, this is additional minimally pre-processed runs for the `task-rest` volumes and their QC scores:
 
 - `derivatives.func.runs_task-rest_volume` data subset all runs
 - `derivatives_qc.(json|tsv)` version 1.0.1, including all `task-rest` runs
+
+## Coming Soon: Release 2.0.0
+
+[fMRIPrep](https://fmriprep.org/)-processed derivatives for subjects in collection 3165.  We are really looking forward to this one.  Special thanks to Dylan Nielson, Oscar Esteban, and their teams!
 
 ## Documentation Guide
 

@@ -47,6 +47,10 @@ This was the next big release with the addition of:
 
 This was a small version 1.0.0 release of the `derivatives_qc.(json|tsv)` with additional BIDS derivatives quality control data including a "brain coverage score" for the `derivatives.func.runs_task-(MID|nback|rest|SST)_volume` data subsets.
 
+### Release 1.1.2 (XX/XX/2020)
+
+This was a small version 1.0.1 fix release of the `derivatives_qc.(json|tsv)`, to include all `task-rest` runs.
+
 ## 5. Corrections
 
 This sub-section is for describing errors which have occurred over time.

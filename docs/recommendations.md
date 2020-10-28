@@ -40,7 +40,7 @@ The `matched_group` field is the product of comparisons across site, age, sex, e
 
 ## 3. The BIDS Quality Control File
 
-This Quality Control (QC) file contains QC metrics for data from this collection and is available for download on [the main NDA Collection 3165 page](https://nda.nih.gov/edit_collection.html?id=3165).  Version 1.0.0 contains brain coverage scores for all runs 1 and 2 of the `derivatives.func.runs_task-(MID|nback|rest|SST)_volume` data subsets.  Currently, available fields in the QC file are:
+This Quality Control (QC) file contains QC metrics for data from this collection and is available for download on [the main NDA Collection 3165 page](https://nda.nih.gov/edit_collection.html?id=3165).  Version 1.0.1 contains brain coverage scores for all runs of the `derivatives.func.runs_task-(MID|nback|rest|SST)_volume` data subsets.  Currently, available fields in the QC file are:
 
 1. `participant_id`: NDA unique pGUID, starting with `sub-`
 1. `session_id`: Participant's session ID, starting with `ses-`
