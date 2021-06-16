@@ -64,3 +64,11 @@ Discovered in the middle of June 2020, the modality-specific BIDS inherited `tas
 ### `derivatives.func.runs_task-rest_volume`
 
 This data subset was originally uploaded in Release 1.1.0, but was missing all runs chronologically numbered 3 and up.  We are uploading these missing data in Release 1.1.2.
+
+### `released`
+
+The initial release was processed prior to new updates to the fast track QC spreadsheet that affected the original inputs for 157 participants. This led to discrepancies in the number of timepoints reported for connectivity matrices relative to the inputs.
+
+### `updated_dwi_input_json`
+
+The DWI acquisition parameters from all subjects scanned on GE with MR Software release DV25.0_R02_1549.b (n=281) are missing the required field, PhaseEncodingDirection. This omission is because they reported the axis and not direction.

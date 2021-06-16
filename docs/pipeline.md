@@ -70,7 +70,7 @@ Global signal regression (GSR) has been consistently shown to reduce the effects
 
 #### 2. DBP Respiratory Motion Filter
 
-In working with ABCD data, we have found that a respiratory artifact is produced within multi-band data (Fair et al., 2020).  While this artifact occurs outside the brain, it can affect estimates of frame alignment, leading to inappropriate motion censoring.  By filtering the frequencies of the respiratory signal from the motion realignment data, our respiratory motion filter produces better estimates of FD.
+In working with ABCD data, we have found that a respiratory artifact is produced within multi-band data (Fair et al., 2020).  While this artifact occurs outside the brain, it can affect estimates of frame alignment, leading to inappropriate motion censoring.  By filtering the frequencies (18.582 to 25.726) of the respiratory signal from the motion realignment data, our respiratory motion filter produces better estimates of FD.
 
 #### 3. DBP Motion censoring
 

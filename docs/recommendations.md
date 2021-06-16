@@ -33,6 +33,8 @@ In a BIDS standard folder layout there should always be a `participants.tsv` (sp
 1. `participant_education`: Participant grade in school
 1. `parental_education`: Highest level of parental education
 1. `anesthesia_exposure`: History of participant anesthesia exposure
+1. `released`: Participants with updated fast track data based on revised QC (see: [known issues](https://collection3165.readthedocs.io/en/stable/release_notes/#released))
+1. `updated_dwi_input_json`: Participants scanned on GE with MR Software release DV25.0_R02_1549.b (see: [known issues](https://collection3165.readthedocs.io/en/stable/release_notes/#updated_dwi_input_json))
 
 They are available for download on [the main NDA Collection 3165 page](https://nda.nih.gov/edit_collection.html?id=3165).
 
