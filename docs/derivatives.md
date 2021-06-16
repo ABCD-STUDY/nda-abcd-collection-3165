@@ -196,7 +196,7 @@ There are eleven possible BIDS anatomical (`anat`) derivative subsets depending 
 
 ## 4. Functional
 
-There are eight possible BIDS functional (`func`) derivatives depending upon the presence of fMRI runs (all `_____` blanks below would instead be filled in by their fMRI type, see below bulleted list).
+There are eight possible BIDS functional (`func`) derivatives depending upon the presence of fMRI runs (all `_____` blanks below would instead be filled in by their fMRI type, see below bulleted list). See [here](https://pubmed.ncbi.nlm.nih.gov/29567376/) to learn more about the task paradigms.
 
 - Individual run movement files (regression and censoring): `derivatives.func.motion_task-_____`
 - Individual run time series: `derivatives.func.runs_task-_____`

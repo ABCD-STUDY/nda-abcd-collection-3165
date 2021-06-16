@@ -6,7 +6,7 @@ Note: Clicking any link within the readthedocs site will not open a new web brow
 
 ## 1. About this Document
 
-The data collection contains anatomical MRI images (T1w and T2w), functional MRI images processed through [a modified version](https://github.com/DCAN-Labs/DCAN-HCP) of the [minimal preprocessing pipeline for the Human Connectome Project (HCP)](https://doi.org/10.1016/j.neuroimage.2013.04.127), and spin-echo field maps used in preprocessing.  BIDS-formatted diffusion-weighted images and their field maps are included as input data, but have not been minimally preprocessed.  This document describes the BIDS input data and the steps involved in setting it up for processing through the ABCD-BIDS pipeline.
+The data collection contains anatomical MRI images (T1w and T2w), functional MRI images processed through [a modified version](https://github.com/DCAN-Labs/DCAN-HCP) of the [minimal preprocessing pipeline for the Human Connectome Project (HCP)](https://doi.org/10.1016/j.neuroimage.2013.04.127), and spin-echo field maps used in preprocessing.  BIDS-formatted diffusion-weighted images and their field maps are included as input data via , but have not been minimally preprocessed.  This document describes the BIDS input data and the steps involved in setting it up for processing through the ABCD-BIDS pipeline. Other documents describe how to [download the data](https://collection3165.readthedocs.io/en/stable/recommendations/#4-downloading-and-unpacking-data) using our [nda-abcd-s3-downloader](https://github.com/ABCD-STUDY/nda-abcd-s3-downloader) tool.
 
 ## 2. Input Data Subsets Breakdown
 

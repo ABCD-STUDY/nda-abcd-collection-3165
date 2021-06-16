@@ -41,7 +41,7 @@ These documents are generated from [GitHub](https://github.com/ABCD-STUDY/nda-ab
 
 1. [**Recommendations**](https://collection3165.readthedocs.io/en/stable/recommendations/)
 
-    Recommended software, methods, and procedures for analyzing the data.
+    Recommended software, methods, and procedures for [downloading](https://github.com/ABCD-STUDY/nda-abcd-s3-downloader) and analyzing the data.
 
 1. [**Useful Links**](https://collection3165.readthedocs.io/en/stable/useful/)
 

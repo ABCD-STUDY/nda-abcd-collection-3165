@@ -73,9 +73,9 @@ This tool pulls DICOMs and E-Prime files from the NDA's "fast-track" data.  It a
 
 In order to make an accurate correlation matrix, use the MATLAB motion mask file described in release document 4, [Derivatives](https://collection3165.readthedocs.io/en/stable/derivatives/), under the **Motion MAT File** heading.
 
-## 6. Interacting with CIFTI Data Types
+## 6. Interacting with Output Data Types
 
-Released data follows the standards defined by the Human Connectome Project, such as reporting different metrics in standard grayordinate space and saving data using CIFTI standard file formats.
+Along with GIFTIs, released data follows the standards defined by the Human Connectome Project, such as reporting different metrics in standard grayordinate space and saving data using CIFTI standard file formats.
 
 A couple of great blog posts can be read online for more detailed coverage of CIFTI data types and interaction.  These topics will only be briefly discussed in this document.
 
