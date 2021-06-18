@@ -21,7 +21,7 @@ Clicking any link within the readthedocs site will not open a new web browser ta
 
 ---
 
-These documents are generated from [GitHub](https://github.com/ABCD-STUDY/nda-abcd-collection-3165) as a live readthedocs.org website describing various aspects of [the NDA data in collection 3165](https://nda.nih.gov/edit_collection.html?id=3165).
+These documents are generated from [GitHub](https://github.com/ABCD-STUDY/nda-abcd-collection-3165) as a live readthedocs.org website describing various aspects of [the ABCD-BIDS community collection (ABCC)](https://nda.nih.gov/edit_collection.html?id=3165).
 
 1. [**Release Notes**](https://collection3165.readthedocs.io/en/stable/release_notes/)
 
