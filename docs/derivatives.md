@@ -6,7 +6,12 @@ Note: Clicking any link within the readthedocs site will not open a new web brow
 
 ## 1. About this Document
 
-This document reports and describes the derivative files containing processed data that are in this NDA collection.  All BIDS derivative record data types within this document are written in `monospace` font.  They are prefaced by their short names.
+This document reports and describes the derivative files containing processed data that are in the `abcd-hcp-pipeline` and `freesurfer-5.3.0-HCP` derivative folders from the ABCC.  All BIDS derivative record data types within this document are written in `monospace` font.  They are prefaced by their short names. References for other derivatives from pipelines like:
+
+1. [fMRIPrep](https://fmriprep.org/)
+1. [QSIPrep](https://qsiprep.readthedocs.io/en/stable/)
+
+can be found by clicking on their respective links.
 
 ## 2. Derivative Data Subsets Breakdown
 

@@ -6,7 +6,13 @@ Note: Clicking any link within the readthedocs site will not open a new web brow
 
 ## 1. About this Document
 
-This document lightly describes the ABCD-BIDS pipeline used to process the BIDS input data and output the BIDS derivative data.
+This document lightly describes the ABCD-BIDS pipeline used to process the BIDS input data and output the BIDS derivative data. 
+
+Documentation for other pipelines such as:
+1. [fMRIPrep](https://fmriprep.org/)
+1. [QSIPrep](https://qsiprep.readthedocs.io/en/stable/)
+
+can be found by clicking on their respective links.
 
 ## 2. Pipeline Overview
 
