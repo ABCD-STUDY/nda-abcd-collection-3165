@@ -254,7 +254,3 @@ There is a minor bug in the executive summary visual report in this round of pro
 ### Executive Summary labeled as fMRI `scan_type` in records
 
 For all NDA records within this first release the `scan_type` variable was set to fMRI for the executive summary visual reports.
-
-### motion.tsv files are no longer supported
-
-The file desc-includingFD_motion.tsv was produced post-processing as an interface for loading frame-by-frame motion numbers (e.g. X,Y,Z, roll, pitch, and yaw) as tab separated values. It is no longer going to be supported since this is not part of the standard processing stream. For future reference, it is found in the "func" derivatives folder, as described above.
