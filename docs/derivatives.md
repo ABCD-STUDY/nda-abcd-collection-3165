@@ -13,11 +13,52 @@ This document reports and describes the derivative files containing processed da
 
 can be found by clicking on their respective links.
 
-## 2. Derivative Data Subsets Breakdown
+## 2. Anatomical
 
-Sections 3 and onward of this document generally describe what each of the derivative data subsets are.  This section breaks down the exact contents of each of the derivative data subsets.  Subject and session identifiers are instead labeled as `#`.  Each derivative data subset comes with modality-agnostic BIDS-compatible `dataset_description.json`, `README`, and `CHANGES` files and a `derivatives/abcd-hcp-pipeline/` subfolder.  For readability, the `derivatives/abcd-hcp-pipeline/` subfolder has been removed from all below derivative subfolders and filenames.
+There are eleven possible BIDS anatomical (`anat`) derivative subsets depending on whether a T2w image is present or not.  If there is no T1w image present the data set is not processed.  The following `monospace` descriptions are names of the subsets.
 
-`derivatives.anat.stats`
+### Prerequisite: At least one `T1w` MRI
+
+- Cortical Thickness: `derivatives.anat.space-fsLR32k_thickness`
+- Curvature: `derivatives.anat.space-fsLR32k_curv`
+- Sulcal Depth: `derivatives.anat.space-fsLR32k_sulc`
+- Discrete segmentation (native space): `derivatives.anat.space-ACPC_dseg`
+- Mid-thickness surface (MNI space, fsLR164k mesh): `derivatives.anat.space-MNI_mesh-fsLR164k_midthickness`
+- Mid-thickness surface (MNI space, fsLR32k mesh): `derivatives.anat.space-MNI_mesh-fsLR32k_midthickness`
+- Mid-thickness surface (MNI space, native mesh): `derivatives.anat.space-MNI_mesh-native_midthickness`
+- Mid-thickness surface (native space, fsLR32k mesh): `derivatives.anat.space-T1w_mesh-fsLR32k_midthickness`
+- Mid-thickness surface (native space, native mesh): `derivatives.anat.space-T1w_mesh-native_midthickness`
+
+### Prerequisites: At least one `T1w` MRI and at least one `T2w` MRI
+
+- Myelin map (un-smoothed): `derivatives.anat.space-fsLR32k_myelinmap`
+- Myelin map (smoothed): `derivatives.anat.space-fsLR32k_desc-smoothed_myelinmap`
+
+## 3. Functional
+
+There are eight possible BIDS functional (`func`) derivatives depending upon the presence of fMRI runs (all `_____` blanks below would instead be filled in by their fMRI type, see below bulleted list). See [here](https://pubmed.ncbi.nlm.nih.gov/29567376/) to learn more about the task paradigms.
+
+- Individual run movement files (regression and censoring): `derivatives.func.motion_task-_____`
+- Individual run time series: `derivatives.func.runs_task-_____`
+- Concatenated dense time series: `derivatives.func.concat_task-______bold_desc-filtered_timeseries`
+- Gordon 2014 parcellated time series: `derivatives.func.concat_task-______bold_atlas-Gordon2014FreeSurferSubcortical_desc-filtered_timeseries`
+- Human Connectome Project 2016 parcellated time series: `derivatives.func.concat_task-______bold_atlas-HCP2016FreeSurferSubcortical_desc-filtered_timeseries`
+- Markov 2012 parcellated time series: `derivatives.func.concat_task-______bold_atlas-Markov2012FreeSurferSubcortical_desc-filtered_timeseries`
+- Power 2011 parcellated time series: `derivatives.func.concat_task-______bold_atlas-Power2011FreeSurferSubcortical_desc-filtered_timeseries`
+- Yeo 2011 parcellated time series: `derivatives.func.concat_task-______bold_atlas-Yeo2011FreeSurferSubcortical_desc-filtered_timeseries`
+
+### Prerequisites for each fMRI type to have eight derivative data subsets:
+
+- Resting-state (`rest`): At least one `task-rest_bold` fMRI run
+- Monetary Incentive Delay (`MID`): A pair of `task-MID_bold` fMRI runs
+- N-back (`nback`): A pair of `task-nback_bold` fMRI runs
+- Stop Signal Task (`SST`): A pair of `task-SST_bold` fMRI runs
+
+## 4. Derivative Data Subsets Breakdown
+
+Sections 3 and onward of this document generally describe what each of the derivative data subsets are.  This section breaks down the exact contents of each of the derivative data subsets. Each NDA data subset is depicted by each subheading with a description of the files underneath. Subject and session identifiers are instead labeled as `#`.  Each derivative data subset comes with modality-agnostic BIDS-compatible `dataset_description.json`, `README`, and `CHANGES` files and a `derivatives/abcd-hcp-pipeline/` subfolder.  For readability, the `derivatives/abcd-hcp-pipeline/` subfolder has been removed from all below derivative subfolders and filenames.
+
+### Freesurfer statistics: derivatives.anat.stats
 
 FreeSurfer stats folder.
 
@@ -25,90 +66,90 @@ FreeSurfer stats folder.
 
     **NOTE:** `<VARIOUS>` here denotes files directly from the FreeSurfer stats folder.
 
-`derivatives.anat.space-ACPC_dseg`
+### Discrete segmentation (native space): derivatives.anat.space-ACPC_dseg
 
 Discrete segmentation in subject's native space in a NIfTI volume.
 
 - `sub-#/ses-#/anat/sub-#_ses-#_space-ACPC_dseg.nii.gz`
 
-`derivatives.anat.space-fsLR32k_curv`
+### Discrete segmentation (fsLR32k space): derivatives.anat.space-fsLR32k_curv
 
 Dense subject curvature CIFTI.
 
 - `sub-#/ses-#/anat/sub-#_ses-#_space-fsLR32k_curv.dscalar.nii`
 
-`derivatives.anat.space-fsLR32k_sulc`
+### Sulcal Depth (fsLR32k space): derivatives.anat.space-fsLR32k_sulc
 
 Dense subject sulcal depth CIFTI.
 
 - `sub-#/ses-#/anat/sub-#_ses-#_space-fsLR32k_sulc.dscalar.nii`
 
-`derivatives.anat.space-fsLR32k_thickness`
+### Cortical Thickness (fsLR32k space): derivatives.anat.space-fsLR32k_thickness
 
 Dense subject cortical thickness CIFTI.
 
 - `sub-#/ses-#/anat/sub-#_ses-#_space-fsLR32k_thickness.dscalar.nii`
 
-`derivatives.anat.space-fsLR32k_desc-smoothed_myelinmap`
+### Myelin Map (Smoothed, fsLR32k space): derivatives.anat.space-fsLR32k_desc-smoothed_myelinmap
 
 Smoothed myelin map CIFTI (when a T2w image is present in the inputs).
 
 - `sub-#/ses-#/anat/sub-#_ses-#_space-fsLR32k_desc-smoothed_myelinmap.dscalar.nii`
 
-`derivatives.anat.space-fsLR32k_myelinmap`
+### Myelin Map (Unsmoothed, fsLR32k space): derivatives.anat.space-fsLR32k_myelinmap
 
 Unsmoothed myelin map CIFTI (when a T2w image is present in the inputs).
 
 - `sub-#/ses-#/anat/sub-#_ses-#_space-fsLR32k_myelinmap.dscalar.nii`
 
-`derivatives.anat.space-MNI_mesh-fsLR164k_midthickness`
+### Mid-thickness surface (MNI space, fsLR164k mesh): derivatives.anat.space-MNI_mesh-fsLR164k_midthickness
 
 Left and Right mid-thickness CIFTIs in MNI space with fsLR164k surface mesh.
 
 - `sub-#/ses-#/anat/sub-#_ses-#_hemi-L_space-MNI_mesh-fsLR164k_midthickness.surf.gii`
 - `sub-#/ses-#/anat/sub-#_ses-#_hemi-R_space-MNI_mesh-fsLR164k_midthickness.surf.gii`
 
-`derivatives.anat.space-MNI_mesh-fsLR32k_midthickness`
+### Mid-thickness surface (MNI space, fsLR32k mesh):derivatives.anat.space-MNI_mesh-fsLR32k_midthickness
 
 Left and Right mid-thickness CIFTIs in MNI space with fsLR32k surface mesh.
 
 - `sub-#/ses-#/anat/sub-#_ses-#_hemi-L_space-MNI_mesh-fsLR32k_midthickness.surf.gii`
 - `sub-#/ses-#/anat/sub-#_ses-#_hemi-R_space-MNI_mesh-fsLR32k_midthickness.surf.gii`
 
-`derivatives.anat.space-MNI_mesh-native_midthickness`
+### Mid-thickness surface (MNI space, native mesh): derivatives.anat.space-MNI_mesh-native_midthickness
 
 Left and Right mid-thickness CIFTIs in MNI space with native surface mesh.
 
 - `sub-#/ses-#/anat/sub-#_ses-#_hemi-L_space-MNI_mesh-native_midthickness.surf.gii`
 - `sub-#/ses-#/anat/sub-#_ses-#_hemi-R_space-MNI_mesh-native_midthickness.surf.gii`
 
-`derivatives.anat.space-T1w_mesh-fsLR32k_midthickness`
+### Mid-thickness surface (native space, fsLR32k mesh): derivatives.anat.space-T1w_mesh-fsLR32k_midthickness
 
 Left and Right mid-thickness CIFTIs in native T1 space with fsLR32k surface mesh.
 
 - `sub-#/ses-#/anat/sub-#_ses-#_hemi-L_space-T1w_mesh-fsLR32k_midthickness.surf.gii`
 - `sub-#/ses-#/anat/sub-#_ses-#_hemi-R_space-T1w_mesh-fsLR32k_midthickness.surf.gii`
 
-`derivatives.anat.space-T1w_mesh-native_midthickness`
+### Mid-thickness surface (native space, native mesh): derivatives.anat.space-T1w_mesh-native_midthickness
 
 Left and Right mid-thickness CIFTIs in native T1 space with native surface mesh.
 
 - `sub-#/ses-#/anat/sub-#_ses-#_hemi-L_space-T1w_mesh-native_midthickness.surf.gii`
 - `sub-#/ses-#/anat/sub-#_ses-#_hemi-R_space-T1w_mesh-native_midthickness.surf.gii`
 
-`derivatives.anat.(T1w|T2w)`
+### Anatomical Volume (MNI space): derivatives.anat.(T1w|T2w)
 
 Anatomical imaging masked brain or full head in MNI space in a volume.
 
 - `sub-#/ses-#/anat/sub-#_ses-#_(T1w|T2w)_space-MNI_(brain|head).nii.gz`
 
-`derivatives.anat.wmparc`
+### White matter parcellation discrete segmentation (MNI space): derivatives.anat.wmparc
 
 White matter parcellation discrete segmentation file in a volume.
 
 - `sub-#/ses-#/anat/sub-#_ses-#_T1w_space-MNI_desc-wmparc_dseg.nii.gz`
 
-`derivatives.executivesummary.all`
+### Executive Summary: derivatives.executivesummary.all
 
 DCAN Labs executive summary HTML processing visual inspection summary.
 
@@ -117,7 +158,7 @@ DCAN Labs executive summary HTML processing visual inspection summary.
 
     **NOTE:** `<VARIOUS>` denotes a variety of `.gif` and `.png` images used in conjunction with the `.html` file which vary in count based on counts of available input images.
 
-`derivatives.func.concat_task-(MID|nback|SST|rest)_bold_atlas-(Gordon2014|HCP2016|Markov2012|Power2011|Yeo2011)FreeSurferSubcortical_desc-filtered_timeseries`
+### Parcellated functional timeseries: derivatives.func.concat_task-(MID|nback|SST|rest)_bold_atlas-(Gordon2014|HCP2016|Markov2012|Power2011|Yeo2011)FreeSurferSubcortical_desc-filtered_timeseries
 
 A dense label parcellation with FreeSurfer subcorticals with names corresponding to the first author and publication year.
 
@@ -141,7 +182,7 @@ A "5 contiguous frames" motion censoring algorithm file of temporal masks by FD 
 
 - `sub-#/ses-#/func/sub-#_ses-#_task-(MID|nback|SST|rest)_desc-filtered_motion_mask.mat`
 
-`derivatives.func.motion_task-(MID|nback|SST|rest)`
+### Motion Framewise displacements: derivatives.func.motion_task-(MID|nback|SST|rest)
 
 A "5 contiguous frames" motion censoring algorithm file of temporal masks by FD threshold (0mm->0.5mm) with or without outlier detection in use.
 
@@ -152,72 +193,32 @@ Movement-artifact-unfiltered or Movement-artifact-filtered (`_desc-filtered`) mo
 - `sub-#/ses-#/func/sub-#_ses-#_task-(MID|nback|SST|rest)_run-#_motion.tsv`
 - `sub-#/ses-#/func/sub-#_ses-#_task-(MID|nback|SST|rest)_run-#_desc-filtered_motion.tsv`
 
-`derivatives.func.updated_motion_task-(MID|nback|SST|rest)`
+### Motion and Framewise displacement (filtered): derivatives.func.updated_motion_task-(MID|nback|SST|rest)
 
 Movement-artifact-unfiltered or Movement-artifact-filtered (`_desc-filtered`) movement numbers with an FD column included (this one is recommended over the original `derivatives.func.motion_task-(MID|nback|SST|rest)` motion files).
 
 - `sub-#/ses-#/func/sub-#_ses-#_task-(MID|nback|SST|rest)_run-#_desc-includingFD_motion.tsv`
 - `sub-#/ses-#/func/sub-#_ses-#_task-(MID|nback|SST|rest)_run-#_desc-filteredincludingFD_motion.tsv`
 
-`derivatives.func.pconns`
+### Parcellated Connectivity: derivatives.func.pconns
 
 Connectivity matrix and its frame censor with either 5 minutes of data (`_censor-5min`), 10 minutes of data (`_censor-10min`), or all frames (`_censor-belowthresh`) below the FD threshold of 0.2 mm (`_thresh-fd0p2mm`).
 
 - `sub-#/ses-#/func/sub-#_ses-#_task-rest_bold_atlas-Gordon2014FreeSurferSubcortical_desc-filtered_timeseries_thresh-fd0p2mm_censor-(5min|10min|belowthresh)_conndata-network_(censor.txt|connectivity.pconn.nii)`
 
-`derivatives.func.runs_task-(MID|nback|SST|rest)`
+### Individual functional run and motion files: derivatives.func.runs_task-(MID|nback|SST|rest)
 
 Individual minimally-processed functional task run dense time series in Atlas space pre-DCANBOLDProcessing with original filtered motion numbers.
 
 - `sub-#/ses-#/func/sub-#_ses-#_task-(MID|nback|SST|rest)_run-#_bold_timeseries.dtseries.nii`
 - `sub-#/ses-#/func/sub-#_ses-#_task-(MID|nback|SST|rest)_run-#_desc-filtered_motion.tsv`
 
-`derivatives.func.runs_task-(MID|nback|SST|rest)_volume`
+### Individual functional volumes: derivatives.func.runs_task-(MID|nback|SST|rest)_volume
 
 Motion-corrected individual functional task run in MNI space in a volume.
 
 - `sub-#/ses-#/func/sub-#_ses-#_task-(MID|nback|SST|rest)_run-#_space-MNI_bold.nii.gz`
 
-## 3. Anatomical
-
-There are eleven possible BIDS anatomical (`anat`) derivative subsets depending on whether a T2w image is present or not.  If there is no T1w image present the data set is not processed.  The following `monospace` descriptions are names of the subsets.
-
-### Prerequisite: At least one `T1w` MRI
-
-- Cortical Thickness: `derivatives.anat.space-fsLR32k_thickness`
-- Curvature: `derivatives.anat.space-fsLR32k_curv`
-- Sulcal Depth: `derivatives.anat.space-fsLR32k_sulc`
-- Discrete segmentation (native space): `derivatives.anat.space-ACPC_dseg`
-- Mid-thickness surface (MNI space, fsLR164k mesh): `derivatives.anat.space-MNI_mesh-fsLR164k_midthickness`
-- Mid-thickness surface (MNI space, fsLR32k mesh): `derivatives.anat.space-MNI_mesh-fsLR32k_midthickness`
-- Mid-thickness surface (MNI space, native mesh): `derivatives.anat.space-MNI_mesh-native_midthickness`
-- Mid-thickness surface (native space, fsLR32k mesh): `derivatives.anat.space-T1w_mesh-fsLR32k_midthickness`
-- Mid-thickness surface (native space, native mesh): `derivatives.anat.space-T1w_mesh-native_midthickness`
-
-### Prerequisites: At least one `T1w` MRI and at least one `T2w` MRI
-
-- Myelin map (un-smoothed): `derivatives.anat.space-fsLR32k_myelinmap`
-- Myelin map (smoothed): `derivatives.anat.space-fsLR32k_desc-smoothed_myelinmap`
-
-## 4. Functional
-
-There are eight possible BIDS functional (`func`) derivatives depending upon the presence of fMRI runs (all `_____` blanks below would instead be filled in by their fMRI type, see below bulleted list). See [here](https://pubmed.ncbi.nlm.nih.gov/29567376/) to learn more about the task paradigms.
-
-- Individual run movement files (regression and censoring): `derivatives.func.motion_task-_____`
-- Individual run time series: `derivatives.func.runs_task-_____`
-- Concatenated dense time series: `derivatives.func.concat_task-______bold_desc-filtered_timeseries`
-- Gordon 2014 parcellated time series: `derivatives.func.concat_task-______bold_atlas-Gordon2014FreeSurferSubcortical_desc-filtered_timeseries`
-- Human Connectome Project 2016 parcellated time series: `derivatives.func.concat_task-______bold_atlas-HCP2016FreeSurferSubcortical_desc-filtered_timeseries`
-- Markov 2012 parcellated time series: `derivatives.func.concat_task-______bold_atlas-Markov2012FreeSurferSubcortical_desc-filtered_timeseries`
-- Power 2011 parcellated time series: `derivatives.func.concat_task-______bold_atlas-Power2011FreeSurferSubcortical_desc-filtered_timeseries`
-- Yeo 2011 parcellated time series: `derivatives.func.concat_task-______bold_atlas-Yeo2011FreeSurferSubcortical_desc-filtered_timeseries`
-
-### Prerequisites for each fMRI type to have eight derivative data subsets:
-
-- Resting-state (`rest`): At least one `task-rest_bold` fMRI run
-- Monetary Incentive Delay (`MID`): A pair of `task-MID_bold` fMRI runs
-- N-back (`nback`): A pair of `task-nback_bold` fMRI runs
-- Stop Signal Task (`SST`): A pair of `task-SST_bold` fMRI runs
 
 ## 5. Executive Summary
 
