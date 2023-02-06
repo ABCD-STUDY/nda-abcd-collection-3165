@@ -1,5 +1,5 @@
 site_name: Collection 3165 - ABCD-BIDS Community Collection (ABCC)
-theme: material
+theme: readthedocs
 plugins:
   - search
 docs_dir: docs
