@@ -20,7 +20,7 @@ Latest updates are detailed below.
 
 
 
-## Coming Soon: Release 2.0.0
+## Coming Soon: Release 2.0.0 (#Remove/Replace it with 3.0.0 year2 BIDs/derivatives, QSIPrep revisions, new fMRIPrep, zero-padding corrections)
 
 - Uploading 144 participants with new data due to revised fast track QC
 - Providing Connectivity matrices for those participants with discrepancies in the number of timepoints used
