@@ -133,5 +133,3 @@ participant \
 Any papers using outputs from this pipeline should acknowledge this contribution of computational resources with the following line:
 
 “This work used the computational resources of the NIH HPC (high-performance computing) Biowulf cluster (http://hpc.nih.gov).”
-
-### Infomap
