@@ -3,7 +3,7 @@ theme: readthedocs
 plugins:
   - search
 docs_dir: docs
-pages:
+nav:
   - Table of Contents: index.md
   - 1. Release Notes: release_notes.md
   - 2. Inputs: inputs.md
