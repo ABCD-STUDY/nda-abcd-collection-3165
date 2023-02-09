@@ -14,36 +14,31 @@ Latest updates are detailed below.
 
 # Collection News
 
-## Curator's Latest Update
+## Coming Soon:
 
-- 10/7/2020: An important release today to assist investigators with quality control (QC): Brain coverage quality control scores for the `derivatives.func.runs_task-(MID|nback|rest|SST)_volume` data subsets.  Remember to QC your data from the release with the [ExecutiveSummary visual report files (see Pipeline stage 7)](https://collection3165.readthedocs.io/en/stable/pipeline/#stage-7-executivesummary), available in the `derivatives.executivesummary.all` data subset.
+- Year 2 BIDS input data
 
+- Year 2 abcd-hcp-pipeline derivatives
 
+- Additional year 1 BIDS input and abcd-hcp-pipeline derivatives
 
-## Coming Soon: Release 2.0.0 (#Remove/Replace it with 3.0.0 year2 BIDs/derivatives, QSIPrep revisions, new fMRIPrep, zero-padding corrections)
+- Zero padding correction (TODO: Anders)
 
-- Uploading 144 participants with new data due to revised fast track QC
-- Providing Connectivity matrices for those participants with discrepancies in the number of timepoints used
-- Uploading JSONs for the diffusion inputs in some participants
-- `derivatives.func.runs_task-rest_volume` data subset all runs
-- `derivatives_qc.(json|tsv)` version 1.0.1, including all `task-rest` runs
-- Updated `participants.tsv` file containing new columns indicating which participants were updated under the new `released` fast track and have `updated_dwi_input_json` files, see the [release-notes](https://collection3165.readthedocs.io/en/stable/release_notes.html#5-corrections) for more information. 
+- New version of [QSIPrep](https://qsiprep.readthedocs.io/en/stable/)- year 1 derivatives.
+    - There was in issue for some subjects in distortion correction that resulted in very inaccurate distortion correction results. This was due to TOPUP being given a denoised b=0 image from the DWI series and a raw b=0 image in the opposite phase encoding direction (taken from the image in the fmap/ directory). We updated QSIPrep to use the unprocessed b=0 images in both phase encoding directions, which resulted in TOPUP performing as expected.
+    
+    The bug affected a subset of subjects, but it is worth suggesting that anyone using the initial data re-calculate their analysis using the updated version.
 
-- [fMRIPrep](https://fmriprep.org/)-processed derivatives for subjects in the ABCC. We are really excited to provide fMRIprep standardized outputs. Special thanks to Dylan Nielson, Oscar Esteban, and their teams!
+(TODO: Edit this section @Feczko)
+- New version of [fMRIPrep](https://fmriprep.org/) 23.x.x year 1 derivatives. Special thanks to Thomas Madison, etc.
+    - Improved distortion correction
+    - Improved bold projection to surface
+    - New CIFTI outputs
+    - T2w in T1w volume space
 
-- [QSIPrep](https://qsiprep.readthedocs.io/en/stable/)-processed derivatives for subjects in the ABCC. We are really excited to provide the ABCC with the new QSIPrep standardized pipeline. Special thanks to Matt Cieslak, Sydney Covitz, Tim Hendrickson, Ted Satterthwaite, and their teams!
+- Change to participants.tsv format (TODO: Anders link to recomendations section)
 
-- [ABCD-BIDS-tfmri-pipeline](https://github.com/DCAN-Labs/ABCD-BIDS-task-fmri-pipeline)-processed derivatives for subjects in the ABCC. We are really excited to provide level-2 contrast parameter estimates based off a BIDS-extension of task-derived outputs! Special thanks to Anthony Juliano and Greg Conan!
-
-- [Indiviudalized parcellated network]() derivatives for subjects in the ABCC. We are really excited to provide individualized networks derived from two different approavhes. Special thanks to Robert Hermosillo and Lucille Moore!
-
-
-
-## Documentation Guide
-
-Clicking any link within the readthedocs site will not open a new web browser tab.  If you want to keep your docs open, either middle-click or right-click and choose open in new tab for the links you would like to follow.
-
----
+## Table of Contents (TODO: Audrey cleanup)
 
 These documents are generated from [GitHub](https://github.com/ABCD-STUDY/nda-abcd-collection-3165) as a live readthedocs.org website describing various aspects of [the ABCD-BIDS community collection (ABCC)](https://nda.nih.gov/edit_collection.html?id=3165).
 
@@ -62,6 +57,8 @@ These documents are generated from [GitHub](https://github.com/ABCD-STUDY/nda-ab
 1. [**Derivatives**](https://collection3165.readthedocs.io/en/stable/derivatives/)
 
     A reference for the anatomical, functional, and executive summary derivative data.
+
+1. [**Post Pipeline**](https://collection3165.readthedocs.io/en/stable/postpipeline/)
 
 1. [**Recommendations**](https://collection3165.readthedocs.io/en/stable/recommendations/)
 
