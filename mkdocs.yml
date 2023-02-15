@@ -8,7 +8,7 @@ nav:
   - 1. Table of Contents: tableofcontents.md
   - 2. Release Notes: release_notes.md
   - 3. Inputs: inputs.md
-  - 4. Pipeline: pipeline.md
+  - 4. Pipeline: pipelines.md
   - 5. Post Pipeline: postpipeline.md
   - 6. Derivatives: derivatives.md
   - 7. Recommendations: recommendations.md

@@ -16,13 +16,11 @@ Latest updates are detailed below.
 
 ## Coming Soon:
 
-- Year 2 BIDS input data
-
-- Year 2 abcd-hcp-pipeline derivatives
+- Year 2 BIDS inputs and abcd-hcp-pipeline derivatives
 
 - Additional year 1 BIDS input and abcd-hcp-pipeline derivatives
 
-- Zero padding correction (TODO: Anders)
+- The timeseries data has been reprocessed with an updated version of the abcd-hcp-pipeline (v1.0.3) with improved bandpass filtering to the BOLD data. The new implementation zero pads the BOLD data prior to filtering to minimize distortions at the beginning and ending timepoints. It's important to note that this is not a bug, but rather an improvement. This release does not invalidate previous results, it reduces variance towards the beginning and end of the time-series data. In the previous release, those frames are labeled as "outliers" and discarded according to the provided mask. Using these updated timeseries users should be able to include more data in their analyses. (TODO: Provide specific derivatives filenames)
 
 - New version of [QSIPrep](https://qsiprep.readthedocs.io/en/stable/)- year 1 derivatives.
     - There was in issue for some subjects in distortion correction that resulted in very inaccurate distortion correction results. This was due to TOPUP being given a denoised b=0 image from the DWI series and a raw b=0 image in the opposite phase encoding direction (taken from the image in the fmap/ directory). We updated QSIPrep to use the unprocessed b=0 images in both phase encoding directions, which resulted in TOPUP performing as expected.

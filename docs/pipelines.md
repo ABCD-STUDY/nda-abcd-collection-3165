@@ -9,7 +9,7 @@ Note: Clicking any link within the readthedocs site will not open a new web brow
 This document lightly describes the ABCD-BIDS pipeline, fMRIPrep, and QSIPrep used to process the BIDS input data and output the BIDS derivative data. 
 
 Further documentation for these pipelines can be found by clicking on their respective links.:
-1. [abcd-hcp-pipeline](dockerhub hyperlink)
+1. [abcd-hcp-pipeline](https://hub.docker.com/r/dcanlabs/abcd-hcp-pipeline)
 1. [fMRIPrep](https://fmriprep.org/)
 1. [QSIPrep](https://qsiprep.readthedocs.io/en/stable/)
 
