@@ -1,4 +1,4 @@
-# Post-processing Analyses
+# Post Pipeline Tools
 
 After fMRI processing we include a couple post processing and analysis steps
 

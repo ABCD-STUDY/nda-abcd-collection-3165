@@ -14,59 +14,26 @@ Latest updates are detailed below.
 
 # Collection News
 
-## Curator's Latest Update
+## Coming Soon:
 
-- 10/7/2020: An important release today to assist investigators with quality control (QC): Brain coverage quality control scores for the `derivatives.func.runs_task-(MID|nback|rest|SST)_volume` data subsets.  Remember to QC your data from the release with the [ExecutiveSummary visual report files (see Pipeline stage 7)](https://collection3165.readthedocs.io/en/stable/pipeline/#stage-7-executivesummary), available in the `derivatives.executivesummary.all` data subset.
+- Year 2 BIDS inputs and abcd-hcp-pipeline derivatives
 
+- Additional year 1 BIDS input and abcd-hcp-pipeline derivatives
 
+- The timeseries data has been reprocessed with an updated version of the abcd-hcp-pipeline (v1.0.3) with improved bandpass filtering to the BOLD data. The new implementation zero pads the BOLD data prior to filtering to minimize distortions at the beginning and ending timepoints. It's important to note that this is not a bug, but rather an improvement. This release does not invalidate previous results, it reduces variance towards the beginning and end of the time-series data. In the previous release, those frames are labeled as "outliers" and discarded according to the provided mask. Using these updated timeseries users should be able to include more data in their analyses. (TODO: Provide specific derivatives filenames)
 
-## Coming Soon: Release 2.0.0 (#Remove/Replace it with 3.0.0 year2 BIDs/derivatives, QSIPrep revisions, new fMRIPrep, zero-padding corrections)
+- New version of [QSIPrep](https://qsiprep.readthedocs.io/en/stable/)- year 1 derivatives.
+    - There was in issue for some subjects in distortion correction that resulted in very inaccurate distortion correction results. This was due to TOPUP being given a denoised b=0 image from the DWI series and a raw b=0 image in the opposite phase encoding direction (taken from the image in the fmap/ directory). We updated QSIPrep to use the unprocessed b=0 images in both phase encoding directions, which resulted in TOPUP performing as expected.
+    
+    The bug affected a subset of subjects, but it is worth suggesting that anyone using the initial data re-calculate their analysis using the updated version.
 
-- Uploading 144 participants with new data due to revised fast track QC
-- Providing Connectivity matrices for those participants with discrepancies in the number of timepoints used
-- Uploading JSONs for the diffusion inputs in some participants
-- `derivatives.func.runs_task-rest_volume` data subset all runs
-- `derivatives_qc.(json|tsv)` version 1.0.1, including all `task-rest` runs
-- Updated `participants.tsv` file containing new columns indicating which participants were updated under the new `released` fast track and have `updated_dwi_input_json` files, see the [release-notes](https://collection3165.readthedocs.io/en/stable/release_notes.html#5-corrections) for more information. 
+(TODO: Edit this section @Feczko)
+- New version of [fMRIPrep](https://fmriprep.org/) 23.x.x year 1 derivatives. Special thanks to Thomas Madison, etc.
+    - Improved distortion correction
+    - Improved bold projection to surface
+    - New CIFTI outputs
+    - T2w in T1w volume space
 
-- [fMRIPrep](https://fmriprep.org/)-processed derivatives for subjects in the ABCC. We are really excited to provide fMRIprep standardized outputs. Special thanks to Dylan Nielson, Oscar Esteban, and their teams!
-
-- [QSIPrep](https://qsiprep.readthedocs.io/en/stable/)-processed derivatives for subjects in the ABCC. We are really excited to provide the ABCC with the new QSIPrep standardized pipeline. Special thanks to Matt Cieslak, Sydney Covitz, Tim Hendrickson, Ted Satterthwaite, and their teams!
-
-- [ABCD-BIDS-tfmri-pipeline](https://github.com/DCAN-Labs/ABCD-BIDS-task-fmri-pipeline)-processed derivatives for subjects in the ABCC. We are really excited to provide level-2 contrast parameter estimates based off a BIDS-extension of task-derived outputs! Special thanks to Anthony Juliano and Greg Conan!
-
-- [Indiviudalized parcellated network]() derivatives for subjects in the ABCC. We are really excited to provide individualized networks derived from two different approavhes. Special thanks to Robert Hermosillo and Lucille Moore!
-
+- Change to participants.tsv format (TODO: Anders link to recomendations section)
 
 
-## Documentation Guide
-
-Clicking any link within the readthedocs site will not open a new web browser tab.  If you want to keep your docs open, either middle-click or right-click and choose open in new tab for the links you would like to follow.
-
----
-
-These documents are generated from [GitHub](https://github.com/ABCD-STUDY/nda-abcd-collection-3165) as a live readthedocs.org website describing various aspects of [the ABCD-BIDS community collection (ABCC)](https://nda.nih.gov/edit_collection.html?id=3165).
-
-1. [**Release Notes**](https://collection3165.readthedocs.io/en/stable/release_notes/)
-
-    A document describing the overarching goals and summary of collection 3165.
-
-1. [**Inputs**](https://collection3165.readthedocs.io/en/stable/inputs/)
-
-    A reference for the curated BIDS anatomical, functional, and field map input data.  This reference describes how the data were selected and prepared for processing.
-
-1. [**Pipeline**](https://collection3165.readthedocs.io/en/stable/pipeline/)
-
-    A description of the ABCD-BIDS MRI processing pipeline used on the input data to create the derivative data.
-
-1. [**Derivatives**](https://collection3165.readthedocs.io/en/stable/derivatives/)
-
-    A reference for the anatomical, functional, and executive summary derivative data.
-
-1. [**Recommendations**](https://collection3165.readthedocs.io/en/stable/recommendations/)
-
-    Recommended software, methods, and procedures for [downloading](https://github.com/ABCD-STUDY/nda-abcd-s3-downloader) and analyzing the data.
-
-1. [**Useful Links**](https://collection3165.readthedocs.io/en/stable/useful/)
-
-    Links found throughout the documents collected into one page.

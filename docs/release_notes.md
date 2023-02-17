@@ -32,14 +32,13 @@ User feedback will guide our course for future releases.  Provide feedback on wh
 
 ## 4. Release History
 
-[TODO: Info about zero padding update in DBP, QSIPrep, and future releases (zero byte data)]
-
 ### Release 2.0.0 (6/22/2022)
 
 New updates (include dates) to the ABCD BIDS Community Collection cover both revisions to existing datasets and new derivatives. Revisions include:
 1. Uploading 144 participants with new data due to revised fast track QC
 2. Providing Connectivity matrices for those participants with discrepancies in the number of timepoints used
 3. Uploading JSONs for the diffusion inputs in some participants.
+4. Updated version of the participants.tsv to v1.0.2 includes correction to site and sex designation for a small subset of subjects based on new information from the DAIC.
 
 New additions include:
 1. Individual-specific network labels based on a template matching approach and infomap approaches
@@ -73,22 +72,17 @@ The DWI acquisition parameters from subjects scanned on Philips and GE with MR S
 
  Multiple versions of the time series are provided, to allow investigator flexibility in their desired analysis: either exactly 10 minutes of randomly sampled frames, all available frames below the 0.2mm FD threshold, or concatenated rest and task time series data in the following order: rest, MID, n-back, and SST (provided that the participant had an available scan for the task). For full details of inter- and intra- participant reliability, and motion correction, see Hermosillo et al. 2021 (in prep).
 
-
-#### Individual-specific network maps (Infomap)
-
-TODO: link to description and brief overview of subject counts
-
 TODO Submission IDs
 
 #### Template Matching
 
-TODO: link to description and brief overview of subject counts
+TODO Robert: link to description and brief overview of subject counts
 
 *Submission IDs: 36458 - 36630*
 
 #### Task outputs
 
-TODO: link to description and brief overview of subject counts
+TODO Fez: link to description and brief overview of subject counts
 
 TODO Submission IDs
 
@@ -120,9 +114,9 @@ This was the next big release with the addition of:
 This was the initial release of DCAN Labs ABCD-BIDS inputs and derivatives containing **10,038 MRI sessions worth of NDA imagingcollection01 data** and **9,647 MRI sessions worth of NDA fmriresults01 data**.
 
 
-## 5. Corrections
+## Corrections
 
-This sub-section is for describing errors which have occurred over time.
+This sub-section is for describing corrections which have occurred over time.
 
 ### `task-rest_bold.json`
 
