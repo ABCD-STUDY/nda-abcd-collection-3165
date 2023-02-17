@@ -5,8 +5,6 @@ After fMRI processing we include a couple post processing and analysis steps
 ## Connectivity Matrix Generation
 Parcellated connectivity matrices (pconns) are much smaller, and can be further explored to estimate within-study results reproducibility. Using the different sets of parcellated timeseries, we calculated the lag-zero pearson’s correlation coefficient between every pair of parcellated regions of interest (ROIs). Per subject and parcellation scheme, this results in an ROI x ROI correlation matrix. The provided connectivity derivatives were extracted with an FD threshold of 0.2 mm for [5 minutes and 10 minutes of data](https://collection3165.readthedocs.io/en/stable/derivatives/#4-functional). A variance stabilization procedure was applied to the correlations prior to uploading. Specifically, the inverse hyperbolic tangent was applied to the correlations: z = arctanh(r). The maximum value displayed is 7.254329. Applying the hyperbolic tangent will recover the pearson's correlation: r = tanh(z).
 
-(TODO: Reach out to Oscar about connectivity matrix utilities)
-
 ## Individual-specific network maps 
 
 Multiple versions of the time series are provided, to allow investigator flexibility in their desired analysis: either exactly 10 minutes of randomly sampled frames, all available frames below the 0.2mm FD threshold, or concatenated rest and task time series data in the following order: rest, MID, n-back, and SST (provided that the participant had an available scan for the task). For full details of inter- and intra- participant reliability, and motion correction, see Hermosillo et al. 2021 (in prep).
