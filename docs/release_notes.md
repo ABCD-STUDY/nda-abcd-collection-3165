@@ -1,26 +1,5 @@
 # Release Notes
 
-Note: Clicking any link within the readthedocs site will not open a new web browser tab.  If you want to keep your docs open, either middle-click or right-click and choose open in new tab for the links you would like to follow.
-
----
-
-## 1. The ABCC Collection
-
-The ABCC houses a community-shared and continually updated ABCD neuroimaging dataset available under Brain Imaging Data Structure (BIDS) standards. Source data are converted to BIDS from the [NIMH Data Archive (NDA) share of ABCD fast-track data](https://nda.nih.gov/edit_collection.html?id=2573). Only data that passed the Data Analysis Imaging Center (DAIC) quality control are included. 
-
-Currently, the ABCD-BIDS Community Collection (ABCC) from the Developmental Cognition and Neuroimaging (DCAN) Labs contains a regularly updated dataset of ABCD Brain Imaging Data Structure (BIDS) version 1.2.0 pipeline inputs and derivatives. Source data are currently comprised of all the ABCD Study participants baseline year 1 arm 1 DICOM imaging data that passed initial acquisition quality control from the ABCD Data Analysis and Informatics Center (DAIC) and were processed by DCAN Labs. Per task, the first two bold runs that passed QC were pulled and converted to BIDS.
-
-The version 1.0.0 release focuses on anatomical and resting-state fMRI derivative data. Version 2.0.0 will add new derivatives including diffusion and task fMRI deriative data.
-
-## 2. Background
-
-As a community share, the ABCC enables researchers to access **available derivatives** and share their **own derivatives.**. The `inputs`, `abcd-hcp-pipeline`, and `freesurfer-5.3.0-HCP` shares are continually updated as new ABCD releases become available. A list of currently available datasets are provided below. The list will be updated continously as the NDA publically releases new shared datasets:
-
-1. `inputs` The input DICOM data to this [BIDS version 1.2.0](https://www.nature.com/articles/sdata201644) data collection were retrieved from the [NIMH Data Archive (NDA) share of ABCD fast-track data](https://nda.nih.gov/edit_collection.html?id=2573) and were last accessed on May 1, 2019. BIDS input data were converted from DICOMs using [Dcm2Bids](https://github.com/cbedetti/Dcm2Bids). 
-1. `abcd-hcp-pipeline` BIDS derivatives data were derived from the [DCAN Labs ABCD-BIDS MRI processing pipeline](https://doi.org/10.5281/zenodo.2587210) which outputs [Human Connectome Project (HCP) Minimal Preprocessing Pipelines-style data](https://doi.org/10.1016/j.neuroimage.2013.04.127) in both volume and surface spaces. This collection is independent from ABCD Data Collection 2573. Users may access ABCD DICOM files via the ABCD fast-track imaging data release in Collection 2573.
-1. `freesurfer-5.3.0-HCP` segmentation statistics and surface morphometrics from the FreeSurfer stage within the [DCAN Labs ABCD-BIDS MRI processing pipeline](https://doi.org/10.5281/zenodo.2587210) are provided here.
-
-
 ## 3. Ongoing Releases
 
 A guiding principle for this collection is to release essential data for analysis.  This collection will be updated with waves of data preparation and processing.  As waves complete preparation or processing they will be uploaded and version-stamped with updated and versioned release notes.
@@ -34,7 +13,7 @@ User feedback will guide our course for future releases.  Provide feedback on wh
 
 ### Release 2.0.0 (6/22/2022)
 
-New updates (include dates) to the ABCD BIDS Community Collection cover both revisions to existing datasets and new derivatives. Revisions include:
+New updates (TODO: include dates) to the ABCD BIDS Community Collection cover both revisions to existing datasets and new derivatives. Revisions include:
 1. Uploading 144 participants with new data due to revised fast track QC
 2. Providing Connectivity matrices for those participants with discrepancies in the number of timepoints used
 3. Uploading JSONs for the diffusion inputs in some participants.
@@ -76,17 +55,17 @@ TODO Submission IDs
 
 #### Template Matching
 
-TODO Robert: link to description and brief overview of subject counts
+(TODO Anders edit Robert's tempalte matching section and summarize here): link to description and brief overview of subject counts
 
 *Submission IDs: 36458 - 36630*
 
 #### Task outputs
 
-TODO Fez: link to description and brief overview of subject counts
+(TODO Audrey: link to description)
 
-TODO Submission IDs
+(TODO: Add section about the task derivatives. @Audrey give Fez a list of all task derivatives)
 
-(TODO: Add section about the task derivatives. @Anders give Fez a list of all task derivatives)
+(TODO Submission IDs)
 
 ### Release 1.1.1 (10/7/2020)
 
@@ -107,14 +86,11 @@ This was the next big release with the addition of:
 1. `derivatives.func.pconns`: Curated parcellated connectivity files
 1. `derivatives.func.runs_task-(MID|nback|SST|rest)_volume`: Minimally-processed fMRI volumes
 
-
-
 ### Release 1.0.0 (2/17/2020)
 
 This was the initial release of DCAN Labs ABCD-BIDS inputs and derivatives containing **10,038 MRI sessions worth of NDA imagingcollection01 data** and **9,647 MRI sessions worth of NDA fmriresults01 data**.
 
-
-## Corrections
+### Corrections
 
 This sub-section is for describing corrections which have occurred over time.
 
