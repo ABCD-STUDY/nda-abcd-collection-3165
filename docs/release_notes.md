@@ -47,7 +47,7 @@ The DWI acquisition parameters from subjects scanned on Philips and GE with MR S
 
 *Submission ID: 36448*
 
-#### Individual-specific network maps (TODO: Add further explanation to pipelines/derivatives - Robert Hermosillo)
+#### Individual-specific network maps
 
  Multiple versions of the time series are provided, to allow investigator flexibility in their desired analysis: either exactly 10 minutes of randomly sampled frames, all available frames below the 0.2mm FD threshold, or concatenated rest and task time series data in the following order: rest, MID, n-back, and SST (provided that the participant had an available scan for the task). For full details of inter- and intra- participant reliability, and motion correction, see Hermosillo et al. 2021 (in prep).
 
@@ -90,20 +90,18 @@ This was the next big release with the addition of:
 
 This was the initial release of DCAN Labs ABCD-BIDS inputs and derivatives containing **10,038 MRI sessions worth of NDA imagingcollection01 data** and **9,647 MRI sessions worth of NDA fmriresults01 data**.
 
-### Corrections
+#### Corrections
 
-This sub-section is for describing corrections which have occurred over time.
-
-### `task-rest_bold.json`
+##### `task-rest_bold.json`
 
 Discovered in the middle of June 2020, the modality-specific BIDS inherited `task-rest_bold.json` file at the top of the directory tree which is nested in almost every `task-rest` associated record in the NDA database has a typo in it.  The `"TaskDescription"` key has a value of `"See http://www.cognitiveatlas.org/task/id/tsk_4a57abb949e1a/"`.  However, this link goes to the stop signal task page on the Cognitive Atlas website.  Instead you should refer to [the Cognitive Atlas website for "rest eyes open"](http://www.cognitiveatlas.org/task/id/trm_4c8a834779883/).  This site describes the task as:
 
-> Subjects rest passively with their eyes open. Often used as a baseline for comparison for other tasks.
+"Subjects rest passively with their eyes open. Often used as a baseline for comparison for other tasks."
 
-### `derivatives.func.runs_task-rest_volume`
+##### `derivatives.func.runs_task-rest_volume`
 
 This data subset was originally uploaded in Release 1.1.0, but was missing all runs chronologically numbered 3 and up.  We are uploading these missing data in Release 1.1.2.
 
-### `updated_dwi_input_json`
+#### `updated_dwi_input_json`
 
 The DWI acquisition parameters from all subjects scanned on GE with MR Software release DV25.0_R02_1549.b (n=281) are missing the required field, PhaseEncodingDirection. This omission is because they reported the axis and not direction.
