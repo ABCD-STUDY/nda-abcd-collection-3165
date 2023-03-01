@@ -1,8 +1,4 @@
-# Pipeline (TODO: Split out all pipelines into seperate md files)
-
-Note: Clicking any link within the readthedocs site will not open a new web browser tab.  If you want to keep your docs open, either middle-click or right-click and choose open in new tab for the links you would like to follow.
-
----
+# Pipeline
 
 ## 1. About this Document
 
@@ -137,4 +133,4 @@ Any papers using outputs from this pipeline should acknowledge this contribution
 
 ## QSIPrep
 
-(TODO: Get QSIPrep pipeline description from Matt)
+(TODO: Anders will add from MSI run dir)
