@@ -32,8 +32,6 @@ User feedback will guide our course for future releases.  Provide feedback on wh
 
 ## 4. Release History
 
-[TODO: Info about zero padding update in DBP, QSIPrep, and future releases (zero byte data)]
-
 ### Release 2.0.0 (6/22/2022)
 
 New updates (include dates) to the ABCD BIDS Community Collection cover both revisions to existing datasets and new derivatives. Revisions include:
@@ -78,7 +76,6 @@ The DWI acquisition parameters from subjects scanned on Philips and GE with MR S
 
 TODO: link to description and brief overview of subject counts
 
-TODO Submission IDs
 
 #### Template Matching
 
@@ -88,11 +85,7 @@ TODO: link to description and brief overview of subject counts
 
 #### Task outputs
 
-TODO: link to description and brief overview of subject counts
-
-TODO Submission IDs
-
-(TODO: Add section about the task derivatives. @Anders give Fez a list of all task derivatives)
+(abcd-bids-tfmripipeline)[https://github.com/DCAN-Labs/abcd-bids-tfmri-pipeline] was ran on ABCD-BIDS derivativves of the baseline subjects. TODO: Feczko add a brief description of level 1 and level 2.
 
 ### Release 1.1.1 (10/7/2020)
 
