@@ -10,6 +10,7 @@ This document reports and describes the derivative files containing processed da
 
 1. [fMRIPrep](https://fmriprep.org/)
 1. [QSIPrep](https://qsiprep.readthedocs.io/en/stable/)
+1. [abcd-bids-tfmri-pipeline](https://github.com/DCAN-Labs/abcd-bids-tfmri-pipeline)
 
 can be found by clicking on their respective links.
 

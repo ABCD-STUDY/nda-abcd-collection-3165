@@ -72,7 +72,10 @@ The DWI acquisition parameters from subjects scanned on Philips and GE with MR S
 
  Multiple versions of the time series are provided, to allow investigator flexibility in their desired analysis: either exactly 10 minutes of randomly sampled frames, all available frames below the 0.2mm FD threshold, or concatenated rest and task time series data in the following order: rest, MID, n-back, and SST (provided that the participant had an available scan for the task). For full details of inter- and intra- participant reliability, and motion correction, see Hermosillo et al. 2021 (in prep).
 
-TODO Submission IDs
+
+#### Individual-specific network maps (Infomap)
+
+TODO: link to description and brief overview of subject counts
 
 #### Template Matching
 
@@ -82,11 +85,8 @@ TODO Robert: link to description and brief overview of subject counts
 
 #### Task outputs
 
-TODO Fez: link to description and brief overview of subject counts
+(abcd-bids-tfmripipeline)[https://github.com/DCAN-Labs/abcd-bids-tfmri-pipeline] was ran on ABCD-BIDS derivativves of the baseline subjects. TODO: Feczko add a brief description of level 1 and level 2.
 
-TODO Submission IDs
-
-(TODO: Add section about the task derivatives. @Anders give Fez a list of all task derivatives)
 
 ### Release 1.1.1 (10/7/2020)
 
