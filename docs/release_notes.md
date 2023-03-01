@@ -13,7 +13,7 @@ User feedback will guide our course for future releases.  Provide feedback on wh
 
 ### Release 2.0.0 (6/22/2022)
 
-New updates (TODO: include dates) to the ABCD BIDS Community Collection cover both revisions to existing datasets and new derivatives. Revisions include:
+New updates to the ABCD BIDS Community Collection cover both revisions to existing datasets and new derivatives. Revisions include:
 1. Uploading 144 participants with new data due to revised fast track QC
 2. Providing Connectivity matrices for those participants with discrepancies in the number of timepoints used
 3. Uploading JSONs for the diffusion inputs in some participants.
@@ -55,7 +55,7 @@ TODO Submission IDs
 
 #### Template Matching
 
-(TODO Anders edit Robert's tempalte matching section and summarize here): link to description and brief overview of subject counts
+(TODO Anders edit Robert's template matching section and summarize here): link to description and brief overview of subject counts
 
 *Submission IDs: 36458 - 36630*
 
