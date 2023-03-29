@@ -106,16 +106,15 @@ The outputs of the abcd-bids-tfmri pipeline include the fully-processed dtseries
 
 ## fMRIPrep
 
-(TODO: Add more detailed information on pipeline and stages @Thomas Madison)
 
 fMRIPrep is a tool for preprocessing BIDS compatible fMRI datasets. If groups would like to analyze the ABCD fMRI results, these outputs will be helpful for analysis of resting state and task based fMRI data. This is the command that was used:
 
 ```
 singularity run --cleanenv /data/ABCD_MBDU/singularity_images/fmriprep_20.2.0.simg \
 	/data/ABCD_MBDU/abcd_bids/bids \
-$TMPDIR/out \
-participant \
---participant_label $PARTICIPANTID \
+	$TMPDIR/out \
+	participant \
+	--participant_label $PARTICIPANTID \
 	-w $TMPDIR/wrk \
 	--nthreads $SLURM_CPUS_PER_TASK \
 	--mem_mb $SLURM_MEM_PER_NODE \
@@ -123,8 +122,8 @@ participant \
 	--output-spaces MNI152NLin2009cAsym:res-2 fsnative fsaverage5 fsLR \
 	--cifti-output \
 	--skip-bids-validation \
---notrack \
---omp-nthreads 1
+	--notrack \
+	--omp-nthreads 1
 ```
 
 Any papers using outputs from this pipeline should acknowledge this contribution of computational resources with the following line:
@@ -133,4 +132,46 @@ Any papers using outputs from this pipeline should acknowledge this contribution
 
 ## QSIPrep
 
-(TODO: Anders will add from MSI run dir)
+QSIPrep configures pipelines for processing diffusion-weighted MRI (dMRI or DWI) data. For more information see the [QSIPrep documentation](https://qsiprep.readthedocs.io/en/latest/). This is the command used to run ABCC subjects through QSIPrep preprocessing:
+
+```
+singularity run --cleanenv -B ${PWD} \
+    pennlinc-containers/.datalad/environments/qsiprep-0-16-1/image \
+    inputs/data \
+    prep \
+    participant \
+    -w ${PWD}/.git/wkdir \
+    --n_cpus 8 \
+    --stop-on-first-crash \
+    --fs-license-file code/license.txt \
+    --skip-bids-validation \
+    --participant-label "$subid" \
+    --unringing-method mrdegibbs \
+    --output-resolution 1.7 \
+    --eddy-config code/eddy_params.json \
+    --notrack
+```
+
+Contents of code/eddy_params.json
+```
+{
+ "flm": "linear",
+ "slm": "linear",
+ "fep": false,
+ "interp": "spline",
+ "nvoxhp": 1000,
+ "fudge_factor": 10,
+ "dont_sep_offs_move": false,
+ "dont_peas": false,
+ "niter": 5,
+ "method": "jac",
+ "repol": true,
+ "num_threads": 1,
+ "is_shelled": true,
+ "use_cuda": false,
+ "cnr_maps": true,
+ "residuals": false,
+ "output_type": "NIFTI_GZ",
+ "args": ""
+}
+```
