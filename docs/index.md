@@ -38,8 +38,11 @@ Latest updates are detailed below.
     
     The bug affected a subset of subjects, but it is worth suggesting that anyone using the initial data re-calculate their analysis using the updated version.
 
-(TODO: Edit this section @Feczko)
-- New version of [fMRIPrep](https://fmriprep.org/) 23.x.x year 1 derivatives. Special thanks to Thomas Madison, etc.
+(TODO: Anders audit previous fmriprep uploads)
+
+(TODO: Audrey Check in with Luci/Michael about new features in updated version of fMRIPrep)
+
+- New version of [fMRIPrep](https://fmriprep.org/) 23.0.0rc0 year 1 derivatives. Special thanks to Thomas Madison, etc.
     - Improved distortion correction
     - Improved bold projection to surface
     - New CIFTI outputs

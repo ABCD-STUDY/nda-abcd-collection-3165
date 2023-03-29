@@ -64,7 +64,7 @@ TODO: link to description and brief overview of subject counts
 
 #### Task outputs
 
-(abcd-bids-tfmripipeline)[https://github.com/DCAN-Labs/abcd-bids-tfmri-pipeline] was ran on ABCD-BIDS derivativves of the baseline subjects. TODO: Feczko add a brief description of level 1 and level 2.
+(abcd-bids-tfmripipeline)[https://github.com/DCAN-Labs/abcd-bids-tfmri-pipeline] was ran on ABCD-BIDS derivatives of the baseline subjects.
 
 ### Release 1.1.1 (10/7/2020)
 
