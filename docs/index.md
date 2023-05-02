@@ -42,7 +42,7 @@ Latest updates are detailed below.
 
 (TODO: Audrey Check in with Luci/Michael about new features in updated version of fMRIPrep)
 
-- New version of [fMRIPrep](https://fmriprep.org/) 23.0.0rc0 year 1 derivatives. Special thanks to Thomas Madison, etc.
+- New version of [fMRIPrep](https://fmriprep.org/) 23.0.0rc0 year 1 derivatives. For specifics on what has changed since fMRIprep v20.2.0 and fMRIprep 23.0.0rc0, see the change log for the software [here](https://fmriprep.org/en/stable/changes.html).
     - Improved distortion correction
     - Improved bold projection to surface
     - New CIFTI outputs
