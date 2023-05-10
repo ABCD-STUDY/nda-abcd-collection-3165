@@ -11,6 +11,10 @@ Multiple versions of the time series are provided, to allow investigator flexibi
 
 ### Infomap
 
+Because brain synapses grow as a complex system of learning and evolving, neural networks don’t dutifully conform to anatomical coordinates across individuals. Therefore, it often makes sense to consider “function” as the pattern of connections between brain regions rather than assume function occurs at a specific anatomical location.  Graph theory is an appropriate avenue for investigation because we can redefine brain regions as anatomically-irrespective nodes, and define the correlation (i.e. connectivity) between them as edges.  Nodes that communicate heavily with each other are considered to be a part of the same community or network.  Networks for the ABCD collection were detected using infomap (D. Edler, A. Holmgren and M. Rosvall, The MapEquation software package, available online at http://www.mapequation.org).  Infomap is an algorithm that describes information flow in the network, by attempting to minimize the number of bits necessary to describe the whole network (Martin Rosvall and Bergstrom 2008; M. Rosvall, Axelsson, and Bergstrom 2009). For example, would it require fewer bits to describe the whole brain with few networks containing many nodes, or many networks with fewer nodes? Similar algorithms maximize modularity metrics, however, Infomap uses a random walk algorithm that uses edge weights (in this case, it uses connectivity) to determine the minimum descriptor code length necessary. Importantly, while the solution provides modules, it is not designed to maximize modularity.  Importantly, neural networks have been shown to be scalable. As others have done previously (Gordon et al. 2017), we thresholded the whole brain correlation matrix  (91282 x 91292 grayordinates) to the top x% of connections (or edges) because of the computational limitations of using a full set of 8.1 billion connections as descriptors in the map equation. We thresholded the connectivity matrix at a threshold of 0.3%, 0.4%, 0.5%, 1%, 1.5%, 2%, 2.5%,  and 3%. These threshold were chosen to scale the number of edges.
+
+To generate a consensus across multiple edge percentages, we implemented a methodology developed by Gordon and colleagues(Gordon et al. 2017). Briefly, after infomap detected communities for each subject, Putative network assignments were then assigned to each subject’s communities by matching them at each threshold to the independent group networks from the University of Washington (n=120). For each individual, at each percentage threshold, the spatial overlap of each unknown community was compared to each one of the independent group networks separately using the Jaccard similarity index. The unknown community was then assigned that network identity to which it had the highest Jaccard similarity index.  If the Jaccard Index was less than 0.1, the community remained unassigned, so as to avoid assigning communities to known networks based on only a few vertices. Assignments were first made with the large, well-known networks (Default, Lateral Visual, Motor, Fronto-Parietal, Cingulo-Opercular, Dorsal Attention), and then to the smaller, less well-known networks (e.g. Ventral Attention, Salience, Parietal Memory, lateral hand-face motor ).  In each individual, a “consensus” network assignment was created by giving each grayordinate the canonical assignment it had at the sparsest threshold. 
+
 Infomap community detection is an unsupervised method of assigning nodes to communities in a graph based on information theory. Here, grayordinates are treated as nodes, and the edges are the correlation between the nodes.  There are two versions of individual-specific maps available depending on whether not investigators are interested in the contribution of tasks to global network topography. 
 
 The following maps are generated for subjects with at least 10 minutes of low-motion (See Hermosillo et al 2021) resting state data. The following are data subset names:
@@ -25,52 +29,70 @@ The following maps are generated with all available minutes below the FD thresho
 fmriresults01_derivatives.func.networkmaps_task-restandtask_allmin_Surfonly_infomap_singlenet_dscalar.nii
 ```
 
-Because the tie density scales exponentially with the number of grayordinates, infomap community detection was only performed on the cortical surface and did not include subcortical structures (i.e. neither brainstem, cerebellum, nor diencephalon).  Note, because infomap is an unsupervised community detection method, the subject may have more or fewer networks than a canonical network set. Where possible, we have attempted to assign networks based on the networks observed in an average dataset using the jaccard similarity (see Gordon et al. 2017), however in some instances the jaccard similarity sufficiently low (<0.1) such that the network did not resemble any of the canonical networks, in which case the network was provided a novel network assignment. 
-
-
+Because the tie density scales exponentially with the number of grayordinates, infomap community detection was only performed on the cortical surface and did not include subcortical structures (i.e. neither brainstem, cerebellum, nor diencephalon).  Note, because infomap is an unsupervised community detection method, the subject may have more or fewer networks than a canonical network set. Where possible, we have attempted to assign networks based on the networks observed in an average dataset using the jaccard similarity (see Gordon et al. 2017), however in some instances the jaccard similarity sufficiently low (<0.1) such that the network did not resemble any of the canonical networks, in which case the network was provided a novel network assignment.
 
 ### Template matching
 
-#### Single network per grayordinate
+Template matching is a supervised algorithm for identifying neural networks using resting state connectivity data, based on the spatial topography.  [Click here for Documentation of source code as well as a written tutorial.](https://github.com/DCAN-Labs/compare_matrices_to_assign_networks)
 
-Briefly, in order to generate the templates, Infomap community detection was performed at several tie densities (for full details of average networks, see (Gordon, Laumann, Gilmore, et al. 2017; Gordon, Laumann, Adeyemo, et al. 2017; Laumann et al. 2015) on an average connectivity matrix (n=120 participants) using a two level solution. This provides a common set of networks based on average brain activity from which one can “match” the spatial topography of brain activation of a given grayordinate.
+### Creating a template
 
-To generate an independent template, a seed-based correlation was performed using an average time series for each network correlated with a smoothed dense time series (spatial Gaussian smoothing kernel of 2.55 mm using each participant’s own mid-thickness surfaces) from each template participant. Seed-based correlation values were averaged across all the participants in the template group (n=164, 9-10 year olds), resulting in a vector (91282 x 1) of average correlation values for each network correlated with each grayordinate. Each network vector was averaged independently across subjects in the template group to generate seed-based templates for each network. We then thresholded each network template at Z ≥ 1.
+This technique has been used previously to identify networks ([Gordon et al. 2017](https://pubmed.ncbi.nlm.nih.gov/26464473/); [Dworetsky 2021](https://www.sciencedirect.com/science/article/pii/S1053811921004419)). Briefly, in order to generate the templates, Infomap community detection was performed at several tie densities (for full details of average networks, see ([Gordon, Laumann, Gilmore, et al. 2017](https://pubmed.ncbi.nlm.nih.gov/26464473/); [Gordon, Laumann, Adeyemo, et al. 2017](https://doi.org/10.1016/j.neuron.2015.06.037); [Laumann et al. 2015](https://pubmed.ncbi.nlm.nih.gov/26212711/)) on an average connectivity matrix (n=120 participants) using a two level solution. This provides a common set of networks based on average brain activity from which one can “match” the spatial topography of brain activation of a given grayordinate. To generate a set independent network templates, a seed-based correlation was performed using an average time series for each network correlated with a smoothed dense time series (spatial Gaussian smoothing kernel of 2.55 mm using each participant’s own mid-thickness surfaces) from each template participant. Seed-based correlation values were averaged across all the participants in the template group (n=164, 9-10 year olds), resulting in a vector (91282 x 1) of average correlation values for each network correlated with each grayordinate. Each network vector was averaged independently across subjects in the template group to generate seed-based templates for each network. We then thresholded each network template at Z ≥ 1.
 
-To generate individual-specific maps for each participant in ABCD groups 1 and 2, we examined the whole-brain connectivity for each grayordinate by correlating the motion-censored dense time series with all other grayordinates resulting in a 91282 x 91282 (or where cortex-only analyses were performed:  59412 x 59412) correlation matrix.  The correlation matrix was Z-scored separately for each hemisphere, and within and between the cortex and subcortical structures. Whole-brain connectivity for each grayordinate was thresholded to only include correlated grayordinates with Z-score values greater than or equal to one. This resulted in a vector of whole-brain connectivity for each grayordinate that only includes grayordinates that are strongly correlated to a given network template.  We then calculate a η2 value between the remaining grayordinates and each of the network templates. The grayordinate is assigned to whichever network with the maximum eta2 value.
+### Matching connectivity to a network template
 
-```
-fmriresults01_derivatives.func.networkmaps_task-restandtask_allmin_Surfandsub_templatematching_singlenet_dscalar.nii
-fmriresults01_derivatives.func.networkmaps_task-restandtask_allmin_Surfonly_templatematching_singlenet_dscalar.nii
-```
-We are providing individual-specific maps using concatenated tasks and rest using only 10 minutes of low-motion data or using all available low motion data.
+To generate individual-specific maps for each participant in ABCD groups 1 and 2, we examined the whole-brain connectivity for each grayordinate by correlating the motion-censored dense time series with all other grayordinates resulting in a 91282 x 91282 (or where cortex-only analyses were performed: 59412 x 59412) correlation matrix. The correlation matrix was Z-scored separately for each hemisphere, and within and between the cortex and subcortical structures. Whole-brain connectivity for each grayordinate was thresholded to only include correlated grayordinates with Z-score values greater than or equal to one. This resulted in a vector of whole-brain connectivity for each grayordinate that only includes grayordinates that are strongly correlated to a given network template. We then calculate a η2 value between the remaining grayordinates and each of the network templates. The grayordinate is assigned to whichever network with the maximum eta2 value. Two versions of individual-specific networks are available: one version was created without using subcortical data from the timeseries, the other was created including subcortical timeseries data.  For the following files, participants had varying amounts of data below the framewise displacement threshold (FD=0.2mm, see [Hermosillo et al. 2021](https://www.biorxiv.org/content/10.1101/2022.01.12.475422v1) for additional motion censor criteria).  Next were generated concatenated rest and task timeseries data.
 
-```
-fmriresults01_derivatives.func.networkmaps_task-restonly_10min_Surfandsub_templatematching_singlenet_dscalar.nii
-fmriresults01_derivatives.func.networkmaps_task-restonly_10min_Surfonly_templatematching_singlenet_dscalar.nii
-fmriresults01_derivatives.func.networkmaps_task-restonly_allmin_Surfandsub_templatematching_singlenet_dscalar.nii
-```
+    - fmriresults01_derivatives.func.networkmaps_task-restandtask_allmin_Surfandsub_templatematching_singlenet_dscalar.nii
+    - fmriresults01_derivatives.func.networkmaps_task-restandtask_allmin_Surfonly_templatematching_singlenet_dscalar.nii
 
-##### Multiple networks per grayordinate
+#### Movement Criteria
 
-To generate overlapping networks for each participant, rather than assigning the grayordinate to the network with the maximum eta2 value, we used a data-driven approach to assign multiple networks to each grayordinate. For each network we plotted the distribution of eta2 values. The distribution of similarity (eta2) for each network is both bimodal and skewed, such that most grayordinates do not resemble the network of interest (left peak), and some grayordiante have a spatial connectivity that are very similar to the template network (right peak). The distribution for eta2 values was distributed into 10,000 bins and fitted with a cubic spline then smoothed (2,000 point Savitzky-Golay window), and the local minimum was taken.  We then used this local minimum as the threshold for whether or not a grayordinate would be labelled with this network, where grayordinates above this threshold would receive the network assignment.
+ We are providing individual-specific maps using concatenated tasks and rest using only 10 minutes of low-motion data or using all available low motion data.
 
-The following versions of individual-specific maps are available for subjects that had at least 10 minutes of low-motion resting state data.  Networks were generated using exactly 10 minutes of data to ensure that an identical amount of  time was used to generate correlation matrices for all participants.
+    - fmriresults01_derivatives.func.networkmaps_task-restonly_10min_Surfandsub_templatematching_singlenet_dscalar.nii
+    - fmriresults01_derivatives.func.networkmaps_task-restonly_10min_Surfonly_templatematching_singlenet_dscalar.nii
+    - fmriresults01_derivatives.func.networkmaps_task-restonly_allmin_Surfandsub_templatematching_singlenet_dscalar.nii
 
-```
-fmriresults01_derivatives.func.networkmaps_task-restonly_10min_Surfandsub_templatematching_overlappingnet_dtseries.nii
-fmriresults01_derivatives.func.networkmaps_task-restonly_10min_Surfonly_templatematching_overlappingnet_dtseries.nii
-```
+Dscalars are provided in a fsLR32k format. In the dscalars, each grayordinate (n=91282) has a single value, where each value corresponds with the following key:
 
-In order to include additional participants that had less than 10 minutes of data and to capture additional information for participants that had more than 10 minutes, we have also included networks for participants using all available low-motion data.  Note that subjects will have varying numbers of frames due to each participant’s movement in the scanner at the time of collection.
+- 1 = Default mode network (DMN)
+- 2 = Visual network (VIS)
+- 3 = Frontoparietal network (FPN)
+- 4 = *there is no network 4*
+- 5 = dorsal attention network (DAN)
+- 6 = *there is no network 6*
+- 7 = Ventral attention network (VAN)
+- 8 = Salience network (Sal)
+- 9 = Cingulo-opercular network (CO)
+- 10 = Dorsal sensorimotor network (SMd)
+- 11 = the lateral sensorimotor Network(SMl)
+- 12 = the auditory network(AUD)
+- 13 = the temporal pole network (TP)
+- 14 = the medial temporal network(MTL)
+- 15 =  the parietal occipital network(PON)
+- 16 = Parietal medial network(PMN)
 
-```
-fmriresults01_derivatives.func.networkmaps_task-restonly_allmin_Surfandsub_templatematching_overlappingnet_dtseries.nii
-```
+---
 
-Lastly, as mentioned above, task and rest data were concatenated to leverage additional hemodynamic coactivation information related to network connectivity, under the assumption that task-based activations contribute only a miniscule variation to global network communication (Gratton et al. 2018).
+## Template matching (multiple networks per grayordinate)
 
-```
-fmriresults01_derivatives.func.networkmaps_task-restandtask_allmin_Surfandsub_templatematching_overlapping_dtseries.nii
-fmriresults01_derivatives.func.networkmaps_task-restandtask_allmin_Surfonly_templatematching_overlappingnet_dtseries.nii
-```
+To generate overlapping networks for each participant, we used the identical template networks as described above, however, rather than assigning the grayordinate to the network with the maximum eta^2 value, a data-driven approach was used to assign multiple networks to each grayordinate. For each network we plotted the distribution of eta^2 values. The distribution of similarity (eta^2) for each network is both bimodal and skewed, such that most grayordinates do not resemble the network of interest (left peak), and some grayordiante have a spatial connectivity that are very similar to the template network (right peak). The distribution for eta^2 values was distributed into 10,000 bins and fitted with a cubic spline then smoothed (2,000 point Savitzky-Golay window), and the local minimum was taken. We then used this local minimum as the threshold for whether or not a grayordinate would be labelled with this network, where grayordinates above this threshold would receive the network assignment.
+
+### Movement Criteria
+The following versions of individual-specific maps are available for subjects that had at least 10 minutes of low-motion resting state data. Networks were generated using exactly 10 minutes of data to ensure that an identical amount of time was used to generate correlation matrices for all participants.
+
+    -fmriresults01_derivatives.func.networkmaps_task-restonly_10min_Surfandsub_templatematching_overlappingnet_dtseries.nii
+    -fmriresults01_derivatives.func.networkmaps_task-restonly_10min_Surfonly_templatematching_overlappingnet_dtseries.nii
+
+In order to include additional participants that had less than 10 minutes of data and to capture additional information for participants that had more than 10 minutes, we have also included networks for participants using all available low-motion data. 
+Note that subjects will have varying numbers of frames due to each participant’s movement in the scanner at the time of collection.
+
+    fmriresults01_derivatives.func.networkmaps_task-restonly_allmin_Surfandsub_templatematching_overlappingnet_dtseries.nii
+
+Lastly, as mentioned above, task and rest data were concatenated to leverage additional hemodynamic coactivation information related to network connectivity, under the assumption that task-based activations contribute only a miniscule variation to global network communication ([Gratton et al. 2018](https://www.sciencedirect.com/science/article/pii/S0896627318302411)).
+
+    fmriresults01_derivatives.func.networkmaps_task-restandtask_allmin_Surfandsub_templatematching_overlapping_dtseries.nii
+    fmriresults01_derivatives.func.networkmaps_task-restandtask_allmin_Surfonly_templatematching_overlappingnet_dtseries.nii
+
+Overlapping .dtseries.nii cifiti files are provided with 1 network per column of the timeseries file in the same order provided above in the single network example.

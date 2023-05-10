@@ -10,11 +10,7 @@ This document highlights common recommendations for usage of the collection 3165
 
 ## 2. The BIDS Participants Files and Matched Groups
 
-![Matched groups](img/matched_groups.png)
-
-A full-resolution version of this table can be found [here](https://github.com/ABCD-STUDY/nda-abcd-collection-3165/tree/master/docs/img/matched_groups.png).
-
-In a BIDS standard folder layout there should always be a `participants.tsv` (spreasheet) and `participants.json` (data dictionary) file.  This was not available in our first release, but is available now.  The participants files have the following fields inside.
+Demographic and socioeconomic variables relating to the ABCD participants included in Collection 3165 can be found in the `participants.tsv` spreadsheet. A data dictionary further explaining each variable is also included. They are available for download on [the main NDA Collection 3165 page](https://nda.nih.gov/edit_collection.html?id=3165). A high level overview of these variables is detailed below.
 
 1. `participant_id`: NDA unique pGUID, starting with `sub-`
 1. `session_id`: Participant's session ID (all data within this first release are `ses-baselineYear1Arm1`)
@@ -25,7 +21,25 @@ In a BIDS standard folder layout there should always be a `participants.tsv` (sp
 1. `scanner_software`: Scanner software description
 1. `matched_group`: Carefully matched similar groups
 1. `sex`: Sex
-1. `race_ethnicity`: Combined race & ethnicity variable
+1. `demo_race_a_p___10`: White
+1. `demo_race_a_p___11`: Black/African American
+1. `demo_race_a_p___12`: Native American
+1. `demo_race_a_p___13`: Alaska Native
+1. `demo_race_a_p___14`: Native Hawaiian
+1. `demo_race_a_p___15`: Guamanian
+1. `demo_race_a_p___16`: Samoan
+1. `demo_race_a_p___17`: Other Pacific Islander
+1. `demo_race_a_p___18`: Asian Indian
+1. `demo_race_a_p___19`: Chinese
+1. `demo_race_a_p___20`: Filipino
+1. `demo_race_a_p___21`: Japanese
+1. `demo_race_a_p___22`: Korean
+1. `demo_race_a_p___23`: Vietnamese
+1. `demo_race_a_p___24`: Other Asian
+1. `demo_ethn_p`: Latinx
+1. `demo_race_a_p___25`: Other Race
+1. `demo_race_a_p___77`: Refuse To Answer
+1. `demo_race_a_p___99`: Don't Know
 1. `age`: Age in months
 1. `handedness`: Handedness
 1. `siblings_twins`: Family member status
@@ -33,12 +47,18 @@ In a BIDS standard folder layout there should always be a `participants.tsv` (sp
 1. `participant_education`: Participant grade in school
 1. `parental_education`: Highest level of parental education
 1. `anesthesia_exposure`: History of participant anesthesia exposure
+1. `neurocog_pc1.bl`:
+1. `neruocog_pc2.bl`:
+1. `neurocog_pc3.bl`:
 1. `released`: Participants with updated fast track data based on revised QC (see: [known issues](https://collection3165.readthedocs.io/en/stable/release_notes/#released))
 1. `updated_dwi_input_json`: Participants scanned on GE with MR Software release DV25.0_R02_1549.b (see: [known issues](https://collection3165.readthedocs.io/en/stable/release_notes/#updated_dwi_input_json))
 
-They are available for download on [the main NDA Collection 3165 page](https://nda.nih.gov/edit_collection.html?id=3165).
-
 The `matched_group` field is the product of comparisons across site, age, sex, ethnicity, grade, highest level of parental education, handedness, combined family income, exposure to anesthesia, and family-relatedness which show no significant differences between the ABCD-1 and ABCD-2 groups.  Comparison of the counts and means for each of these factors shows that ABCD-1 and ABCD-2 are negligibly different samples.  Gender shows the largest absolute difference of 2.5 percent.  No other demographic variables differ by more than 1 percent.  See table above.
+
+![Matched groups](img/matched_groups.png)
+
+A full-resolution version of this table can be found [here](https://github.com/ABCD-STUDY/nda-abcd-collection-3165/tree/master/docs/img/matched_groups.png).
+
 
 ## 3. The BIDS Quality Control File
 

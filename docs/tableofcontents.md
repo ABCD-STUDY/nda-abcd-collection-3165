@@ -1,4 +1,4 @@
-# Table of Contents (TODO: Audrey cleanup)
+# Table of Contents
 
 These documents are generated from [GitHub](https://github.com/ABCD-STUDY/nda-abcd-collection-3165) as a live readthedocs.org website describing various aspects of [the ABCD-BIDS community collection (ABCC)](https://nda.nih.gov/edit_collection.html?id=3165).
 

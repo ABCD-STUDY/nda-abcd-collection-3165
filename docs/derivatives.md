@@ -10,6 +10,7 @@ This document reports and describes the derivative files containing processed da
 
 1. [fMRIPrep](https://fmriprep.org/)
 1. [QSIPrep](https://qsiprep.readthedocs.io/en/stable/)
+1. [abcd-bids-tfmri-pipeline](https://github.com/DCAN-Labs/abcd-bids-tfmri-pipeline)
 
 can be found by clicking on their respective links.
 
@@ -220,7 +221,17 @@ Motion-corrected individual functional task run in MNI space in a volume.
 - `sub-#/ses-#/func/sub-#_ses-#_task-(MID|nback|SST|rest)_run-#_space-MNI_bold.nii.gz`
 
 
-## 5. Executive Summary
+## 5. Task fMRI
+
+The task pipeline will produce its derivatives in the following BIDS-valid directory structure.
+
+- `sub-#/ses-#/func/sub-#_ses-#_task-(MID|nback|SST)_level-2_contrast_*_cope1.dtseries.nii`
+- `sub-#/ses-#/func/sub-#_ses-#_task-(MID|nback|SST)_level-2_contrast_*_tdof_t1.dtseries.nii`
+- `sub-#/ses-#/func/sub-#_ses-#_task-(MID|nback|SST)_level-2_contrast_*_logfile`
+- `sub-#/ses-#/func/sub-#_ses-#_task-(MID|nback|SST)_level-2_contrast_*_mask.dtseries.nii`
+- `sub-#/ses-#/func/sub-#_ses-#_task-(MID|nback|SST)_level-2_contrast_*_res4d.dtseries.nii`
+
+## 6. Executive Summary
 
 The DCAN Labs executive summary is software for getting a basic visual quality control report to review processed output data.
 
@@ -228,11 +239,11 @@ The DCAN Labs executive summary is software for getting a basic visual quality c
 
 - DCAN Labs Executive Summary: `derivatives.executivesummary.all`
 
-## 6. Derivative Filenames
+## 7. Derivative Filenames
 
 Some BIDS derivative standards are still [BIDS Extension Proposals (BEPs)](https://bids-specification.readthedocs.io/en/stable/06-extensions.html#bids-extension-proposals) at the time of this writing, but we tried to conform to the available derivative standards at the time for common derivatives ([BEP003](https://docs.google.com/document/d/1Wwc4A6Mow4ZPPszDIWfCUCRNstn7d_zzaWPcfcHmgI4/view)), the structural preprocessing derivatives ([BEP011](https://docs.google.com/document/d/1YG2g4UkEio4t_STIBOqYOwneLEs1emHIXbGKynx7V0Y/view)), and the functional preprocessing derivatives ([BEP012](https://docs.google.com/document/d/1qBNQimDx6CuvHjbDvuFyBIrf2WRFUOJ-u50canWjjaw/view)).
 
-## 7. Motion MAT File
+## 8. Motion MAT File
 
 The MATLAB motion .MAT files are a product of the DCANBOLDProcessing stage of the pipeline.  They should be used to select a frame censoring mask (frames to keep in analysis versus frames to censor out based on excessive motion).  They contain a 1x51 MATLAB cell of MATLAB structs where each struct is the censoring info at a given framewise displacement (FD) threshold (0 to 0.5 millimeters in steps of 0.01 millimeters).
 
@@ -240,7 +251,7 @@ These files use the motion censoring algorithm from the [Power, et al, 2014 pape
 
 [*Power, J. D., Mitra, A., Laumann, T. O., Snyder, A. Z., Schlaggar, B. L., & Petersen, S. E. (2014). Methods to detect, characterize, and remove motion artifact in resting state fMRI. NeuroImage, 84, 320–41. doi:10.1016/j.neuroimage.2013.08.048*](https://www.sciencedirect.com/science/article/pii/S1053811913009117)
 
-## 8. Caveats
+## 9. Caveats
 
 There were a few parts of the NDA fmriresults01 and imagingcollection01 data structures where we could not conform to the NDA's established standard.  We plan to correct these in future releases.
 

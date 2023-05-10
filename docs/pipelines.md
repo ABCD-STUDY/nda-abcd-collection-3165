@@ -1,8 +1,4 @@
-# Pipeline (TODO: Split out all pipelines into seperate md files)
-
-Note: Clicking any link within the readthedocs site will not open a new web browser tab.  If you want to keep your docs open, either middle-click or right-click and choose open in new tab for the links you would like to follow.
-
----
+# Pipeline
 
 ## 1. About this Document
 
@@ -98,7 +94,7 @@ The ExecutiveSummary stage produces an HTML visual quality control page that dis
 
 ## abcd-bids-fmri
 
-abcd-bids-tfmri, a modified version of the TaskfMRIAnalysis stage of the HCP-pipeline (Glasser et al., 2013) developed at University of Vermont by Anthony Juliano, was used to process task-fmri data from the minimally processed ABCD-BIDS (Feczko et al., 2020b) processing pipeline (v.1.0) data, as well as derived ABCC data (Feczko, 2020; ABCD-3165). Given the abcd-bids-tfmri pipeline's focus on reproducibility in neuroimaging, it allows for minimal user input while providing vast flexibility with regard to the task-based fMRI data that can be processed (including the type of task and the number of subject-level runs). Transparency is easily achieved with the abcd-bids-tfmri pipeline as users can efficiently share their command-line that was used in processing their data when presenting their findings. 
+[abcd-bids-tfmri](https://github.com/DCAN-Labs/abcd-bids-tfmri-pipeline), a modified version of the TaskfMRIAnalysis stage of the HCP-pipeline (Glasser et al., 2013) developed at University of Vermont by Anthony Juliano, was used to process task-fmri data from the minimally processed ABCD-BIDS (Feczko et al., 2020b) processing pipeline (v.1.0) data, as well as derived ABCC data (Feczko, 2020; ABCD-3165). Given the abcd-bids-tfmri pipeline's focus on reproducibility in neuroimaging, it allows for minimal user input while providing vast flexibility with regard to the task-based fMRI data that can be processed (including the type of task and the number of subject-level runs). Transparency is easily achieved with the abcd-bids-tfmri pipeline as users can efficiently share their command-line that was used in processing their data when presenting their findings. 
 
 Given its focus on CIFTI (like a dtseries) data, the abcd-bids-tfmri pipeline heavily relies on HCP workbench commands (https://www.humanconnectome.org/software/workbench-command). This includes completing the user-specified spatial smoothing (wb_command -cifti-smoothing), converting the smoothed data to and from a format that FSL (Jenkinson et al. 2012) can interpret (wb_command -cifti-convert), separating the dtseries data into its comprised components (wb_command -cifti-separate-all), and reading in pertinent information from the dtseries data (wb_command -file-information), among others. Based on the user-specified parameters for censoring volumes (i.e. initial and/or high-motion frames), the pipeline will read in the filtered motion file (Fair et al., 2020) produced by the ABCD-BIDS processing pipeline and create a matrix for nuisance regression. Finally, high-pass filtering, with a cutoff of 0.005 Hz (200 seconds), is completed before running FSL's FILM (Woolrich et al. 2001). 
 
@@ -110,16 +106,15 @@ The outputs of the abcd-bids-tfmri pipeline include the fully-processed dtseries
 
 ## fMRIPrep
 
-(TODO: Add more detailed information on pipeline and stages @Thomas Madison)
 
 fMRIPrep is a tool for preprocessing BIDS compatible fMRI datasets. If groups would like to analyze the ABCD fMRI results, these outputs will be helpful for analysis of resting state and task based fMRI data. This is the command that was used:
 
 ```
 singularity run --cleanenv /data/ABCD_MBDU/singularity_images/fmriprep_20.2.0.simg \
 	/data/ABCD_MBDU/abcd_bids/bids \
-$TMPDIR/out \
-participant \
---participant_label $PARTICIPANTID \
+	$TMPDIR/out \
+	participant \
+	--participant_label $PARTICIPANTID \
 	-w $TMPDIR/wrk \
 	--nthreads $SLURM_CPUS_PER_TASK \
 	--mem_mb $SLURM_MEM_PER_NODE \
@@ -127,8 +122,8 @@ participant \
 	--output-spaces MNI152NLin2009cAsym:res-2 fsnative fsaverage5 fsLR \
 	--cifti-output \
 	--skip-bids-validation \
---notrack \
---omp-nthreads 1
+	--notrack \
+	--omp-nthreads 1
 ```
 
 Any papers using outputs from this pipeline should acknowledge this contribution of computational resources with the following line:
@@ -137,4 +132,46 @@ Any papers using outputs from this pipeline should acknowledge this contribution
 
 ## QSIPrep
 
-(TODO: Get QSIPrep pipeline description from Matt)
+QSIPrep configures pipelines for processing diffusion-weighted MRI (dMRI or DWI) data. For more information see the [QSIPrep documentation](https://qsiprep.readthedocs.io/en/latest/). This is the command used to run ABCC subjects through QSIPrep preprocessing:
+
+```
+singularity run --cleanenv -B ${PWD} \
+    pennlinc-containers/.datalad/environments/qsiprep-0-16-1/image \
+    inputs/data \
+    prep \
+    participant \
+    -w ${PWD}/.git/wkdir \
+    --n_cpus 8 \
+    --stop-on-first-crash \
+    --fs-license-file code/license.txt \
+    --skip-bids-validation \
+    --participant-label "$subid" \
+    --unringing-method mrdegibbs \
+    --output-resolution 1.7 \
+    --eddy-config code/eddy_params.json \
+    --notrack
+```
+
+Contents of code/eddy_params.json
+```
+{
+ "flm": "linear",
+ "slm": "linear",
+ "fep": false,
+ "interp": "spline",
+ "nvoxhp": 1000,
+ "fudge_factor": 10,
+ "dont_sep_offs_move": false,
+ "dont_peas": false,
+ "niter": 5,
+ "method": "jac",
+ "repol": true,
+ "num_threads": 1,
+ "is_shelled": true,
+ "use_cuda": false,
+ "cnr_maps": true,
+ "residuals": false,
+ "output_type": "NIFTI_GZ",
+ "args": ""
+}
+```
