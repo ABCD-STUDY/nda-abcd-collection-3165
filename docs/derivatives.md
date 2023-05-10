@@ -224,31 +224,12 @@ Motion-corrected individual functional task run in MNI space in a volume.
 ## 5. Task fMRI
 
 The task pipeline will produce its derivatives in the following BIDS-valid directory structure.
-(TODO: Perrone confirm derivative structure in ABCC)
 
-```
-output_dir
-├── level-1
-│   ├── events
-│   │   └── sub-*_ses-*_task-*_run-*.tsv
-│   ├── level1_run-*
-│   │   ├── sub-*_ses-*_task-*_run-*_cope*.dtseries.nii
-│   │   ├── sub-*_ses-*_task-*_run-*_dof
-│   │   ├── sub-*_ses-*_task-*_run-*_logfile
-│   │   └── sub-*_ses-*_task-*_run-*_res4d.dtseries.nii
-│   └── temp
-└── level-2
-    ├── cope_files
-    │   └── sub-*_ses-*_task-*_contrast_*_cope*.dtseries.nii
-    ├── dof_files
-    │   └── sub-*_ses-*_task-*_contrast_*_tdof_t1.dtseries.nii
-    ├── log_files
-    │   └── sub-*_ses-*_task-*_contrast_*_logfile
-    ├── mask_files
-    │   └── sub-*_ses-*_task-*_contrast_*_mask.dtseries.nii
-    └── res4d_files
-        └── sub-*_ses-*_task-*_contrast_*_res4d.dtseries.nii
-```
+- `sub-#/ses-#/func/sub-#_ses-#_task-(MID|nback|SST)_level-2_contrast_*_cope1.dtseries.nii`
+- `sub-#/ses-#/func/sub-#_ses-#_task-(MID|nback|SST)_level-2_contrast_*_tdof_t1.dtseries.nii`
+- `sub-#/ses-#/func/sub-#_ses-#_task-(MID|nback|SST)_level-2_contrast_*_logfile`
+- `sub-#/ses-#/func/sub-#_ses-#_task-(MID|nback|SST)_level-2_contrast_*_mask.dtseries.nii`
+- `sub-#/ses-#/func/sub-#_ses-#_task-(MID|nback|SST)_level-2_contrast_*_res4d.dtseries.nii`
 
 ## 6. Executive Summary
 

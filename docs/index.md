@@ -21,7 +21,7 @@ As a community share, the ABCC enables researchers to access **available derivat
 
 If you would like to contribute to this effort, please visit our [Git NDA Uploads Repository](https://github.com/ABCD-STUDY/nda-abcd-collection-3165).
 
-Latest updates are detailed below. 
+Latest updates are detailed below.
 
 # Collection News
 
@@ -33,21 +33,16 @@ Latest updates are detailed below.
 
 - The timeseries data will be reprocessed with an updated version of the abcd-hcp-pipeline (v1.0.3) with improved bandpass filtering to the BOLD data. The new implementation zero pads the BOLD data prior to filtering to minimize distortions at the beginning and ending timepoints. It's important to note that this is not a bug, but rather an improvement. This release does not invalidate previous results, it reduces variance towards the beginning and end of the time-series data. In the previous release, those frames are labeled as "outliers" and discarded according to the provided mask. Using these updated timeseries users should be able to include more data in their analyses.
 
-- New version of [QSIPrep](https://qsiprep.readthedocs.io/en/stable/)- year 1 derivatives.
-    - There was in issue for some subjects in distortion correction that resulted in very inaccurate distortion correction results. This was due to TOPUP being given a denoised b=0 image from the DWI series and a raw b=0 image in the opposite phase encoding direction (taken from the image in the fmap/ directory). We updated QSIPrep to use the unprocessed b=0 images in both phase encoding directions, which resulted in TOPUP performing as expected.
-    
+- New version of [QSIPrep](https://qsiprep.readthedocs.io/en/stable/) v0.14.2 year 1 derivatives.
+  - There was in issue for some subjects in distortion correction that resulted in very inaccurate distortion correction results. This was due to TOPUP being given a denoised b=0 image from the DWI series and a raw b=0 image in the opposite phase encoding direction (taken from the image in the fmap/ directory). We updated QSIPrep to use the unprocessed b=0 images in both phase encoding directions, which resulted in TOPUP performing as expected.
+   
     The bug affected a subset of subjects, but it is worth suggesting that anyone using the initial data re-calculate their analysis using the updated version.
 
-(TODO: Anders audit previous fmriprep uploads)
-
-(TODO: Audrey Check in with Luci/Michael about new features in updated version of fMRIPrep)
-
 - New version of [fMRIPrep](https://fmriprep.org/) 23.0.0rc0 year 1 derivatives. For specifics on what has changed since fMRIprep v20.2.0 and fMRIprep 23.0.0rc0, see the change log for the software [here](https://fmriprep.org/en/stable/changes.html).
-    - Improved distortion correction
-    - Improved bold projection to surface
-    - New CIFTI outputs
-    - T2w in T1w volume space
+  - Improved distortion correction
+  - Improved bold projection to surface
+  - New CIFTI outputs
+  - T2w in T1w volume space
 
-- Change to participants.tsv format (TODO: Anders link to recomendations section)
-
-
+- Change to participants.tsv format
+  - The combined race & ethnicity variable from v1.0.1 has been replaced with more descriptive individual race columns.
