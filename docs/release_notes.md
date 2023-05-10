@@ -47,14 +47,11 @@ The DWI acquisition parameters from subjects scanned on Philips and GE with MR S
 
 *Submission ID: 36448*
 
-#### Individual-specific network maps
+#### Individual-specific network maps using the Infomap algorithm
 
- Multiple versions of the time series are provided, to allow investigator flexibility in their desired analysis: either exactly 10 minutes of randomly sampled frames, all available frames below the 0.2mm FD threshold, or concatenated rest and task time series data in the following order: rest, MID, n-back, and SST (provided that the participant had an available scan for the task). For full details of inter- and intra- participant reliability, and motion correction, see Hermosillo et al. 2021 (in prep).
+Infomap community detection is an unsupervised method of assigning nodes to communities in a graph based on information theory. Here, grayordinates are treated as nodes, and the edges are the correlation between the nodes. There are two versions of individual-specific maps available depending on whether not investigators are interested in the contribution of tasks to global network topography. 1) Maps are generated for subjects with at least 10 minutes of low-motion (See Hermosillo et al 2021) resting state data. 2)
 
-
-#### Individual-specific network maps (Infomap)
-
-(InfoMap)
+Maps are generated with all available minutes below an FD threshold of 0.2mm (and corresponding BOLD outlier detection) using concatenated rest and task data. Because the tie density scales exponentially with the number of grayordinates, infomap community detection was only performed on the cortical surface and did not include subcortical structures (i.e. neither brainstem, cerebellum, nor diencephalon). Note, because infomap is an unsupervised community detection method, the subject may have more or fewer networks than a canonical network set. Where possible, we have attempted to assign networks based on the networks observed in an average dataset using the jaccard similarity (see Gordon et al. 2017), however in some instances the jaccard similarity sufficiently low (<0.1) such that the network did not resemble any of the canonical networks, in which case the network was provided a novel network assignment.
 
 #### Template Matching
 
