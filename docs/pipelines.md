@@ -5,13 +5,13 @@
 This document lightly describes the ABCD-BIDS pipeline, fMRIPrep, and QSIPrep used to process the BIDS input data and output the BIDS derivative data. 
 
 Further documentation for these pipelines can be found by clicking on their respective links.:
-1. [abcd-hcp-pipeline](https://hub.docker.com/r/dcanlabs/abcd-hcp-pipeline)
-1. [fMRIPrep](https://fmriprep.org/)
-1. [QSIPrep](https://qsiprep.readthedocs.io/en/stable/)
+[abcd-hcp-pipeline](https://hub.docker.com/r/dcanlabs/abcd-hcp-pipeline)
+[fMRIPrep](https://fmriprep.org/)
+[QSIPrep](https://qsiprep.readthedocs.io/en/stable/)
 
 ## 2. ABCD-BIDS Pipeline
 
-The ABCD-BIDS pipeline is available on [GitHub](https://github.com/ABCD-STUDY/abcd-hcp-pipeline), [Zenodo](https://zenodo.org/record/2587210#.Xc59yldKg7Y), and [DockerHub](https://hub.docker.com/r/dcanlabs/abcd-hcp-pipeline) at the time of this release as the `abcd-hcp-pipeline`.  It is a [BIDS App](https://bids-apps.neuroimaging.io/about/) which takes BIDS input data and uses the methods from both the [Human Connectome Project's minimal preprocessing pipeline](https://doi.org/10.1016/j.neuroimage.2013.04.127) and the [DCAN Labs resting state fMRI analysis tools](https://github.com/DCAN-Labs/dcan_bold_processing) to output preprocessed MRI data in both volume and surface spaces.
+The ABCD-BIDS pipeline is available on [GitHub](https://github.com/ABCD-STUDY/abcd-hcp-pipeline), [OSF](https://doi.org/10.17605/OSF.IO/89PYD), and [DockerHub](https://hub.docker.com/r/dcanlabs/abcd-hcp-pipeline) at the time of this release as the `abcd-hcp-pipeline`.  It is a [BIDS App](https://bids-apps.neuroimaging.io/about/) which takes BIDS input data and uses the methods from both the [Human Connectome Project's minimal preprocessing pipeline](https://doi.org/10.1016/j.neuroimage.2013.04.127) and the [DCAN Labs resting state fMRI analysis tools](https://github.com/DCAN-Labs/dcan_bold_processing) to output preprocessed MRI data in both volume and surface spaces.
 
 It has been designed to be as BIDS compliant and user friendly as possible.   While it has been used here specifically to process the ABCD data, it can be run by any investigator to process a wide variety of BIDS input MRI data as long as the data set contains a T1w image.
 
@@ -20,7 +20,8 @@ Each stage of the larger pipeline has a distinct beginning and ending which is w
 For full details read the following references:
 
 1. [The minimal preprocessing pipelines for the Human Connectome Project. Glasser, et al. NeuroImage. 2013.](https://doi.org/10.1016/j.neuroimage.2013.04.127)
-1. [Correction of respiratory artifacts in MRI head motion estimates. Fair, et al. NeuroImage. 2019.](https://doi.org/10.1016/j.neuroimage.2019.116400)
+2. [Correction of respiratory artifacts in MRI head motion estimates. Fair, et al. NeuroImage. 2019.](https://doi.org/10.1016/j.neuroimage.2019.116400)
+3. [Adolescent Brain Cognitive Development (ABCD) Community MRI Collection and Utilities. Feczko, et al. Biorxiv, 2021](https://www.biorxiv.org/content/10.1101/2021.07.09.451638v1)
 
 
 ### Stage 1: PreFreeSurfer
