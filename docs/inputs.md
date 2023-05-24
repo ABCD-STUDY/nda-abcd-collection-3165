@@ -76,10 +76,14 @@ The bval and bvec files associated with the DWI data for each scanner and softwa
 
 Field maps for the DWI data are included in each subject's `fmap` directory and can be distinguished from the functional fieldmaps by the `_acq-dwi` tag in their filenames.
 
-## 10. BIDS Modality-Agnostic Files
+## 10. Event Related Information
+
+The text files containing fMRI task event related information (ERI) have duplicated information. Specifically, per task within each subject's session, each run's ERI text file contains both run 1 and run 2. When extracting task event information for task-fMRI analysis, please make sure to take into account the duplicated structure for each ERI file. Our abcd-bids-tfmri-pipeline already takes this duplication into account for both derived contrasts and the pipeline code itself.
+
+## 11. BIDS Modality-Agnostic Files
 
 To maintain a valid BIDS data structure `dataset_description.json`, `README`, and `CHANGES` files are included.  They respectively: minimally describe the dataset, provide a small blurb about the datsaet, and log the changes from version to version.
 
-## 11. BIDS Validator Compliance
+## 12. BIDS Validator Compliance
 
 This dataset was validated using [the official BIDS validator](https://github.com/bids-standard/bids-validator).

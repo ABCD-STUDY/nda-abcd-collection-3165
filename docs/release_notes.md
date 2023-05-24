@@ -14,12 +14,14 @@ User feedback will guide our course for future releases.  Provide feedback on wh
 ### Release 2.0.0 (6/22/2022)
 
 New updates to the ABCD BIDS Community Collection cover both revisions to existing datasets and new derivatives. Revisions include:
+
 1. Uploading 144 participants with new data due to revised fast track QC
 2. Providing Connectivity matrices for those participants with discrepancies in the number of timepoints used
 3. Uploading JSONs for the diffusion inputs in some participants.
 4. Updated version of the participants.tsv to v1.0.2 includes correction to site and sex designation for a small subset of subjects based on new information from the DAIC.
 
 New additions include:
+
 1. Individual-specific network labels based on a template matching approach and infomap approaches
 2. Derivatives for the fmriprep pipeline, and 
 3. Level-2 task files from the ABCD-task-fMRI pipeline.
@@ -28,7 +30,7 @@ Details about each update are given below.
 
 #### fMRIPrep outputs
 
-fMRIPrep v20.2.0 was run on all 10,038 participants whose visit one data was successfully converted to BIDS. The limited fMRIPrep processing errors were due to subjects that did not have any valid fMRI runs, but we did not do any manual quality control of outputs. 9,484 participants have at least one output.The data is available in 18 submissions (a summary, including number of files and submission size can be found [here](https://docs.google.com/spreadsheets/d/1NbZ28vBvGVJb9miivgsJ695VVoFBSBuBQmWigN5pg_c/edit#gid=678992105)). Detailed information about the files included in each submission are on the second tab of that spreadsheet. Files with no submission name listed have not yet been uploaded. If additional outputs are desired, please reach out to [TODO: contact (Dylan Nielson?)]. fMRIPrep was run in a singularity container on resources from the NIH High Performance Computing Biowulf cluster. 
+fMRIPrep v20.2.0 was run on all 10,038 participants whose visit one data was successfully converted to BIDS. The limited fMRIPrep processing errors were due to subjects that did not have any valid fMRI runs, but we did not do any manual quality control of outputs. 9,484 participants have at least one output. The data is available in 18 submissions (a summary, including number of files and submission size can be found [here](https://docs.google.com/spreadsheets/d/1NbZ28vBvGVJb9miivgsJ695VVoFBSBuBQmWigN5pg_c/edit#gid=678992105)). Detailed information about the files included in each submission are on the second tab of that spreadsheet. Files with no submission name listed have not yet been uploaded. If additional outputs are desired, please reach out to Dylan Nielson at <dylan.nielson@nih.gov>. fMRIPrep was run in a singularity container on resources from the NIH High Performance Computing Biowulf cluster.
 
 #### Replaced subjects
 The initial release was processed prior to new updates to the fast track QC spreadsheet that affected the original inputs for 144 participants. This led to discrepancies in the number of timepoints reported for connectivity matrices (see below) relative to the inputs. The 144 participants were re-processed through the ABCD-BIDS pipeline at the Minnesota Supercomputing Institute (MSI), and being replaced, subsequent the required NDA review. The participants.tsv file indicates which subjects were reprocessed.
@@ -47,25 +49,21 @@ The DWI acquisition parameters from subjects scanned on Philips and GE with MR S
 
 *Submission ID: 36448*
 
-#### Individual-specific network maps
+#### Individual-specific network maps using the Infomap algorithm
 
- Multiple versions of the time series are provided, to allow investigator flexibility in their desired analysis: either exactly 10 minutes of randomly sampled frames, all available frames below the 0.2mm FD threshold, or concatenated rest and task time series data in the following order: rest, MID, n-back, and SST (provided that the participant had an available scan for the task). For full details of inter- and intra- participant reliability, and motion correction, see Hermosillo et al. 2021 (in prep).
+Infomap community detection is an unsupervised method of assigning nodes to communities in a graph based on information theory. Here, grayordinates are treated as nodes, and the edges are the correlation between the nodes. There are two versions of individual-specific maps available depending on whether not investigators are interested in the contribution of tasks to global network topography. 1) Maps are generated for subjects with at least 10 minutes of low-motion (See Hermosillo et al 2021) resting state data. 2)
 
-TODO Submission IDs
+Maps are generated with all available minutes below an FD threshold of 0.2mm (and corresponding BOLD outlier detection) using concatenated rest and task data. Because the tie density scales exponentially with the number of grayordinates, infomap community detection was only performed on the cortical surface and did not include subcortical structures (i.e. neither brainstem, cerebellum, nor diencephalon). Note, because infomap is an unsupervised community detection method, the subject may have more or fewer networks than a canonical network set. Where possible, we have attempted to assign networks based on the networks observed in an average dataset using the jaccard similarity (see Gordon et al. 2017), however in some instances the jaccard similarity sufficiently low (<0.1) such that the network did not resemble any of the canonical networks, in which case the network was provided a novel network assignment.
 
 #### Template Matching
 
-(TODO Anders edit Robert's template matching section and summarize here): link to description and brief overview of subject counts
+(Template Matching)[https://github.com/DCAN-Labs/compare_matrices_to_assign_networks]
 
 *Submission IDs: 36458 - 36630*
 
 #### Task outputs
 
-(TODO Audrey: link to description)
-
-(TODO: Add section about the task derivatives. @Audrey give Fez a list of all task derivatives)
-
-(TODO Submission IDs)
+(abcd-bids-tfmripipeline)[https://github.com/DCAN-Labs/abcd-bids-tfmri-pipeline] a modified version of the TaskfMRIAnalysis stage of the HCP-pipeline (Glasser et al., 2013) developed at University of Vermont by Anthony Juliano, was used to process task-fmri data from the minimally processed ABCD-BIDS (Feczko et al., 2020b) processing pipeline (v.1.0) data, as well as derived ABCC data (Feczko, 2020; ABCD-3165). An example fsf file template for ABCD's MID task is made available for users to review on ABCC (https://osf.io/psv5m/). MID, Nback, and SST level-2 task outputs are available for the baseline sessions for all data that passed task QC. These outputs include the fully-processed dtseries data that are subsequently ready for the user to perform their desired third-level or group-wise analyses.
 
 ### Release 1.1.1 (10/7/2020)
 
