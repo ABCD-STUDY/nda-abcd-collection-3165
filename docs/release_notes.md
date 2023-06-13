@@ -1,6 +1,6 @@
 # Release Notes
 
-## 3. Ongoing Releases
+## Ongoing Releases
 
 A guiding principle for this collection is to release essential data for analysis.  This collection will be updated with waves of data preparation and processing.  As waves complete preparation or processing they will be uploaded and version-stamped with updated and versioned release notes.
 
@@ -9,7 +9,7 @@ User feedback will guide our course for future releases.  Provide feedback on wh
 - [NDA Collection 3165 documentation repository](https://github.com/ABCD-STUDY/nda-abcd-collection-3165)
 - [Direct link to repository's GitHub issues for requests and feedback](https://github.com/ABCD-STUDY/nda-abcd-collection-3165/issues)
 
-## 4. Release History
+## Release History
 
 ### Release 2.0.0 (6/22/2022)
 
@@ -39,7 +39,7 @@ These subjects have had their connectivity matrices regenerated and replaced (se
 
 #### Connectivity matrices
 
-The 144 participants with replaced fast track QC information mentioned above produced new Gordon 10 and 5 minute connectivity matrices. The old matrices remain valid, but may use different frames from the new matrices.  The labels for these connectivity matrices were defined in Gordon, et al, 2017. These connectivity matrices were created using the DCAN Labs cifti connectivity wrapper (https://github.com/DCAN-Labs/cifti-connectivity/). Timepoints used for connectivity calculations were thresholded based on data quality. Data quality was measured by the total frame displacement (FD) calculated from the frame-by-frame realignment parameters; Frames above an FD of 0.2 mm were excluded. An outlier detection procedure was used to exclude remaining frames that were 2 standard deviations away from the mean.  These procedures match the original procedures used to generate the connectivity matrices in the November release.
+The 144 participants with replaced fast track QC information mentioned above produced new Gordon 10 and 5 minute connectivity matrices. The old matrices remain valid, but may use different frames from the new matrices.  The labels for these connectivity matrices were defined in Gordon, et al, 2017. These connectivity matrices were created using the [DCAN Labs cifti connectivity wrapper](https://github.com/DCAN-Labs/cifti-connectivity/). Timepoints used for connectivity calculations were thresholded based on data quality. Data quality was measured by the total frame displacement (FD) calculated from the frame-by-frame realignment parameters; Frames above an FD of 0.2 mm were excluded. An outlier detection procedure was used to exclude remaining frames that were 2 standard deviations away from the mean.  These procedures match the original procedures used to generate the connectivity matrices in the November release.
 
 *Submission IDs: 36449 - 36452*
 
@@ -57,13 +57,13 @@ Maps are generated with all available minutes below an FD threshold of 0.2mm (an
 
 #### Template Matching
 
-(Template Matching)[https://github.com/DCAN-Labs/compare_matrices_to_assign_networks]
+[Template Matching] Template matching is a supervised algorithm for identifying neural networks using resting state connectivity data, based on the spatial topography. Click [here](https://github.com/DCAN-Labs/compare_matrices_to_assign_networks) for documentation of source code as well as a written tutorial. Multiple versions of the time series are provided, to allow investigator flexibility in their desired analysis: either exactly 10 minutes of randomly sampled frames, all available frames below the 0.2mm FD threshold, or concatenated rest and task time series data in the following order: rest, MID, n-back, and SST (provided that the participant had an available scan for the task). For full details of inter- and intra- participant reliability, and motion correction, see Hermosillo et al. 2021 (in prep).
 
 *Submission IDs: 36458 - 36630*
 
 #### Task outputs
 
-(abcd-bids-tfmripipeline)[https://github.com/DCAN-Labs/abcd-bids-tfmri-pipeline] a modified version of the TaskfMRIAnalysis stage of the HCP-pipeline (Glasser et al., 2013) developed at University of Vermont by Anthony Juliano, was used to process task-fmri data from the minimally processed ABCD-BIDS (Feczko et al., 2020b) processing pipeline (v.1.0) data, as well as derived ABCC data (Feczko, 2020; ABCD-3165). An example fsf file template for ABCD's MID task is made available for users to review on ABCC (https://osf.io/psv5m/). MID, Nback, and SST level-2 task outputs are available for the baseline sessions for all data that passed task QC. These outputs include the fully-processed dtseries data that are subsequently ready for the user to perform their desired third-level or group-wise analyses.
+[abcd-bids-tfmripipeline](https://github.com/DCAN-Labs/abcd-bids-tfmri-pipeline) a modified version of the TaskfMRIAnalysis stage of the HCP-pipeline (Glasser et al., 2013) developed at University of Vermont by Anthony Juliano, was used to process task-fmri data from the minimally processed ABCD-BIDS (Feczko et al., 2020b) processing pipeline (v.1.0) data, as well as derived ABCC data (Feczko, 2020; ABCD-3165). An example fsf file template for ABCD's MID task is made available for users to review on ABCC (https://osf.io/psv5m/). MID, Nback, and SST level-2 task outputs are available for the baseline sessions for all data that passed task QC. These outputs include the fully-processed dtseries data that are subsequently ready for the user to perform their desired third-level or group-wise analyses.
 
 ### Release 1.1.1 (10/7/2020)
 
@@ -92,7 +92,7 @@ This was the initial release of DCAN Labs ABCD-BIDS inputs and derivatives conta
 
 ##### `task-rest_bold.json`
 
-Discovered in the middle of June 2020, the modality-specific BIDS inherited `task-rest_bold.json` file at the top of the directory tree which is nested in almost every `task-rest` associated record in the NDA database has a typo in it.  The `"TaskDescription"` key has a value of `"See http://www.cognitiveatlas.org/task/id/tsk_4a57abb949e1a/"`.  However, this link goes to the stop signal task page on the Cognitive Atlas website.  Instead you should refer to [the Cognitive Atlas website for "rest eyes open"](http://www.cognitiveatlas.org/task/id/trm_4c8a834779883/).  This site describes the task as:
+Discovered in the middle of June 2020, the modality-specific BIDS inherited `task-rest_bold.json` file at the top of the directory tree which is nested in almost every `task-rest` associated record in the NDA database has a typo in it.  The `"TaskDescription"` key has a value of `"See http://www.cognitiveatlas.org/task/id/tsk_4a57abb949e1a/"`.  However, this link goes to the stop signal task page on the Cognitive Atlas website.  Instead you should refer to [the Cognitive Atlas website for "rest eyes open"](http://www.cognitiveatlas.org/task/id/trm_4c8a834779883/).  This website describes the task as:
 
 "Subjects rest passively with their eyes open. Often used as a baseline for comparison for other tasks."
 

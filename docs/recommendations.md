@@ -53,7 +53,7 @@ Demographic and socioeconomic variables relating to the ABCD participants includ
 1. `released`: Participants with updated fast track data based on revised QC (see: [known issues](https://collection3165.readthedocs.io/en/stable/release_notes/#released))
 1. `updated_dwi_input_json`: Participants scanned on GE with MR Software release DV25.0_R02_1549.b (see: [known issues](https://collection3165.readthedocs.io/en/stable/release_notes/#updated_dwi_input_json))
 
-The `matched_group` field is the product of comparisons across site, age, sex, ethnicity, grade, highest level of parental education, handedness, combined family income, exposure to anesthesia, and family-relatedness which show no significant differences between the ABCD-1 and ABCD-2 groups.  Comparison of the counts and means for each of these factors shows that ABCD-1 and ABCD-2 are negligibly different samples.  Gender shows the largest absolute difference of 2.5 percent.  No other demographic variables differ by more than 1 percent.  See table above.
+The `matched_group` field is the product of comparisons across site, age, sex, ethnicity, grade, highest level of parental education, handedness, combined family income, exposure to anesthesia, and family-relatedness which show no significant differences between the ABCD-1 and ABCD-2 groups.  Comparison of the counts and means for each of these factors shows that ABCD-1 and ABCD-2 are negligibly different samples.  Gender shows the largest absolute difference of 2.5 percent.  No other demographic variables differ by more than 1 percent. A further description can be found in the [ABCC paper] (https://doi.org/10.1101/2021.07.09.451638) See table above.
 
 ![Matched groups](img/matched_groups.png)
 
@@ -81,7 +81,7 @@ The brain coverage score is an estimate of how much overlap exists between the f
 There are two ways to download ABCD Study data and get BIDS inputs or derivatives:
 
 1. (***PREFERRED***) Downloading from NDA Collection 3165 will provide a "data structure manifest" spreadsheet with AWS S3 links and other key information.  DCAN Labs has designed [a GitHub repository for selectively downloading only parts of the BIDS input and derivative data, the "nda-abcd-s3-downloader"](https://github.com/ABCD-STUDY/nda-abcd-s3-downloader).
-1. [ABCD Fast Track Data on the NDA](https://nda.nih.gov/abcd/query/abcd-fast-track-data.html) can alternatively be downloaded and unpacked into BIDS with the [ABCD-STUDY abcd-dicom2bids GitHub repository](https://github.com/ABCD-STUDY/abcd-dicom2bids).  This is if you need DICOM files specifically.
+2. [ABCD Fast Track Data on the NDA](https://nda.nih.gov/abcd/query/abcd-fast-track-data.html) can alternatively be downloaded and unpacked into BIDS with the [ABCD-STUDY abcd-dicom2bids GitHub repository](https://github.com/ABCD-STUDY/abcd-dicom2bids).  This is if you need DICOM files specifically.
 
 ### [`nda-abcd-s3-downloader`](https://github.com/ABCD-STUDY/nda-abcd-s3-downloader)
 

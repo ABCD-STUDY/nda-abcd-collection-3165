@@ -1,7 +1,5 @@
 # Inputs
 
-Note: Clicking any link within the readthedocs site will not open a new web browser tab.  If you want to keep your docs open, either middle-click or right-click and choose open in new tab for the links you would like to follow.
-
 ---
 
 ## 1. About this Document
@@ -46,7 +44,7 @@ QC is performed by scan operators at the time of the scan. Subjects may fail for
 
 ## 4. DICOM to BIDS Conversion
 
-DICOMs were first converted into NIfTIs using [Christophe Bedetti's Dcm2Bids](https://github.com/cbedetti/Dcm2Bids), which is a wrapper for [the Chris Rorden's Lab dcm2niix](https://github.com/rordenlab/dcm2niix) that restructures NIfTIs into BIDS format.
+DICOMS were converted using the [abcd-dcm2bids wrapper](https://github.com/ABCD-STUDY/abcd-dicom2bids). The wrapper includes multiple steps involving pulling the data from ABCD fast-track, as described in recommendations [here](https://collection3165.readthedocs.io/en/stable/recommendations/#4-downloading-and-unpacking-data). ABCD-dcm2bids wrapper pulls DICOMS based on the ABCD fast track QC. DICOMs were first converted into NIfTIs using [Christophe Bedetti's Dcm2Bids](https://github.com/cbedetti/Dcm2Bids), which is a wrapper for [the Chris Rorden's Lab dcm2niix](https://github.com/rordenlab/dcm2niix) that restructures NIfTIs into BIDS format.
 
 ## 5. MRI Acquisition Parameters
 
