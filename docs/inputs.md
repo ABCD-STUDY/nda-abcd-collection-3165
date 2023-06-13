@@ -4,7 +4,7 @@
 
 ## 1. About this Document
 
-The data collection contains anatomical MRI images (T1w and T2w), functional MRI images processed through [a modified version](https://github.com/DCAN-Labs/DCAN-HCP) of the [minimal preprocessing pipeline for the Human Connectome Project (HCP)](https://doi.org/10.1016/j.neuroimage.2013.04.127), and spin-echo field maps used in preprocessing.  BIDS-formatted diffusion-weighted images and their field maps are included as input data, but have not been minimally preprocessed.  This document describes the BIDS input data and the steps involved in setting it up for processing through the ABCD-BIDS pipeline. Other documents describe how to [download the data](https://collection3165.readthedocs.io/en/stable/recommendations/#4-downloading-and-unpacking-data) using our [nda-abcd-s3-downloader](https://github.com/ABCD-STUDY/nda-abcd-s3-downloader) tool.
+The data collection contains anatomical MRI images (T1w and T2w), functional MRI images processed through [a modified version](https://github.com/DCAN-Labs/DCAN-HCP) of the [minimal preprocessing pipeline for the Human Connectome Project (HCP)](https://doi.org/10.1016/j.neuroimage.2013.04.127), and spin-echo field maps used in preprocessing.  [BIDS-formatted](https://bids-specification.readthedocs.io/en/stable/) diffusion-weighted images and their field maps are included as input data, but have not been minimally preprocessed.  This document describes the BIDS input data and the steps involved in setting it up for processing through the ABCD-BIDS pipeline. Other documents describe how to [download the data](https://collection3165.readthedocs.io/en/stable/recommendations/#4-downloading-and-unpacking-data) using our [nda-abcd-s3-downloader](https://github.com/ABCD-STUDY/nda-abcd-s3-downloader) tool.
 
 ## 2. Input Data Subsets Breakdown
 
@@ -64,11 +64,11 @@ A pair of positive (posterior to anterior) and negative (anterior to posterior) 
 
 ## 8. BIDS Field Map "IntendedFor" Metadata
 
-The chosen field map pair is used for all anatomical and functional bias field corrections.  This is specified with the `IntendedFor` field in the side car JSONs of the associated field map's BIDS metadata.
+The chosen field map pair is used for all anatomical and functional bias field corrections.  This is specified with the `IntendedFor` field in the side car JSONs of the associated field map's [BIDS](https://bids-specification.readthedocs.io/en/stable/) metadata.
 
 ## 9. Diffusion-Weighted Imaging (DWI)
 
-BIDS-formatted inputs for DWI have been included although they have not been processed through the minimal preprocessing pipeline.
+[BIDS-formatted](https://bids-specification.readthedocs.io/en/stable/) inputs for DWI have been included although they have not been processed through the minimal preprocessing pipeline.
 
 The bval and bvec files associated with the DWI data for each scanner and software version were provided by the DAIC and can be found in the [nda-abcd-s3-downloader](https://github.com/ABCD-STUDY/nda-abcd-s3-downloader) repository.  This was due to formatting issues and irregularities with these files that were packaged along with the DICOMs.
 
@@ -80,7 +80,7 @@ The text files containing fMRI task event related information (ERI) have duplica
 
 ## 11. BIDS Modality-Agnostic Files
 
-To maintain a valid BIDS data structure `dataset_description.json`, `README`, and `CHANGES` files are included.  They respectively: minimally describe the dataset, provide a small blurb about the datsaet, and log the changes from version to version.
+To maintain a valid [BIDS data structure](https://bids-specification.readthedocs.io/en/stable/) `dataset_description.json`, `README`, and `CHANGES` files are included.  They respectively: minimally describe the dataset, provide a small blurb about the datsaet, and log the changes from version to version.
 
 ## 12. BIDS Validator Compliance
 
