@@ -90,6 +90,10 @@ This was the initial release of DCAN Labs ABCD-BIDS inputs and derivatives conta
 
 #### Corrections
 
+#### `sourcedata`
+
+It was brought to our attention that Event Related Information `sourcedata` files can be CSV files as well as TXT files in the ABCD dataset. Unfortunately, we currently only account for TXT files in our BIDS conversion. Our NDA-uploaded source data only includes Event Related Information TXT files at this time. We intend to upload the CSV files with a future release.
+
 ##### `task-rest_bold.json`
 
 Discovered in the middle of June 2020, the modality-specific BIDS inherited `task-rest_bold.json` file at the top of the directory tree which is nested in almost every `task-rest` associated record in the NDA database has a typo in it.  The `"TaskDescription"` key has a value of `"See http://www.cognitiveatlas.org/task/id/tsk_4a57abb949e1a/"`.  However, this link goes to the stop signal task page on the Cognitive Atlas website.  Instead you should refer to [the Cognitive Atlas website for "rest eyes open"](http://www.cognitiveatlas.org/task/id/trm_4c8a834779883/).  This website describes the task as:
