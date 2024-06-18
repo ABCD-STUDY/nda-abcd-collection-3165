@@ -76,26 +76,16 @@ This Quality Control (QC) file contains QC metrics for data from this collection
 
 The brain coverage score is an estimate of how much overlap exists between the fMRI task volumes and the MNI atlas mask.  It is determined by what percentage of the MNI atlas mask file is covered by each temporal mean of the fMRI time series volume.  This is calculated by first taking the temporal mean of the 4-dimensional fMRI time series.  The meaned 3-dimensional volume is then binarized using `fslmaths` and masked using the `MNI152_T1_2mm_brain_mask.nii.gz`.  The brain coverage score is a percentage.  The score is the number of non-zero voxels left in the binarized volume divided by the number of non-zero voxels in the MNI mask.
 
-## 4. Downloading and Unpacking Data
-
-There are two ways to download ABCD Study data and get BIDS inputs or derivatives:
-
-1. (***PREFERRED***) Downloading from NDA Collection 3165 will provide a "data structure manifest" spreadsheet with AWS S3 links and other key information.  DCAN Labs has designed [a GitHub repository for selectively downloading only parts of the BIDS input and derivative data, the "nda-abcd-s3-downloader"](https://github.com/ABCD-STUDY/nda-abcd-s3-downloader).
-2. [ABCD Fast Track Data on the NDA](https://nda.nih.gov/abcd/query/abcd-fast-track-data.html) can alternatively be downloaded and unpacked into BIDS with the [ABCD-STUDY abcd-dicom2bids GitHub repository](https://github.com/ABCD-STUDY/abcd-dicom2bids).  This is if you need DICOM files specifically.
-
-### [`nda-abcd-s3-downloader`](https://github.com/ABCD-STUDY/nda-abcd-s3-downloader)
-
-This downloader can parallelize downloads and you can specify only your data subsets of interest.
 
 ### [`abcd-dicom2bids`](https://github.com/ABCD-STUDY/abcd-dicom2bids)
 
 This tool pulls DICOMs and E-Prime files from the NDA's "fast-track" data.  It also unpacks, converts, and BIDS-standardizes the fast-track data so it becomes BIDS-compliant and matches that which is uploaded to collection 3165.
 
-## 5. MATLAB Motion Mask Files
+## 4. MATLAB Motion Mask Files
 
 In order to make an accurate correlation matrix, use the MATLAB motion mask file described in release document 4, [Derivatives](https://collection3165.readthedocs.io/en/stable/derivatives/), under the **Motion MAT File** heading.
 
-## 6. Interacting with Output Data Types
+## 5. Interacting with Output Data Types
 
 Along with GIFTIs, released data follows the standards defined by the Human Connectome Project, such as reporting different metrics in standard grayordinate space and saving data using CIFTI standard file formats.
 
@@ -124,7 +114,7 @@ Correlation matrices should be generated from either the dense or parcellated ti
 
 For visualization of all of these CIFTI files, use [Connectome Workbench](https://www.humanconnectome.org/software/connectome-workbench).  
 
-## 7. DCAN Labs Software
+## 6. DCAN Labs Software
 
 We have built tools to utilize this data using our recommended methods.  Read on for descriptions of each publicly-hosted open-source software GitHub repository from [DCAN-Labs](https://github.com/DCAN-Labs).  
 
@@ -144,7 +134,7 @@ File mapper is another generalized piece of software which is great for defining
 
 Much like custom clean, you define a JSON file which says how to map a file from some common input to some common output in order to "reshape" your data outputs.
 
-## 8. BIDS Folder Layout
+## 7. BIDS Folder Layout
 
 Your final BIDS folder structure will look like this tree if you download everything.  Full descriptions of these BIDS input and BIDS derivative data are located in these release notes' documents 2 and 4, [**Inputs**](https://collection3165.readthedocs.io/en/stable/inputs/) and [**Derivatives**](https://collection3165.readthedocs.io/en/stable/derivatives/) respectively.
 
