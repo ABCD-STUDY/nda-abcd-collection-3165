@@ -37,6 +37,7 @@ Sections 3 and onward of this document generally describe what each of the input
 `sourcedata.func.task_events`
 
 - `sourcedata/sub-#/ses-#/func/sub-#_ses-#_task-(MID|nback|SST)_run-#_bold_EventRelatedInformation.txt`
+-  `sourcedata/sub-#/ses-#/func/sub-#_ses-#_task-(MID|nback|SST)_run-#_bold_EventRelatedInformation.csv`
 
 ## 3. DAIC Quality Control (QC) Selection Process
 
