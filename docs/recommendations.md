@@ -76,11 +76,6 @@ This Quality Control (QC) file contains QC metrics for data from this collection
 
 The brain coverage score is an estimate of how much overlap exists between the fMRI task volumes and the MNI atlas mask.  It is determined by what percentage of the MNI atlas mask file is covered by each temporal mean of the fMRI time series volume.  This is calculated by first taking the temporal mean of the 4-dimensional fMRI time series.  The meaned 3-dimensional volume is then binarized using `fslmaths` and masked using the `MNI152_T1_2mm_brain_mask.nii.gz`.  The brain coverage score is a percentage.  The score is the number of non-zero voxels left in the binarized volume divided by the number of non-zero voxels in the MNI mask.
 
-
-### [`abcd-dicom2bids`](https://github.com/ABCD-STUDY/abcd-dicom2bids)
-
-This tool pulls DICOMs and E-Prime files from the NDA's "fast-track" data.  It also unpacks, converts, and BIDS-standardizes the fast-track data so it becomes BIDS-compliant and matches that which is uploaded to collection 3165.
-
 ## 4. MATLAB Motion Mask Files
 
 In order to make an accurate correlation matrix, use the MATLAB motion mask file described in release document 4, [Derivatives](https://collection3165.readthedocs.io/en/stable/derivatives/), under the **Motion MAT File** heading.
