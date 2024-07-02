@@ -77,7 +77,7 @@ Field maps for the DWI data are included in each subject's `fmap` directory and 
 
 ## 10. Event Related Information
 
-The text files containing fMRI task event related information (ERI) have duplicated information. Specifically, per task within each subject's session, each run's ERI text file contains both run 1 and run 2. When extracting task event information for task-fMRI analysis, please make sure to take into account the duplicated structure for each ERI file. Our abcd-bids-tfmri-pipeline already takes this duplication into account for both derived contrasts and the pipeline code itself.
+The text and csv files containing fMRI task event related information (ERI) have duplicated information. Specifically, per task within each subject's session, each run's ERI text file contains both run 1 and run 2. When extracting task event information for task-fMRI analysis, please make sure to take into account the duplicated structure for each ERI file. Our abcd-bids-tfmri-pipeline already takes this duplication into account for both derived contrasts and the pipeline code itself.
 
 ## 11. BIDS Modality-Agnostic Files
 
