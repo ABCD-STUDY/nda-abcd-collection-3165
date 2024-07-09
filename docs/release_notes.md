@@ -11,9 +11,36 @@ User feedback will guide our course for future releases.  Provide feedback on wh
 
 ## Release History
 
+### Release 6.0.0 (2024)
+
+New updates to the ABCD BIDS Community Collection cover both revisions to existing datasets and new derivatives. 
+
+Revisions include:
+
+1. Updated version of ABCD-BIDS. V0.1.4 has an updated output structure that is more BIDS compliant, an updated CustomClean that removes unnecessary intermediate files, an updated ExecutiveSummary, and updated DCANBoldProc (see details [here](https://github.com/DCAN-Labs/abcd-hcp-pipeline/releases/tag/v0.1.4)). This version also includes improved bandpass filtering to the BOLD data implemented in V0.1.3 after the last release: the new implementation zero pads the BOLD data prior to filtering to minimize distortions at the beginning and ending timepoints. It's important to note that this is not a bug, but rather an improvement. This release does not invalidate previous results, it reduces variance towards the beginning and end of the time-series data. In the previous release, those frames are labeled as "outliers" and discarded according to the provided mask. Using these updated timeseries users should be able to include more data in their analyses.
+2. Fixed incorrect AP/PA labeling in subset of GE dv26 subjects. 
+3. Updated bvec/bval values for Philips and Siemens data. Previously the values provided by dcm2niix were being replaced with values supplied by the NDA, but the dcm2niix values are more accurate. 
+4. Updated version of [QSIprep](https://qsiprep.readthedocs.io/en/stable/). Version 0.21.4 fixes some critical bugs in how the QC metrics were calculated. There was also an issue for some subjects in the prior release in distortion correction that resulted in very inaccurate distortion correction results. This was due to TOPUP being given a denoised b=0 image from the DWI series and a raw b=0 image in the opposite phase encoding direction (taken from the image in the fmap/ directory). We updated QSIPrep to use the unprocessed b=0 images in both phase encoding directions, which resulted in TOPUP performing as expected. The bug affected a subset of subjects, but it is worth suggesting that anyone using the initial data re-calculate their analysis using the updated version.
+
+New additions include:
+
+1. Uploading additional Year 1 BIDS inputs and abcd-hcp-pipeline derivatives
+2. Uploading Year 2 BIDS inputs and abcd-hcp-pipeline derivatives
+3. Uploading additional csv ERI files that were missing from previous releases, which only included txt files
+4. Uploading additional DWI Year 1 BIDS inputs and derivatives not included in prior release
+5. Uploading DWI Year 2 BIDS inputs and derivatives
+6. Updated version of participants.tsv to v1.0.3 which includes the following additional information:
+    - Updated demographic information: race_ethnicity column expanded to include more participant information across a wider range of races and ethnicities  
+    - Inclusion of year 4 subjects and more updated scanner software information
+    - Expanded anesthesia exposure information
+    - Inclusion of pc scores
+
+
 ### Release 2.0.0 (6/22/2022)
 
-New updates to the ABCD BIDS Community Collection cover both revisions to existing datasets and new derivatives. Revisions include:
+New updates to the ABCD BIDS Community Collection cover both revisions to existing datasets and new derivatives. 
+
+Revisions include:
 
 1. Uploading 144 participants with new data due to revised fast track QC
 2. Providing Connectivity matrices for those participants with discrepancies in the number of timepoints used
