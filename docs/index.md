@@ -26,13 +26,4 @@ Latest updates are detailed below.
 
 ## Coming Soon:
 
-New version of fMRIPrep 23.0.0rc1 year 1 derivatives. For specifics on what has changed since fMRIprep v20.2.0 and fMRIprep 23.0.0rc1, see the change log for the software here.
-
-Improved distortion correction
-
-Improved bold projection to surface
-
-New CIFTI outputs
-
-T2w in T1w volume space
 
