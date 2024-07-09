@@ -27,8 +27,8 @@ New additions include:
 1. Uploading additional Year 1 BIDS inputs and abcd-hcp-pipeline derivatives
 2. Uploading Year 2 BIDS inputs and abcd-hcp-pipeline derivatives
 3. Uploading additional csv ERI files that were missing from previous releases, which only included txt files
-4. Uploading additional DWI Year 1 BIDS inputs and derivatives not included in prior release
-5. Uploading DWI Year 2 BIDS inputs and derivatives
+4. Uploading additional DWI Year 1 BIDS inputs and QSIPrep derivatives not included in prior release
+5. Uploading DWI Year 2 BIDS inputs and QSIPrep derivatives
 6. Updated version of participants.tsv to v1.0.3 which includes the following additional information:
     - Updated demographic information: race_ethnicity column expanded to include more participant information across a wider range of races and ethnicities  
     - Inclusion of year 4 subjects and more updated scanner software information
