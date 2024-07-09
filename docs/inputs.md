@@ -69,7 +69,7 @@ The chosen field map pair is used for all anatomical and functional bias field c
 
 ## 9. Diffusion-Weighted Imaging (DWI)
 
-The bval and bvec files associated with the DWI data for each scanner and software version were provided by the dicom data for every vendor except for GE, which were provided by the DAIC and can be found in the [nda-abcd-s3-downloader](https://github.com/ABCD-STUDY/nda-abcd-s3-downloader) repository.
+The bval and bvec files associated with the DWI data for each scanner and software version were provided by the DICOM data for every vendor except for GE, which were provided by the DAIC and can be found in the [nda-abcd-s3-downloader](https://github.com/ABCD-STUDY/nda-abcd-s3-downloader) repository.
 
 Field maps for the DWI data are included in each subject's `fmap` directory and can be distinguished from the functional fieldmaps by the `_acq-dwi` tag in their filenames.
 
