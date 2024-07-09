@@ -26,12 +26,6 @@ Latest updates are detailed below.
 
 ## Coming Soon:
 
-Year 2 and year 1  BIDS inputs and abcd-hcp-pipeline derivatives.
-
-The timeseries data will be reprocessed with an updated version of the abcd-hcp-pipeline (v0.1.4).
-
-There was in issue for some subjects in distortion correction that resulted in very inaccurate distortion correction results. This was due to TOPUP being given a denoised b=0 image from the DWI series and a raw b=0 image in the opposite phase encoding direction (taken from the image in the fmap/ directory). We updated QSIPrep to use the unprocessed b=0 images in both phase encoding directions, which resulted in TOPUP performing as expected. The bug affected a subset of subjects, but it is worth suggesting that anyone using the initial data re-calculate their analysis using the updated version.
-
 New version of fMRIPrep 23.0.0rc1 year 1 derivatives. For specifics on what has changed since fMRIprep v20.2.0 and fMRIprep 23.0.0rc1, see the change log for the software here.
 
 Improved distortion correction
@@ -41,8 +35,4 @@ Improved bold projection to surface
 New CIFTI outputs
 
 T2w in T1w volume space
-
-Change to participants.tsv format
-
-The combined race & ethnicity variable from v1.0.1 has been replaced with more descriptive individual race columns.
 
