@@ -50,8 +50,8 @@ Demographic and socioeconomic variables relating to the ABCD participants includ
 1. `neurocog_pc1.bl`:
 1. `neruocog_pc2.bl`:
 1. `neurocog_pc3.bl`:
-1. `released`: Participants with updated fast track data based on revised QC (see: [known issues](https://collection3165.readthedocs.io/en/stable/release_notes/#released))
-1. `updated_dwi_input_json`: Participants scanned on GE with MR Software release DV25.0_R02_1549.b (see: [known issues](https://collection3165.readthedocs.io/en/stable/release_notes/#updated_dwi_input_json))
+1. `released`: Participants with updated fast track data based on revised QC
+1. `updated_dwi_input_json`: Participants scanned on GE with MR Software release DV25.0_R02_1549.b 
 
 The `matched_group` field is the product of comparisons across site, age, sex, ethnicity, grade, highest level of parental education, handedness, combined family income, exposure to anesthesia, and family-relatedness which show no significant differences between the ABCD-1 and ABCD-2 groups.  Comparison of the counts and means for each of these factors shows that ABCD-1 and ABCD-2 are negligibly different samples.  Gender shows the largest absolute difference of 2.5 percent.  No other demographic variables differ by more than 1 percent. A further description can be found in the [ABCC paper] (https://doi.org/10.1101/2021.07.09.451638) See table above.
 
