@@ -1,0 +1,27 @@
+= ABCD-BIDS Community Collection (ABCC) Documentation Summary =
+
+The ABCC read-the-docs page contains extensive documentation on the data, tools, and utilities that can be used to access, download, analyze, and share derived ABCD datasets.
+
+The ABCC houses a community-shared and continually updated ABCD neuroimaging dataset available under Brain Imaging Data Structure (BIDS) standards. Only data that passed the Data Analysis Imaging Center (DAIC) quality control are included. More information on the data available, including the different processed derivatives available, can be found in the [https://collection3165.readthedocs.io/en/stable/release_notes/ '''Release Notes'''].
+
+In addition to the data, the ABCC read-the-docs provides helpful links to how to use, process, and analyze ABCD data. The documentation guide below will take users to different sections for more information.
+
+== Background ==
+
+As a community share, the ABCC enables researchers to access '''available derivatives''' and share their '''own derivatives'''. The ABCD-BIDS datasets are continually updated as new ABCD releases become available. A list of currently available datasets are provided below.
+
+# BIDS inputs The input DICOM data to this [https://www.nature.com/articles/sdata201644 BIDS version 1.2.0] data collection were retrieved from the [https://nda.nih.gov/edit_collection.html?id=2573 NIMH Data Archive (NDA) share of ABCD fast-track data] and were last accessed on June, 2024. BIDS input data were converted from DICOMs using [https://github.com/cbedetti/Dcm2Bids Dcm2Bids].
+# abcd-hcp-pipeline BIDS derivatives data were derived from the [https://doi.org/10.5281/zenodo.2587210 DCAN Labs ABCD-BIDS MRI (version 0.0.3) processing pipeline] which outputs [https://doi.org/10.1016/j.neuroimage.2013.04.127 Human Connectome Project (HCP) Minimal Preprocessing Pipelines-style data] in both volume and surface spaces. This collection is independent from ABCD Data Collection 2573. Users may access ABCD DICOM files via the ABCD fast-track imaging data release in Collection 2573.
+# abcd-task-hcp-pipeline a modified version of the TaskfMRIAnalysis stage of the HCP-pipeline (Glasser et al., 2013) developed at University of Vermont by Anthony Juliano, was used to process task-fmri data from the minimally processed ABCD-BIDS (Feczko et al., 2020b) processing pipeline (v.1.0) data, as well as derived ABCC data (Feczko, 2020; ABCD-3165).
+# freesurfer-5.3.0-HCP segmentation statistics and surface morphometrics from the FreeSurfer stage within the [https://doi.org/10.5281/zenodo.2587210 DCAN Labs ABCD-BIDS MRI processing pipeline] are provided here.
+# fMRIPrep fMRIPrep v20.2.0 was run on all 10,038 participants whose visit one data was successfully converted to BIDS. The limited fMRIPrep processing errors were due to subjects that did not have any valid fMRI runs, but we did not do any manual quality control of outputs. 9,484 participants have at least one output. The data is available in 18 submissions (a summary, including number of files and submission size can be found [https://docs.google.com/spreadsheets/d/1NbZ28vBvGVJb9miivgsJ695VVoFBSBuBQmWigN5pg_c/edit#gid=678992105 here]).
+
+= How to Contribute =
+
+If you would like to contribute to this effort, please visit our [https://github.com/ABCD-STUDY/nda-abcd-collection-3165 Git NDA Uploads Repository].
+
+Latest updates are detailed below.
+
+= Collection News =
+
+== Coming Soon: ==
