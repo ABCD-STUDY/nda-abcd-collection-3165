@@ -1,15 +1,14 @@
-site_name: Collection 3165 - ABCD-BIDS Community Collection (ABCC)
+site_name: ABCC Archival Data Release Documentation
 theme: readthedocs
 plugins:
   - search
 docs_dir: docs
 nav:
   - Home: index.md
-  - 1. Table of Contents: tableofcontents.md
-  - 2. Release Notes: release_notes.md
-  - 3. Inputs: inputs.md
-  - 4. Pipeline: pipelines.md
-  - 5. Post Pipeline: postpipeline.md
-  - 6. Derivatives: derivatives.md
-  - 7. Recommendations: recommendations.md
-  - 8. Useful Links: useful.md
+  - Release Notes: release_notes.md
+  - Inputs: inputs.md
+  - Pipeline: pipelines.md
+  - Post Pipeline: postpipeline.md
+  - Derivatives: derivatives.md
+  - Recommendations: recommendations.md
+  - Useful Links: useful.md
